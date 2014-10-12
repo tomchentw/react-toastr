@@ -89,7 +89,8 @@ module.exports = React.createClass({
         info: "info",
         success: "success",
         warning: "warning"
-      }
+      },
+      id: "toast-container"
     };
   },
 
