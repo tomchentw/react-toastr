@@ -25,6 +25,24 @@ var ToastMessageSpec = {
     };
   },
 
+  handleOnClick (event) {
+    var {props} = this;
+    props.handleOnClick(event);
+    if (props.tapToDismiss) {
+      this.hideToast(true);
+    }
+  },
+
+  _handle_close_button_click (event) {
+    event.stopPropagation();
+    this.hideToast(true);
+  },
+
+  _handle_remove () {
+    var {props} = this;
+    props.handleRemove(props.key);
+  },
+
   _render_close_button (props) {
     return props.closeButton ? (
       <button className="toast-close-button" role="button"
@@ -46,24 +64,6 @@ var ToastMessageSpec = {
         {props.message}
       </div>
     ) : false;
-  },
-
-  _handle_close_button_click (event) {
-    event.stopPropagation();
-    this.hideToast(true);
-  },
-
-  handleOnClick (event) {
-    var {props} = this;
-    props.handleOnClick(event);
-    if (props.tapToDismiss) {
-      this.hideToast(true);
-    }
-  },
-
-  _handle_remove () {
-    var {props} = this;
-    props.handleRemove(props.key);
   },
 
   render () {

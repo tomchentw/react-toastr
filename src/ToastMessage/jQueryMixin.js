@@ -1,4 +1,4 @@
-function callShowMethod ($node, props) {
+function call_show_method ($node, props) {
   $node[props.showMethod]({
     duration: props.showDuration,
     easing: props.showEasing
@@ -30,21 +30,11 @@ module.exports = {
     };
   },
 
-  _get$Node () {
-    return $(this.getDOMNode());
-  },
-
-  _setIntervalId (intervalId) {
-    this.setState({
-      intervalId
-    });
-  },
-
   componentDidMount () {
     var {props} = this;
-    callShowMethod(this._get$Node(), props);
+    call_show_method(this._get_$_node(), props);
     if (props.timeOut > 0) {
-      this._setIntervalId(
+      this._set_interval_id(
         setTimeout(this.hideToast, props.timeOut)
       );
     }
@@ -52,9 +42,9 @@ module.exports = {
 
   handleMouseEnter () {
     clearTimeout(this.state.intervalId);
-    this._setIntervalId(null);
+    this._set_interval_id(null);
 
-    callShowMethod(this._get$Node().stop(true, true), this.props);
+    call_show_method(this._get_$_node().stop(true, true), this.props);
   },
 
   handleMouseLeave () {
@@ -62,7 +52,7 @@ module.exports = {
 
     if (!this.state.isHiding &&
         (props.timeOut > 0 || props.extendedTimeOut > 0)) {
-      this._setIntervalId(
+      this._set_interval_id(
         setTimeout(this.hideToast, props.extendedTimeOut)
       );
     }
@@ -73,10 +63,20 @@ module.exports = {
     if (state.isHiding || (state.intervalId == null && !override)) return;
     this.setState({isHiding: true});
 
-    this._get$Node()[props.hideMethod]({
+    this._get_$_node()[props.hideMethod]({
       duration: props.hideDuration,
       easing: props.hideEasing,
       complete: this._handle_remove
+    });
+  },
+
+  _get_$_node () {
+    return $(this.getDOMNode());
+  },
+
+  _set_interval_id (intervalId) {
+    this.setState({
+      intervalId
     });
   }
 };

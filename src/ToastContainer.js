@@ -57,6 +57,17 @@ module.exports = React.createClass({
     };
   },
 
+  render () {
+    var {props, state} = this;
+    return this.transferPropsTo(
+      <div aria-live="polite" role="alert">
+        {state.toasts.map((toast) => {
+          return props.toastMessageClass(toast);
+        })}
+      </div>
+    );
+  },
+
   _notify (type, message, title, optionsOverride) {
     var {props, state} = this;
     if (props.preventDuplicates) {
@@ -72,8 +83,8 @@ module.exports = React.createClass({
         message,
         key,
         ref: `toasts__${ key }`,
-        handleOnClick: this._handleToastOnClick,
-        handleRemove: this._handleToastRemove
+        handleOnClick: this._handle_toast_on_click,
+        handleRemove: this._handle_toast_remove
       }
     });
     var toastOperation = {};
@@ -86,7 +97,7 @@ module.exports = React.createClass({
     this.setState(newState);
   },
 
-  _handleToastOnClick (event) {
+  _handle_toast_on_click (event) {
     this.props.onClick(event);
     if (event.defaultPrevented) {
       return;
@@ -95,7 +106,7 @@ module.exports = React.createClass({
     event.stopPropagation();
   },
 
-  _handleToastRemove (key) {
+  _handle_toast_remove (key) {
     var {state} = this;
     state.toasts[`${ this.props.newestOnTop ? "reduceRight" : "reduce" }`]((found, toast, index) => {
       if (found || toast.key !== key) {
@@ -106,16 +117,5 @@ module.exports = React.createClass({
       }));
       return true;
     }, false);
-  },
-
-  render () {
-    var {props, state} = this;
-    return this.transferPropsTo(
-      <div aria-live="polite" role="alert">
-        {state.toasts.map((toast) => {
-          return props.toastMessageClass(toast);
-        })}
-      </div>
-    );
   }
 });
