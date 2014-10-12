@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 require("../styles/index.scss");
 var React = require("react/addons");
-var Container = require("../../src");
+var {ToastContainer, ToastMessage} = require("../../src");
 
 var Hello = React.createClass({
   addAlert () {
@@ -10,7 +10,7 @@ var Hello = React.createClass({
 
   render: function() {
     return <div>
-      <Container ref="container" className="toast-top-right" />
+      <ToastContainer toastMessageClass={ToastMessage} ref="container" className="toast-top-right" />
       <p onClick={this.addAlert}>Hello {this.props.name}</p>
     </div>;
   }
