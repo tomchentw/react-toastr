@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 var React = require("react/addons");
 
+function noop () {}
+
 module.exports = React.createClass({
   displayName: "ToastMessage",
 
@@ -43,6 +45,13 @@ module.exports = React.createClass({
     ) : false;
   },
 
+  handleOnClick (event) {
+    this.props.handleOnClick(event);
+    this._hideToast();
+  },
+
+  _hideToast: noop,//tapToDismiss
+
   render () {
     var cx = React.addons.classSet;
     var props = this.props;
@@ -53,7 +62,7 @@ module.exports = React.createClass({
     toastClass[iconClassName] = true;
 
     return (
-      <div className={cx(toastClass)} onClick={props.onClick}>
+      <div className={cx(toastClass)} onClick={this.handleOnClick}>
         {this._render_close_button(props)}
         {this._render_title_element(props)}
         {this._render_message_element(props)}

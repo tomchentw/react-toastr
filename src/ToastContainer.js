@@ -60,7 +60,7 @@ module.exports = React.createClass({
         type,
         title,
         message,
-        onClick: this._handleToastOnClick
+        handleOnClick: this._handleToastOnClick
       }
     });
     var toastOperation = {};
@@ -80,10 +80,7 @@ module.exports = React.createClass({
     }
     event.preventDefault();
     event.stopPropagation();
-    this._hideToast();
   },
-
-  _hideToast: noop,//tapToDismiss
 
   render () {
     var {props, state} = this;
