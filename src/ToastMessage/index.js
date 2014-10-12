@@ -1,9 +1,10 @@
 /** @jsx React.DOM */
 var React = require("react/addons");
+var {update} = React.addons;
 
 function noop () {}
 
-module.exports = React.createClass({
+var ToastMessageSpec = {
   displayName: "ToastMessage",
 
   getDefaultProps () {
@@ -54,7 +55,7 @@ module.exports = React.createClass({
 
   render () {
     var cx = React.addons.classSet;
-    var props = this.props;
+    var {props} = this;
     var iconClassName = props.iconClassName || props.iconClassNames[props.type];
 
     var toastClass = {};
@@ -62,11 +63,19 @@ module.exports = React.createClass({
     toastClass[iconClassName] = true;
 
     return (
-      <div className={cx(toastClass)} onClick={this.handleOnClick}>
+      <div className={cx(toastClass)} style={props.style || {}} onClick={this.handleOnClick}>
         {this._render_close_button(props)}
         {this._render_title_element(props)}
         {this._render_message_element(props)}
       </div>
     );
   }
-});
+};
+
+var jQuery = React.createClass(update(ToastMessageSpec, {
+  displayName: { $set: "ToastMessage.jQuery" },
+  mixins: { $set: [require("./jQueryMixin")] }
+}));
+
+var ToastMessage = module.exports = React.createClass(ToastMessageSpec);
+ToastMessage.jQuery = jQuery;

@@ -10,7 +10,7 @@ var Hello = React.createClass({
 
   render: function() {
     return <div>
-      <ToastContainer toastMessageClass={ToastMessage} ref="container" className="toast-top-right" />
+      <ToastContainer toastMessageClass={ToastMessage.jQuery} ref="container" className="toast-top-right" />
       <p onClick={this.addAlert}>Hello {this.props.name}</p>
     </div>;
   }
