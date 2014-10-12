@@ -8,10 +8,15 @@ var Hello = React.createClass({
     this.refs.container.success("hi! Now" + new Date(), "///title\\\\\\");
   },
 
+  clearAlert () {
+    this.refs.container.clear();
+  },
+
   render: function() {
     return <div>
       <ToastContainer toastMessageClass={ToastMessage.jQuery} ref="container" className="toast-top-right" />
       <p onClick={this.addAlert}>Hello {this.props.name}</p>
+      <button onClick={this.clearAlert}>CLEAR</button>
     </div>;
   }
 });

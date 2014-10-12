@@ -69,10 +69,10 @@ module.exports = {
   },
 
   hideToast (override) {
-    if (this.state.intervalId == null && !override) return;
+    var {state, props} = this;
+    if (state.isHiding || (state.intervalId == null && !override)) return;
     this.setState({isHiding: true});
 
-    var {props} = this;
     this._get$Node()[props.hideMethod]({
       duration: props.hideDuration,
       easing: props.hideEasing,

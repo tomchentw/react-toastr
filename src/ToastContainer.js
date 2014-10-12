@@ -25,6 +25,14 @@ module.exports = React.createClass({
     this._notify(this.props.toastType.warning, message, title, optionsOverride);
   },
 
+  clear () {
+    var {refs} = this,
+        key;
+    for (key in refs) {
+      refs[key].hideToast(false);
+    }
+  },
+
   getDefaultProps () {
     return {
       toastType: {
@@ -44,6 +52,7 @@ module.exports = React.createClass({
   getInitialState () {
     return {
       toasts: [],
+      toastId: 0,
       previousMessage: null
     };
   },
@@ -55,13 +64,14 @@ module.exports = React.createClass({
         return;
       }
     }
-    var key = Date.now();
+    var key = state.toastId++;
     var newToast = update(optionsOverride || {}, {
       $merge: {
-        key,
         type,
         title,
         message,
+        key,
+        ref: `toasts__${ key }`,
         handleOnClick: this._handleToastOnClick,
         handleRemove: this._handleToastRemove
       }
@@ -70,8 +80,8 @@ module.exports = React.createClass({
     toastOperation[(props.newestOnTop ? "$unshift" : "$push")] = [newToast];
 
     var newState = update(state, {
-      previousMessage: { $set: message },
-      toasts: toastOperation
+      toasts: toastOperation,
+      previousMessage: { $set: message }
     });
     this.setState(newState);
   },
