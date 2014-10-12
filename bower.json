@@ -1,0 +1,23 @@
+{
+  "name": "react-toastr",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tomchentw/react-toastr",
+  "authors": [
+    "tomchentw <developer@tomchentw.com>"
+  ],
+  "description": "React.js toastr component",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "webpack.config.js"
+  ],
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.2.0"
+  }
+}
