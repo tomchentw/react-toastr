@@ -5,8 +5,6 @@ function callShowMethod ($node, props) {
   });
 }
 
-var INVALID_ID = "INVALID_ID";
-
 module.exports = {
   getDefaultProps () {
     return {
@@ -27,7 +25,8 @@ module.exports = {
 
   getInitialState () {
     return {
-      intervalId: INVALID_ID
+      intervalId: null,
+      isHiding: false
     };
   },
 
@@ -52,9 +51,8 @@ module.exports = {
   },
 
   handleMouseEnter () {
-    console.log("handleMouseEnter")
     clearTimeout(this.state.intervalId);
-    this._setIntervalId(INVALID_ID);
+    this._setIntervalId(null);
 
     callShowMethod(this._get$Node().stop(true, true), this.props);
   },
@@ -62,7 +60,8 @@ module.exports = {
   handleMouseLeave () {
     var {props} = this;
 
-    if (props.timeOut > 0 || props.extendedTimeOut > 0) {
+    if (!this.state.isHiding &&
+        (props.timeOut > 0 || props.extendedTimeOut > 0)) {
       this._setIntervalId(
         setTimeout(this.hideToast, props.extendedTimeOut)
       );
@@ -70,22 +69,14 @@ module.exports = {
   },
 
   hideToast (override) {
-    console.log(this.state.intervalId === INVALID_ID, !!override);
-    if (this.state.intervalId === INVALID_ID && !override) {
-      return;
-    }
-    this._setIntervalId(INVALID_ID);
+    if (this.state.intervalId == null && !override) return;
+    this.setState({isHiding: true});
 
     var {props} = this;
     this._get$Node()[props.hideMethod]({
       duration: props.hideDuration,
       easing: props.hideEasing,
-      complete: function () {
-        // removeToast($toastElement);
-        // if (options.onHidden && response.state !== "hidden") {
-        //   options.onHidden();
-        // }
-      }
+      complete: this._handle_remove
     });
   }
 };

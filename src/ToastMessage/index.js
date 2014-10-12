@@ -55,6 +55,11 @@ var ToastMessageSpec = {
     }
   },
 
+  _handle_remove () {
+    var {props} = this;
+    props.handleRemove(props.key);
+  },
+
   render () {
     var cx = React.addons.classSet;
     var {props} = this;

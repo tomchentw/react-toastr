@@ -55,12 +55,15 @@ module.exports = React.createClass({
         return;
       }
     }
+    var key = Date.now();
     var newToast = update(optionsOverride || {}, {
       $merge: {
+        key,
         type,
         title,
         message,
-        handleOnClick: this._handleToastOnClick
+        handleOnClick: this._handleToastOnClick,
+        handleRemove: this._handleToastRemove
       }
     });
     var toastOperation = {};
@@ -80,6 +83,19 @@ module.exports = React.createClass({
     }
     event.preventDefault();
     event.stopPropagation();
+  },
+
+  _handleToastRemove (key) {
+    var {state} = this;
+    state.toasts[(this.props.newestOnTop ? "reduceRight" : "reduce")]((found, toast, index) => {
+      if (found || toast.key !== key) {
+        return false;
+      }
+      this.setState(update(state, {
+        toasts: { $splice: [[index, 1]] }
+      }));
+      return true;
+    }, false);
   },
 
   render () {
