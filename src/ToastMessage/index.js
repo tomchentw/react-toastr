@@ -20,6 +20,7 @@ var ToastMessageSpec = {
       iconClassNames: iconClassNames,
       titleClassName: "toast-title",
       messageClassName: "toast-message",
+      tapToDismiss: true,
       closeButton: false
     };
   },
@@ -47,11 +48,12 @@ var ToastMessageSpec = {
   },
 
   handleOnClick (event) {
-    this.props.handleOnClick(event);
-    this._hideToast();
+    var {props} = this;
+    props.handleOnClick(event);
+    if (props.tapToDismiss) {
+      this.hideToast(true);
+    }
   },
-
-  _hideToast: noop,//tapToDismiss
 
   render () {
     var cx = React.addons.classSet;
@@ -85,6 +87,7 @@ var jQuery = React.createClass(update(ToastMessageSpec, {
  */
 ToastMessageSpec.handleMouseEnter = noop;
 ToastMessageSpec.handleMouseLeave = noop;
+ToastMessageSpec.hideToast = noop;
 
 var ToastMessage = module.exports = React.createClass(ToastMessageSpec);
 ToastMessage.jQuery = jQuery;
