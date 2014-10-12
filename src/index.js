@@ -90,17 +90,24 @@ module.exports = React.createClass({
         success: "success",
         warning: "warning"
       },
-      id: "toast-container"
+      id: "toast-container",
+      preventDuplicates: false
     };
   },
 
   getInitialState () {
     return {
-      toasts: []
+      toasts: [],
+      previousMessage: null
     };
   },
 
   _notify (type, message, title, optionsOverride) {
+    if (this.props.preventDuplicates) {
+      if (this.state.previousMessage === message) {
+        return;
+      }
+    }
     var newToast = update(optionsOverride || {}, {
       $merge: {
         type,
@@ -109,6 +116,7 @@ module.exports = React.createClass({
       }
     });
     var newState = update(this.state, {
+      previousMessage: { $set: message },
       toasts: { $push: [newToast] }
     });
     this.setState(newState);
