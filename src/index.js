@@ -94,6 +94,7 @@ module.exports = React.createClass({
       },
       id: "toast-container",
       preventDuplicates: false,
+      newestOnTop: true,
       onClick: noop
     };
   },
@@ -106,8 +107,9 @@ module.exports = React.createClass({
   },
 
   _notify (type, message, title, optionsOverride) {
-    if (this.props.preventDuplicates) {
-      if (this.state.previousMessage === message) {
+    var {props, state} = this;
+    if (props.preventDuplicates) {
+      if (state.previousMessage === message) {
         return;
       }
     }
@@ -119,9 +121,12 @@ module.exports = React.createClass({
         onClick: this._handleToastOnClick
       }
     });
-    var newState = update(this.state, {
+    var toastOperation = {};
+    toastOperation[(props.newestOnTop ? "$unshift" : "$push")] = [newToast];
+
+    var newState = update(state, {
       previousMessage: { $set: message },
-      toasts: { $push: [newToast] }
+      toasts: toastOperation
     });
     this.setState(newState);
   },
@@ -136,7 +141,7 @@ module.exports = React.createClass({
     this._hideToast();
   },
 
-  _hideToast: noop,
+  _hideToast: noop,//tapToDismiss
 
   render () {
     return this.transferPropsTo(

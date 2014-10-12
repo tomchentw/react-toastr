@@ -5,7 +5,7 @@ var Container = require("../../src");
 
 var Hello = React.createClass({
   addAlert () {
-    this.refs.container.success("hi", "title~~~~");
+    this.refs.container.success("hi! Now" + new Date(), "///title\\\\\\");
   },
 
   render: function() {
