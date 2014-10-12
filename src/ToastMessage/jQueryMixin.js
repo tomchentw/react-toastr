@@ -1,3 +1,10 @@
+function callShowMethod ($node, props) {
+  $node[props.showMethod]({
+    duration: props.showDuration,
+    easing: props.showEasing
+  });
+}
+
 module.exports = {
   getDefaultProps () {
     return {
@@ -12,6 +19,7 @@ module.exports = {
       hideEasing: "swing",
       //
       timeOut: 5000,
+      extendedTimeOut: 1000
     };
   },
 
@@ -25,16 +33,36 @@ module.exports = {
     return $(this.getDOMNode());
   },
 
+  _setIntervalId (intervalId) {
+    this.setState({
+      intervalId
+    });
+  },
+
   componentDidMount () {
     var {props} = this;
-    this._get$Node()[props.showMethod]({
-      duration: props.showDuration,
-      easing: props.showEasing
-    });
+    callShowMethod(this._get$Node(), props);
     // if (props.timeOut > 0) {
-    //   this.setState({
-    //     intervalId: setTimeout('hideToast', props.timeOut);
+    // this._setIntervalId(
+    // setTimeout('hideToast', props.timeOut);
     //   });
     // }
+  },
+
+  handleMouseEnter () {
+    clearTimeout(this.state.intervalId);
+    this._setIntervalId(null);
+
+    callShowMethod(this._get$Node().stop(true, true), this.props);
+  },
+
+  handleMouseLeave () {
+    var {props} = this;
+
+    if (props.timeOut > 0 || props.extendedTimeOut > 0) {
+      this._setIntervalId(
+        setTimeout('hideToast', props.extendedTimeOut)
+      );
+    }
   }
 };
