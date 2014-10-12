@@ -12,9 +12,6 @@ var webpackConfig = module.exports = {
     path: "./public",
     filename: (IS_PRODUCTION ? "assets/[hash].js" : "assets/bundle.js")
   },
-  externals: {
-    "react/addons": "React"
-  },
   module: {
     loaders: [
       { test: /\.js(x?)$/, loader: JSX_LOADER },
