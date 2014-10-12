@@ -2,6 +2,8 @@
 var React = require("react/addons");
 var {update} = React.addons;
 
+function noop () {}
+
 var AlertMessage = React.createClass({
   displayName: "AlertMessage",
 
@@ -54,7 +56,7 @@ var AlertMessage = React.createClass({
     toastClass[iconClassName] = true;
 
     return (
-      <div className={cx(toastClass)}>
+      <div className={cx(toastClass)} onClick={props.onClick}>
         {this._render_close_button(props)}
         {this._render_title_element(props)}
         {this._render_message_element(props)}
@@ -91,7 +93,8 @@ module.exports = React.createClass({
         warning: "warning"
       },
       id: "toast-container",
-      preventDuplicates: false
+      preventDuplicates: false,
+      onClick: noop
     };
   },
 
@@ -112,7 +115,8 @@ module.exports = React.createClass({
       $merge: {
         type,
         title,
-        message
+        message,
+        onClick: this._handleToastOnClick
       }
     });
     var newState = update(this.state, {
@@ -121,6 +125,18 @@ module.exports = React.createClass({
     });
     this.setState(newState);
   },
+
+  _handleToastOnClick (event) {
+    this.props.onClick(event);
+    if (event.defaultPrevented) {
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    this._hideToast();
+  },
+
+  _hideToast: noop,
 
   render () {
     return this.transferPropsTo(
