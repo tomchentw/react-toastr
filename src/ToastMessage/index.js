@@ -63,7 +63,10 @@ var ToastMessageSpec = {
     toastClass[iconClassName] = true;
 
     return (
-      <div className={cx(toastClass)} style={props.style || {}} onClick={this.handleOnClick}>
+      <div className={cx(toastClass)} style={props.style || {}}
+            onClick={this.handleOnClick}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}>
         {this._render_close_button(props)}
         {this._render_title_element(props)}
         {this._render_message_element(props)}
@@ -76,6 +79,12 @@ var jQuery = React.createClass(update(ToastMessageSpec, {
   displayName: { $set: "ToastMessage.jQuery" },
   mixins: { $set: [require("./jQueryMixin")] }
 }));
+
+/*
+ * assign default noop functions
+ */
+ToastMessageSpec.handleMouseEnter = noop;
+ToastMessageSpec.handleMouseLeave = noop;
 
 var ToastMessage = module.exports = React.createClass(ToastMessageSpec);
 ToastMessage.jQuery = jQuery;
