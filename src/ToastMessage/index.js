@@ -27,7 +27,8 @@ var ToastMessageSpec = {
 
   _render_close_button (props) {
     return props.closeButton ? (
-      <button className="toast-close-button" role="button">&times;</button>
+      <button className="toast-close-button" role="button"
+              onClick={this._handle_close_button_click}>&times;</button>
     ) : false;
   },
 
@@ -45,6 +46,11 @@ var ToastMessageSpec = {
         {props.message}
       </div>
     ) : false;
+  },
+
+  _handle_close_button_click (event) {
+    event.stopPropagation();
+    this.hideToast(true);
   },
 
   handleOnClick (event) {

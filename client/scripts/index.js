@@ -5,7 +5,9 @@ var {ToastContainer, ToastMessage} = require("../../src");
 
 var Hello = React.createClass({
   addAlert () {
-    this.refs.container.success("hi! Now" + new Date(), "///title\\\\\\");
+    this.refs.container.success("hi! Now" + new Date(), "///title\\\\\\", {
+      closeButton: true
+    });
   },
 
   clearAlert () {
