@@ -77,7 +77,7 @@ module.exports = React.createClass({
       }
     });
     var toastOperation = {};
-    toastOperation[(props.newestOnTop ? "$unshift" : "$push")] = [newToast];
+    toastOperation[`${ props.newestOnTop ? "$unshift" : "$push" }`] = [newToast];
 
     var newState = update(state, {
       toasts: toastOperation,
@@ -97,7 +97,7 @@ module.exports = React.createClass({
 
   _handleToastRemove (key) {
     var {state} = this;
-    state.toasts[(this.props.newestOnTop ? "reduceRight" : "reduce")]((found, toast, index) => {
+    state.toasts[`${ this.props.newestOnTop ? "reduceRight" : "reduce" }`]((found, toast, index) => {
       if (found || toast.key !== key) {
         return false;
       }
