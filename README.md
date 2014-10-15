@@ -1,4 +1,4 @@
-# react-toastr [![Travis CI][travis-image]][travis-url] [![Quality][codeclimate-image]][codeclimate-url] [![Coverage][coveralls-image]][coveralls-url] [![Dependencies][gemnasium-image]][gemnasium-url]
+# react-toastr [![Travis CI][travis-image]][travis-url] [![Quality][codeclimate-image]][codeclimate-url] [![Coverage][codeclimate-coverage-image]][codeclimate-coverage-url] [![Dependencies][gemnasium-image]][gemnasium-url]
 > React.js toastr component
 
 [![Version][npm-image]][npm-url]
@@ -104,8 +104,8 @@ Then open [http://localhost:8080](http://localhost:8080).
 [travis-url]: https://travis-ci.org/tomchentw/react-toastr
 [codeclimate-image]: https://img.shields.io/codeclimate/github/tomchentw/react-toastr.svg
 [codeclimate-url]: https://codeclimate.com/github/tomchentw/react-toastr
-[coveralls-image]: https://img.shields.io/coveralls/tomchentw/react-toastr.svg
-[coveralls-url]: https://coveralls.io/r/tomchentw/react-toastr
+[codeclimate-coverage-image]: https://img.shields.io/codeclimate/coverage/github/tomchentw/react-toastr.svg?style=flat-square
+[codeclimate-coverage-url]: https://codeclimate.com/github/tomchentw/react-toastr
 [gemnasium-image]: https://gemnasium.com/tomchentw/react-toastr.svg
 [gemnasium-url]: https://gemnasium.com/tomchentw/react-toastr
 [david-dm-image]: https://david-dm.org/tomchentw/react-toastr/dev-status.svg?theme=shields.io
