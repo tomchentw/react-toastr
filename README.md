@@ -6,10 +6,73 @@
 
 ## Example
 
+Please refer to [[client]][client] folder for example.
+
 
 ## Usage
 
-### Options
+This module requires to be bundled with [webpack][webpack]/browserify and loads `react/addons` internally. WIP: release a UMD version via bower/components.
+
+Then:
+
+```javascript
+var {ToastContainer, ToastMessage} = require("react-toastr");
+
+  // In a react component:
+  render () {
+    return (
+      <div>
+        <ToastContainer ref="container"
+                        toastMessageClass={ToastMessage.jQuery}
+                        className="toast-top-right" />
+        <button onClick={this.addAlert}>GGininder</button>
+      </div>
+    );
+  }
+```
+
+### ToastContainer
+
+This is the container where all `ToastMessage` instances will go. Use it by retaining a [ref][react-ref] to publish a new **toast message**:
+
+```javascript
+  addAlert () {
+    this.refs.container.success(
+      "Welcome welcome welcome!!",
+      "You are now home my friend. Welcome home my friend.", {
+      timeOut: 30000,
+      extendedTimeOut: 10000
+    });
+    window.open("http://youtu.be/3SR75k7Oggg");
+  }
+```
+
+or integrated with your [flux][flux] architecture?
+
+```javascript
+  componentDidMount: function() {
+    InInDerStore.addChangeListener(this.addAlert);
+  }
+```
+
+#### Options
+
+Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+
+[`ToastContainer::getDefaultProps`](http://git.io/RagItA)
+
+
+### ToastMessage
+
+Base class for holding a toast message, it will not animate in and out during it's lifecycle.
+Normally you should use **`ToastMessage.jQuery`** directly.
+
+#### Options
+
+Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+
+* [`ToastMessage::getDefaultProps`](http://git.io/90CzSA)
+* [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 
 ### Development
@@ -20,7 +83,7 @@ npm i
 npm run dev
 ```
 
-Then open `[http://localhost:8080](http://localhost:8080)`.
+Then open [http://localhost:8080](http://localhost:8080).
 
 
 ## Contributing
@@ -47,3 +110,9 @@ Then open `[http://localhost:8080](http://localhost:8080)`.
 [gemnasium-url]: https://gemnasium.com/tomchentw/react-toastr
 [david-dm-image]: https://david-dm.org/tomchentw/react-toastr/dev-status.svg?theme=shields.io
 [david-dm-url]: https://david-dm.org/tomchentw/react-toastr#info=devDependencies
+
+
+[client]: https://github.com/tomchentw/react-toastr/tree/master/client
+[webpack]: http://webpack.github.io/docs/tutorials/getting-started/
+[react-ref]: http://facebook.github.io/react/docs/more-about-refs.html
+[flux]: http://facebook.github.io/flux/docs/overview.html
