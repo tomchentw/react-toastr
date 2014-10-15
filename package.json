@@ -7,8 +7,8 @@
     "postinstall": "bower install",
     "build": "jsx --harmony ./src ./lib",
     "dev": "npm run dev_server & npm run dev_jade",
-    "dev_build": "jade -o ./public -O `2>&1 >/dev/null webpack` ./client",
-    "dev_server": "webpack-dev-server --inline --hot --content-base ./public",
+    "dev_build": "jade -o ./public -O `2>&1 >/dev/null webpack --config ./client/webpack.config.js` ./client",
+    "dev_server": "webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public",
     "dev_jade": "jade -o ./public -O '{\"assetsByChunkName\":{\"main\":\"assets/bundle.js\"}}' -w ./client/*.jade"
   },
   "repository": {
