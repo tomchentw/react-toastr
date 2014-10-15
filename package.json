@@ -16,8 +16,14 @@
     "url": "https://github.com/tomchentw/react-toastr"
   },
   "keywords": [
-    "LiveScript",
-    "gulp"
+    "React.js",
+    "React",
+    "toastr",
+    "alert",
+    "toast",
+    "message",
+    "popup",
+    "jQuery"
   ],
   "author": {
     "name": "tomchentw",
