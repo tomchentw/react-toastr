@@ -1,2 +1,95 @@
 @import "./bootstrap_variables";
 @import "./bootstrap_override";
+
+$btn-color: #1abc9c;
+$btn-shadow-color: #17a88c;
+$btn-hover-color: darken($btn-color, 10);
+$btn-hover-shadow-color: darken($btn-shadow-color, 10);
+
+body, html {
+  height: 100%;
+}
+
+body {
+  background-image: url(/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  &:after {
+    display: block;
+    content: '';
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAUzGZH4M4HsdJgAmAOSBAnAOSABAGkuA57weBbRAAAAAElFTkSuQmCC) repeat;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+  }
+}
+
+#react-root {
+
+  h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 72px;
+    text-align: center;
+    text-shadow: 0 1px 3px #000;
+
+    small {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      display: block;
+      font-size: 24px;
+      color: #fff;
+    }
+  }
+
+  .btn-container {
+    text-align: center;
+
+    button {
+      outline: 0;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      width: 160px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin: 10px 5px;
+      background: $btn-color;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0px 5px 0px 0px $btn-shadow-color;
+      @include transition(all 150ms ease-in);
+
+      &:hover {
+        background: $btn-hover-color;
+        box-shadow: 0px 5px 0px 0px $btn-hover-shadow-color;
+      }
+    }
+  }
+
+}

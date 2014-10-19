@@ -17,10 +17,20 @@ var Hello = React.createClass({
   render: function() {
     return <div>
       <ToastContainer toastMessageClass={ToastMessage.jQuery} ref="container" className="toast-top-right" />
-      <p onClick={this.addAlert}>Hello {this.props.name}</p>
-      <button onClick={this.clearAlert}>CLEAR</button>
+
+      <h1>
+        React-Toastr
+        <small>React.js toastr component</small>
+      </h1>
+
+      <div className="btn-container">
+        <button className="primary" onClick={this.addAlert}>Hello {this.props.name}</button>
+        <button className="primary" onClick={this.clearAlert}>CLEAR</button>
+      </div>
+
     </div>;
   }
 });
- 
-React.renderComponent(<Hello name="World" />, document.body);
+
+
+React.renderComponent(<Hello name="World" />, document.getElementById("react-root"));
