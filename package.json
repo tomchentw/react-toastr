@@ -6,9 +6,9 @@
   "scripts": {
     "postinstall": "bower install",
     "build": "jsx --harmony ./src ./lib",
+    "build_client": "jade -o ./public -O `2>&1 >/dev/null webpack --config ./client/webpack.config.js` ./client",
     "test": "jest",
     "dev": "npm run dev_server & npm run dev_jade",
-    "dev_build": "jade -o ./public -O `2>&1 >/dev/null webpack --config ./client/webpack.config.js` ./client",
     "dev_server": "webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public",
     "dev_jade": "jade -o ./public -O '{\"assetsByChunkName\":{\"main\":\"assets/bundle.js\"}}' -w ./client/*.jade"
   },
@@ -49,7 +49,7 @@
     "react-tools": "^0.11.2",
     "sass-loader": "^0.2.0",
     "style-loader": "^0.8.1",
-    "tomchentw-npm-dev": "^1.0.0",
+    "tomchentw-npm-dev": "^1.1.0",
     "webpack": "^1.4.7",
     "webpack-dev-server": "^1.6.5"
   },
