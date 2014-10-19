@@ -9,7 +9,7 @@ var IS_PRODUCTION = "production" === process.env.NODE_ENV;
 var webpackConfig = module.exports = {
   entry: "./client/scripts/index.js",
   output: {
-    path: "../public",
+    path: "./public",
     filename: (IS_PRODUCTION ? "assets/[hash].js" : "assets/bundle.js")
   },
   module: {
@@ -32,7 +32,6 @@ var webpackConfig = module.exports = {
 
 if (IS_PRODUCTION) {
   webpackConfig.plugins.push(
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.DedupePlugin()
   );
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install",
     "build": "jsx --harmony ./src ./lib",
-    "build_client": "jade -o ./public -O `2>&1 >/dev/null webpack --config ./client/webpack.config.js` ./client",
+    "build_client": "jade -o ./public -O `2>&1 >/dev/null webpack -p --config ./client/webpack.config.js` ./client",
     "test": "jest",
     "dev": "npm run dev_server & npm run dev_jade",
     "dev_server": "webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public",
