@@ -9,8 +9,9 @@ var IS_PRODUCTION = "production" === process.env.NODE_ENV;
 var webpackConfig = module.exports = {
   entry: "./client/scripts/index.js",
   output: {
-    path: "./public",
-    filename: (IS_PRODUCTION ? "assets/[hash].js" : "assets/bundle.js")
+    path: Path.resolve(__dirname, "../public/assets"),
+    publicPath: "assets/",
+    filename: (IS_PRODUCTION ? "[hash].js" : "bundle.js")
   },
   module: {
     loaders: [
