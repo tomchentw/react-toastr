@@ -10,7 +10,7 @@
     "test": "jest",
     "dev": "npm run dev_server & npm run dev_jade",
     "dev_server": "webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public",
-    "dev_jade": "jade -o ./public -O '{\"assetsByChunkName\":{\"main\":\"assets/bundle.js\"}}' -w ./client/*.jade"
+    "dev_jade": "jade -o ./public -O '{\"assetsByChunkName\":{\"main\":\"bundle.js\"}}' -w ./client/*.jade"
   },
   "repository": {
     "type": "git",
