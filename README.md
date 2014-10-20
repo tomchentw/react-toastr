@@ -4,9 +4,14 @@
 [![Version][npm-image]][npm-url]
 
 
+## Demo
+
+Static hosted [demo site][demo] on GitHub.
+
+
 ## Example
 
-Please refer to [[client]][client] folder for example.
+Please refer to [client][client] folder for example.
 
 
 ## Usage
@@ -114,6 +119,7 @@ Then open [http://localhost:8080](http://localhost:8080).
 [david-dm-url]: https://david-dm.org/tomchentw/react-toastr#info=devDependencies
 
 
+[demo]: http://tomchentw.github.io/react-toastr/
 [client]: https://github.com/tomchentw/react-toastr/tree/master/client
 [webpack]: http://webpack.github.io/docs/tutorials/getting-started/
 [react-ref]: http://facebook.github.io/react/docs/more-about-refs.html
