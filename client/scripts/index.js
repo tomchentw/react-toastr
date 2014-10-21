@@ -16,7 +16,7 @@ var Hello = React.createClass({
   },
 
   render: function() {
-    return <div>
+    return <div id="react-root">
       <ToastContainer toastMessageClass={ToastMessage.jQuery} ref="container" className="toast-top-right" />
 
       <h1>
@@ -40,4 +40,4 @@ var Hello = React.createClass({
 });
 
 
-React.renderComponent(<Hello name="World" />, document.getElementById("react-root"));
+React.renderComponent(<Hello name="World" />, document.body);
