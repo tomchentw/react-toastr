@@ -21,6 +21,10 @@ var webpackConfig = module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    }),
     function() {
       this.plugin("done", function(stats) {
         stats = stats.toJson();

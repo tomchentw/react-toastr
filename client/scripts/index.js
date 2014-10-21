@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 require("../styles/index.scss");
+
 var React = require("react/addons");
 var {ToastContainer, ToastMessage} = require("../../src");
 
