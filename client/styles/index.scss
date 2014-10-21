@@ -11,12 +11,7 @@ body, html {
 }
 
 body {
-  background-image: url(/images/background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   color: #fff;
-
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -33,16 +28,24 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 
-  &:after {
+  &:before {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -o-filter: blur(10px);
+    filter: blur(10px);
+    background-image: url(/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: block;
     content: '';
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAUzGZH4M4HsdJgAmAOSBAnAOSABAGkuA57weBbRAAAAAElFTkSuQmCC) repeat;
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     left: 0;
     width: 100%;
     top: 0;
     height: 100%;
+
   }
 }
 
@@ -53,7 +56,7 @@ body {
     font-weight: 900;
     font-size: 72px;
     text-align: center;
-    text-shadow: 0 1px 3px #000;
+    text-shadow: 0 1px 3px #555;
 
     small {
       font-family: 'Lato', sans-serif;
@@ -62,6 +65,11 @@ body {
       font-size: 24px;
       color: #fff;
     }
+  }
+
+  .github-button-container {
+    margin: 20px 0 0 0;
+    text-align: center;
   }
 
   .btn-container {
@@ -73,21 +81,21 @@ body {
       color: #fff;
       font-size: 18px;
       font-weight: 700;
-      width: 160px;
-      height: 40px;
-      line-height: 40px;
+      width: 140px;
+      height: 35px;
+      line-height: 35px;
       text-align: center;
       margin: 10px 5px;
       background: $btn-color;
       display: inline-block;
       text-decoration: none;
       border-radius: 5px;
-      box-shadow: 0px 5px 0px 0px $btn-shadow-color;
+      box-shadow: 0px 3px 0px 0px $btn-shadow-color;
       @include transition(all 150ms ease-in);
 
       &:hover {
         background: $btn-hover-color;
-        box-shadow: 0px 5px 0px 0px $btn-hover-shadow-color;
+        box-shadow: 0px 3px 0px 0px $btn-hover-shadow-color;
       }
     }
   }

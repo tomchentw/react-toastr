@@ -23,11 +23,17 @@ var Hello = React.createClass({
         <small>React.js toastr component</small>
       </h1>
 
+
+
       <div className="btn-container">
         <button className="primary" onClick={this.addAlert}>Hello {this.props.name}</button>
         <button className="primary" onClick={this.clearAlert}>CLEAR</button>
       </div>
 
+      <div className="github-button-container">
+        <iframe src="http://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=watch&amp;count=true" allowTransparency="true" frameBorder="0" scrolling="0" width="90" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=fork&amp;count=true" allowTransparency="true" frameBorder="0" scrolling="0" width="90" height="20"></iframe>
+      </div>
     </div>;
   }
 });
