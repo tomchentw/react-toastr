@@ -1,5 +1,6 @@
 var Path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 var JSX_LOADER = "jsx-loader?harmony";
 var SCSS_LOADER = "style-loader!css-loader?root=../!sass-loader?includePaths[]=" +
@@ -21,6 +22,14 @@ var webpackConfig = module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./client/index.html",
+      filename: "../index.html"
+    }),
     function() {
       this.plugin("done", function(stats) {
         stats = stats.toJson();
