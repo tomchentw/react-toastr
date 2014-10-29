@@ -1,3 +1,21 @@
+## 1.1.0 (2014-10-29)
+
+
+#### Features
+
+* **ToastContainer:** toastMessageClass changed to toastMessageFactory ([bdcbabac](https://github.com/tomchentw/react-toastr/commit/bdcbabacfffea683ababd26a2f6ecb59c66dbda2))
+* **lib:** upgrade React to 0.12 ([5a375ae8](https://github.com/tomchentw/react-toastr/commit/5a375ae8125216eb478feb80cf67402d6bcc647a))
+
+
+#### Breaking Changes
+
+* propTypes renamed to toastMessageFactory
+
+toastMessageFactory now only accepts the result of calling React.createFactory(ReactElementClass).
+
+ ([bdcbabac](https://github.com/tomchentw/react-toastr/commit/bdcbabacfffea683ababd26a2f6ecb59c66dbda2))
+
+
 ## 1.0.0 (2014-10-19)
 
 
