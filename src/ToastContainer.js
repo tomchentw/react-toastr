@@ -58,14 +58,7 @@ module.exports = React.createClass({
   },
 
   render () {
-    var {props, state} = this;
-    return this.transferPropsTo(
-      <div aria-live="polite" role="alert">
-        {state.toasts.map((toast) => {
-          return props.toastMessageClass(toast);
-        })}
-      </div>
-    );
+    return this._render(this.props, this.state);
   },
 
   _notify (type, message, title, optionsOverride) {
@@ -117,5 +110,13 @@ module.exports = React.createClass({
       }));
       return true;
     }, false);
+  },
+
+  _render (props, state) {
+    return <div {...props} aria-live="polite" role="alert">
+      {state.toasts.map((toast) => {
+        return props.toastMessageClass(toast);
+      })}
+    </div>;
   }
 });
