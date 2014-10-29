@@ -21,14 +21,16 @@ This module requires to be bundled with [webpack][webpack]/browserify and loads 
 Then:
 
 ```javascript
-var {ToastContainer, ToastMessage} = require("react-toastr");
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr; // This is a React Element.
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
 
   // In a react component:
   render () {
     return (
       <div>
         <ToastContainer ref="container"
-                        toastMessageClass={ToastMessage.jQuery}
+                        toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right" />
         <button onClick={this.addAlert}>GGininder</button>
       </div>
@@ -36,9 +38,11 @@ var {ToastContainer, ToastMessage} = require("react-toastr");
   }
 ```
 
+Here's a list of React Elements:
+
 ### ToastContainer
 
-This is the container where all `ToastMessage` instances will go. Use it by retaining a [ref][react-ref] to publish a new **toast message**:
+This is the container where all `ToastMessage` elements will go. Use it by retaining a [ref][react-ref] to publish a new **toast message**:
 
 ```javascript
   addAlert () {
