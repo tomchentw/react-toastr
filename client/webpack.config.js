@@ -16,6 +16,7 @@ var webpackConfig = module.exports = {
   },
   module: {
     loaders: [
+      { test: require.resolve("react/addons"), loader: "expose-loader?React" },
       { test: /\.js(x?)$/, loader: JSX_LOADER },
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.scss$/, loader: SCSS_LOADER },
@@ -29,15 +30,7 @@ var webpackConfig = module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/index.html",
       filename: "../index.html"
-    }),
-    function() {
-      this.plugin("done", function(stats) {
-        stats = stats.toJson();
-        console.error(JSON.stringify({
-          assetsByChunkName: stats.assetsByChunkName
-        }));
-      });
-    }
+    })
   ]
 };
 
