@@ -2,7 +2,7 @@
 var React = require("react/addons");
 var {update} = React.addons;
 
-var ToastMessage = require("./ToastMessage");
+var ToastMessage = React.createFactory(require("./ToastMessage"));
 
 function noop () {}
 
@@ -42,7 +42,7 @@ module.exports = React.createClass({
         warning: "warning"
       },
       id: "toast-container",
-      toastMessageClass: ToastMessage,
+      toastMessageFactory: ToastMessage,
       preventDuplicates: false,
       newestOnTop: true,
       onClick: noop
@@ -115,7 +115,7 @@ module.exports = React.createClass({
   _render (props, state) {
     return <div {...props} aria-live="polite" role="alert">
       {state.toasts.map((toast) => {
-        return props.toastMessageClass(toast);
+        return props.toastMessageFactory(toast);
       })}
     </div>;
   }

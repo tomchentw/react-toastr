@@ -4,7 +4,7 @@ require("../styles/index.scss");
 var React = require("react/addons");
 var ReactToastr = require("../../src");
 var {ToastContainer} = ReactToastr;
-var ToastMessage = React.createFactory(ReactToastr.ToastMessage.jQuery);
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
 
 var Body = React.createClass({
   addAlert () {
@@ -19,7 +19,7 @@ var Body = React.createClass({
 
   render: function() {
     return <div id="react-root">
-      <ToastContainer toastMessageClass={ToastMessage} ref="container" className="toast-top-right" />
+      <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
 
       <h1>
         React-Toastr
