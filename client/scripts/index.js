@@ -1,10 +1,12 @@
-/** @jsx React.DOM */
+"use strict";
 require("../styles/index.scss");
 
 var React = require("react/addons");
-var {ToastContainer, ToastMessage} = require("../../src");
+var ReactToastr = require("../../src");
+var {ToastContainer} = ReactToastr;
+var ToastMessage = React.createFactory(ReactToastr.ToastMessage.jQuery);
 
-var Hello = React.createClass({
+var Body = React.createClass({
   addAlert () {
     this.refs.container.success("hi! Now" + new Date(), "///title\\\\\\", {
       closeButton: true
@@ -17,7 +19,7 @@ var Hello = React.createClass({
 
   render: function() {
     return <div id="react-root">
-      <ToastContainer toastMessageClass={ToastMessage.jQuery} ref="container" className="toast-top-right" />
+      <ToastContainer toastMessageClass={ToastMessage} ref="container" className="toast-top-right" />
 
       <h1>
         React-Toastr
