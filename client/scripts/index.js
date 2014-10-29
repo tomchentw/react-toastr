@@ -42,4 +42,4 @@ var Body = React.createClass({
 });
 
 
-React.renderComponent(<Hello name="World" />, document.body);
+React.render(<Body />, document.body);
