@@ -72,7 +72,7 @@ module.exports = {
   },
 
   _get_$_node () {
-    return $(this.getDOMNode());
+    return jQuery(this.getDOMNode());
   },
 
   _set_interval_id (intervalId) {
