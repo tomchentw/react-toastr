@@ -1,3 +1,11 @@
+### 1.1.1 (2014-11-14)
+
+
+#### Bug Fixes
+
+* **jQueryMixin:** update jQuery calls to use jQuery rather than $ ([d1d858b4](https://github.com/tomchentw/react-toastr/commit/d1d858b4c7df32c5bb88399a1aa9be74a866cde0))
+
+
 ## 1.1.0 (2014-10-29)
 
 
