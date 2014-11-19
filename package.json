@@ -5,10 +5,10 @@
   "description": "React.js toastr component",
   "main": "lib/index.js",
   "scripts": {
-    "postinstall": "npm dedupe && bower install",
     "build": "jsx --harmony ./src ./lib",
     "build_client": "webpack -p --config ./client/webpack.config.js",
     "test": "jest",
+    "dev_install": "npm install && npm dedupe && bower install",
     "dev": "webpack --config ./client/webpack.config.js && webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public"
   },
   "repository": {
@@ -48,6 +48,7 @@
     "jest-cli": "^0.1.18",
     "jquery": "^2.1.1",
     "jsx-loader": "^0.12.1",
+    "react-hot-loader": "^0.5.0",
     "react-tools": "^0.12.0",
     "sass-loader": "^0.3.0",
     "style-loader": "^0.8.1",

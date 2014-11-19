@@ -88,7 +88,7 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 
 ```shell
 git clone ...
-npm i
+npm run dev_install
 npm run dev
 ```
 
