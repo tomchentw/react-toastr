@@ -40,7 +40,7 @@ var ToastMessageSpec = {
 
   _handle_remove () {
     var {props} = this;
-    props.handleRemove(props.key);
+    props.handleRemove(props.toastId);
   },
 
   _render_close_button (props) {
