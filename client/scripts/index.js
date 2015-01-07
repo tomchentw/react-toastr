@@ -4,7 +4,7 @@ require("../styles/index.scss");
 var React = require("react/addons");
 var ReactToastr = require("../../src");
 var {ToastContainer} = ReactToastr;
-var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
 var Body = React.createClass({
   addAlert () {
