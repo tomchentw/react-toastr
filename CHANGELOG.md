@@ -1,3 +1,11 @@
+## 1.2.0 (2015-04-27)
+
+
+#### Features
+
+* **package.json:** update to react@0.13 and add peerDependencies ([0e00b836](https://github.com/tomchentw/react-toastr/commit/0e00b836bfa5cfa435d497a78c6fba872aa7cfde))
+
+
 ### 1.1.2 (2014-11-20)
 
 
