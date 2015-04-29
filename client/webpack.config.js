@@ -11,7 +11,7 @@ var Path = require("path"),
     JSX_WITH_HOT_LOEADERS = ["react-hot-loader", "jsx-loader?harmony"],
     CSS_LOADER = "style-loader!css-loader?root=../",
     SCSS_LOADER = "style-loader!css-loader?root=../!sass-loader?includePaths[]=" +
-        Path.resolve(__dirname, "../bower_components/bootstrap-sass-official/assets/stylesheets");
+        Path.resolve(__dirname, "../node_modules/bootstrap-sass/assets/stylesheets");
 
 webpackConfig = module.exports = {
   entry: "./client/scripts/index.js",
@@ -22,7 +22,6 @@ webpackConfig = module.exports = {
   },
   module: {
     loaders: [
-      { test: require.resolve("react/addons"), loader: "expose-loader?React" },
       { test: /\.js(x?)$/, loaders: JSX_WITH_HOT_LOEADERS },
       { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.css$/, loader: CSS_LOADER },
