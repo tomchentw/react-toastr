@@ -45,7 +45,7 @@
     "html-webpack-plugin": "^1.1.0",
     "jest-cli": "^0.4.0",
     "jquery": "^2.1.1",
-    "jsx-loader": "^0.12.1",
+    "jsx-loader": "^0.13.2",
     "react-hot-loader": "^1.2.5",
     "react-tools": "^0.13.2",
     "sass-loader": "^0.3.0",
