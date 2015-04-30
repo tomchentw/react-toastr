@@ -50,7 +50,7 @@
     "react-hot-loader": "^1.2.5",
     "react-tools": "^0.13.2",
     "sass-loader": "^0.6.0",
-    "style-loader": "^0.8.1",
+    "style-loader": "^0.12.1",
     "tomchentw-npm-dev": "^1.1.0",
     "webpack": "^1.4.7",
     "webpack-dev-server": "^1.6.5"
