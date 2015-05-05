@@ -69,11 +69,13 @@ module.exports = React.createClass({
       }
     }
     var key = state.toastId++;
+    var toastId = key;
     var newToast = update(optionsOverride || {}, {
       $merge: {
         type,
         title,
         message,
+        toastId,
         key,
         ref: `toasts__${ key }`,
         handleOnClick: this._handle_toast_on_click,
@@ -99,10 +101,10 @@ module.exports = React.createClass({
     event.stopPropagation();
   },
 
-  _handle_toast_remove (key) {
+  _handle_toast_remove (toastId) {
     var {state} = this;
     state.toasts[`${ this.props.newestOnTop ? "reduceRight" : "reduce" }`]((found, toast, index) => {
-      if (found || toast.key !== key) {
+      if (found || toast.toastId !== toastId) {
         return false;
       }
       this.setState(update(state, {
