@@ -24,7 +24,7 @@ Then:
 ```javascript
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr; // This is a React Element.
-var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
   // In a react component:
   render () {
@@ -75,13 +75,15 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 ### ToastMessage
 
 Base class for holding a toast message, it will not animate in and out during it's lifecycle.
-Normally you should use **`ToastMessage.jQuery`** directly.
+Provides **`ToastMessage.animation`** and `ToastMessage.jQuery` for your choice.
 
 #### Options
 
 Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
 
 * [`ToastMessage::getDefaultProps`](http://git.io/90CzSA)
+* [`ToastMessage.animation::getDefaultProps`](http://git.io/vU2sz)
+  Credits go to **@Janekk**
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 
