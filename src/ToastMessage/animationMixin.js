@@ -106,11 +106,11 @@ module.exports = {
   _get_animation_classes(hide) {
     var {props} = this;
     var animations = hide ? props.hideAnimation : props.showAnimation;
-    if (typeof(animations) == 'Array') {
+    if ("[object Array]" === toString.call(animations)) {
       return animations;
     }
-    else if (typeof(animations) == 'string') {
-      return animations.split(' ');
+    else if ("string" === typeof animations) {
+      return animations.split(" ");
     }
   },
 
