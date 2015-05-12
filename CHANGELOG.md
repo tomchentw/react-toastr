@@ -1,3 +1,16 @@
+## 1.3.0 (2015-05-12)
+
+
+#### Bug Fixes
+
+* **animationMixin:** misuse typeof ([8f504133](https://github.com/tomchentw/react-toastr/commit/8f504133235e2a4b29992b213b1bb51f9ff22f5b))
+
+
+#### Features
+
+* **animationMixin:** animate toasts using css transitions/animations ([ed0d8b07](https://github.com/tomchentw/react-toastr/commit/ed0d8b07cb9ed94148a409945981479adfa0882f))
+
+
 ## 1.2.0 (2015-04-27)
 
 
