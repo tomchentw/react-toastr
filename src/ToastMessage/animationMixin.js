@@ -1,17 +1,18 @@
 "use strict";
 
-var React = require('react/addons');
+var React = require("react/addons");
 
-var CSSCore = require('react/lib/CSSCore');
+var CSSCore = require("react/lib/CSSCore");
 var ReactTransitionEvents = require("react/lib/ReactTransitionEvents");
 var TICK = 17;
+var {toString} = Object.prototype;
 
 module.exports = {
   getDefaultProps() {
     return {
       transition: null,//some examples defined in index.scss (scale, fadeInOut, rotate)
-      showAnimation: 'animated bounceIn', //or other animations from animate.css
-      hideAnimation: 'animated bounceOut',
+      showAnimation: "animated bounceIn", //or other animations from animate.css
+      hideAnimation: "animated bounceOut",
       timeOut: 5000,
       extendedTimeOut: 1000
     };
@@ -46,10 +47,10 @@ module.exports = {
   },
 
   _set_transition(hide) {
-    var animationType = hide ? 'leave' : 'enter';
+    var animationType = hide ? "leave" : "enter";
     var node = this.getDOMNode();
-    var className = this.props.transition + '-' + animationType;
-    var activeClassName = className + '-active';
+    var className = this.props.transition + "-" + animationType;
+    var activeClassName = className + "-active";
 
     var endListener = function (e) {
       if (e && e.target !== node) {
@@ -72,9 +73,9 @@ module.exports = {
 
   _clear_transition(hide) {
     var node = this.getDOMNode();
-    var animationType = hide ? 'leave' : 'enter';
-    var className = this.props.transition + '-' + animationType;
-    var activeClassName = className + '-active';
+    var animationType = hide ? "leave" : "enter";
+    var className = this.props.transition + "-" + animationType;
+    var activeClassName = className + "-active";
 
     CSSCore.removeClass(node, className);
     CSSCore.removeClass(node, activeClassName);
