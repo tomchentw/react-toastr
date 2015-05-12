@@ -1,5 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Lato:400,900);
 @import url(//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css);
+@import url(~animate.css/animate.css);
 @import "./bootstrap_variables";
 @import "./bootstrap_override";
 
@@ -102,4 +103,61 @@ body {
     }
   }
 
+  .fadeInOut-enter {
+    opacity: 0.01;
+    transition: opacity .5s linear;
+  }
+
+  .fadeInOut-enter.fadeInOut-enter-active {
+    opacity: 0.8;
+  }
+
+  .fadeInOut-leave {
+    opacity: 0.8;
+    transition: opacity .5s linear;
+  }
+
+  .fadeInOut-leave.fadeInOut-leave-active {
+    opacity: 0.01;
+  }
+
+
+  .rotate-enter {
+    transition: transform 1s;
+  }
+
+  .rotate-enter.rotate-enter-active {
+    transform: rotate(360deg);
+  }
+
+  .rotate-leave {
+    transition: transform 1s;
+  }
+
+  .rotate-leave.rotate-leave-active {
+    transform: rotate(360deg);
+  }
+
+
+  .scale-enter {
+    transform: scale(0.7);
+    opacity: 0.01;
+    transition: transform .5s, opacity .5s;
+  }
+
+  .scale-enter.scale-enter-active {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  .scale-leave {
+    transition: transform .5s, opacity .5s;
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  .scale-leave.scale-leave-active {
+    opacity: 0.01;
+    transform: scale(0.7);
+  }
 }
