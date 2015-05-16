@@ -48,6 +48,7 @@
     "jquery": "^2.1.1",
     "jsx-loader": "^0.13.2",
     "node-sass": "^2.1.1",
+    "react": "^0.13.0",
     "react-hot-loader": "^1.2.5",
     "react-tools": "^0.13.2",
     "sass-loader": "^0.6.0",
@@ -55,9 +56,6 @@
     "tomchentw-npm-dev": "^1.1.0",
     "webpack": "^1.4.7",
     "webpack-dev-server": "^1.6.5"
-  },
-  "dependencies": {
-    "react": "^0.13.0"
   },
   "peerDependencies": {
     "react": "^0.13.0"
