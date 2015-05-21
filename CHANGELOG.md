@@ -1,3 +1,11 @@
+### 1.3.1 (2015-05-21)
+
+
+#### Bug Fixes
+
+* **package.json:** move react from dependencies to devDependencies ([07e1acf3](https://github.com/tomchentw/react-toastr/commit/07e1acf3cae1052546a3d9a415ae007fd72eff3e))
+
+
 ## 1.3.0 (2015-05-12)
 
 
