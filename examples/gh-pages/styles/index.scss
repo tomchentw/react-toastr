@@ -1,6 +1,8 @@
-@import url(//fonts.googleapis.com/css?family=Lato:400,900);
-@import url(//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css);
-@import url(~animate.css/animate.css);
+@import url("//fonts.googleapis.com/css?family=Lato:400,900");
+
+@import url("~toastr/toastr.css");
+@import url("~animate.css/animate.css");
+
 @import "./bootstrap_variables";
 @import "./bootstrap_override";
 
@@ -37,7 +39,7 @@ body {
     -ms-filter: blur(10px);
     -o-filter: blur(10px);
     filter: blur(10px);
-    background-image: url(/images/background.jpg);
+    background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
