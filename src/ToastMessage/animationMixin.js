@@ -1,7 +1,5 @@
 "use strict";
 
-var React = require("react/addons");
-
 var CSSCore = require("react/lib/CSSCore");
 var ReactTransitionEvents = require("react/lib/ReactTransitionEvents");
 var TICK = 17;
@@ -100,7 +98,7 @@ module.exports = {
 
     animations.forEach((anim) => {
       CSSCore.addClass(node, anim);
-    })
+    });
   },
 
   _get_animation_classes(hide) {
@@ -118,7 +116,7 @@ module.exports = {
     var animations = this._get_animation_classes(hide);
     animations.forEach((animation) => {
       CSSCore.removeClass(this.getDOMNode(), animation);
-    })
+    });
   },
 
   _queue_class(className) {
@@ -165,7 +163,7 @@ module.exports = {
   },
 
   handleMouseLeave() {
-    var {props, state} = this;
+    var {props} = this;
     if (!this.isHiding &&
       (props.timeOut > 0 || props.extendedTimeOut > 0)) {
       this._set_interval_id(
@@ -176,7 +174,9 @@ module.exports = {
 
   hideToast(override) {
     var {props} = this;
-    if (this.isHiding || (this.intervalId == null && !override)) return;
+    if (this.isHiding || (this.intervalId == null && !override)) {
+      return;
+    }
 
     this._set_is_hiding(true);
     if (props.transition) {
