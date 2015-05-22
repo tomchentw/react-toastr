@@ -5,10 +5,11 @@
   "description": "React.js toastr component",
   "main": "lib/index.js",
   "scripts": {
-    "build": "jsx --harmony ./src ./lib",
-    "build_client": "webpack -p --config ./client/webpack.config.js",
-    "dev": "webpack --config ./client/webpack.config.js && webpack-dev-server --config ./client/webpack.config.js --inline --hot --content-base ./public",
-    "test": "jest"
+    "clean": "rm -rf lib",
+    "build": "npm run clean && babel --stage=1 src --out-dir lib",
+    "build_client": "cd examples/gh-pages && npm i && npm run build_client",
+    "dev": "cd examples/gh-pages && npm i && npm run dev",
+    "test": "npm run lint && jest"
   },
   "repository": {
     "type": "git",
@@ -36,23 +37,14 @@
   },
   "homepage": "https://tomchentw.github.io/react-toastr/",
   "devDependencies": {
-    "animate.css": "^3.2.5",
-    "bootstrap-sass": "^3.3.4",
-    "css-loader": "^0.12.0",
-    "file-loader": "^0.8.1",
-    "html-webpack-plugin": "^1.1.0",
-    "jest-cli": "^0.4.0",
-    "jquery": "^2.1.1",
-    "jsx-loader": "^0.13.2",
-    "node-sass": "^2.1.1",
-    "react": "^0.13.0",
-    "react-hot-loader": "^1.2.5",
-    "react-tools": "^0.13.2",
-    "sass-loader": "^0.6.0",
-    "style-loader": "^0.12.1",
-    "tomchentw-npm-dev": "^1.1.0",
-    "webpack": "^1.4.7",
-    "webpack-dev-server": "^1.6.5"
+    "babel": "^5.4.7",
+    "babel-core": "^5.4.7",
+    "jest-cli": "^0.4.5",
+    "jquery": "^2.1.4",
+    "tomchentw-npm-dev": "^1.2.2"
+  },
+  "dependencies": {
+    "react": "^0.13.0"
   },
   "peerDependencies": {
     "react": "^0.13.0"

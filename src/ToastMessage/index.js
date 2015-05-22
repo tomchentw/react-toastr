@@ -46,7 +46,9 @@ var ToastMessageSpec = {
   _render_close_button (props) {
     return props.closeButton ? (
       <button className="toast-close-button" role="button"
-              onClick={this._handle_close_button_click}>&times;</button>
+              onClick={this._handle_close_button_click}
+              dangerouslySetInnerHTML={{__html: "&times;"}}
+              />
     ) : false;
   },
 
