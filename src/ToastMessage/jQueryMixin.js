@@ -62,7 +62,9 @@ module.exports = {
 
   hideToast (override) {
     var {state, props} = this;
-    if (state.isHiding || (state.intervalId == null && !override)) return;
+    if (state.isHiding || (state.intervalId == null && !override)) {
+      return;
+    }
     this.setState({isHiding: true});
 
     this._get_$_node()[props.hideMethod]({
@@ -73,7 +75,9 @@ module.exports = {
   },
 
   _get_$_node () {
+    /* eslint-disable no-undef */
     return jQuery(this.getDOMNode());
+    /* eslint-enable no-undef */
   },
 
   _set_interval_id (intervalId) {
