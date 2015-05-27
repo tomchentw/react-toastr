@@ -1,9 +1,9 @@
 "use strict";
 
 jest.dontMock("../index.js");
-describe("index", function() {
-  it("changes the text after click", function() {
-    var index = require("../index");
+describe("index", () => {
+  it("changes the text after click", () => {
+    const index = require("../index");
 
     expect(index).toBeDefined();
     expect(index.ToastContainer).toBeDefined();
