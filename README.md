@@ -94,12 +94,14 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 
-### Development
+## Development
 
 ```shell
 git clone ...
 npm install
-npm run dev
+cd examples/gh-pages
+npm install
+npm start
 ```
 
 Then open [http://localhost:8080](http://localhost:8080).

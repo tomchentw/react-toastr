@@ -135,6 +135,7 @@ webpackConfigsArray = [
 
 webpackConfigsArray.devServer = {
   hot: IS_DEVELOPMENT,
+  contentBase: "../../public",
 };
 
 module.exports = webpackConfigsArray;

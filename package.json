@@ -7,8 +7,6 @@
   "scripts": {
     "clean": "rm -rf lib",
     "build": "npm run lint && npm run clean && babel --stage=1 src --out-dir lib",
-    "build_client": "cd examples/gh-pages && npm i && npm run build_client",
-    "dev": "cd examples/gh-pages && npm i && npm run dev",
     "lint": "eslint src",
     "test": "npm run lint && jest"
   },
@@ -45,7 +43,7 @@
     "eslint": "^0.21.2",
     "jest-cli": "^0.4.5",
     "jquery": "^2.1.4",
-    "tomchentw-npm-dev": "^1.2.2"
+    "tomchentw-npm-dev": "^2.0.0"
   },
   "dependencies": {
     "react": "^0.13.0"
