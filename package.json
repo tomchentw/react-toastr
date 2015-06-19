@@ -45,7 +45,7 @@
     "eslint": "^0.21.2",
     "jest-cli": "^0.4.5",
     "jquery": "^2.1.4",
-    "tomchentw-npm-dev": "^1.2.2"
+    "tomchentw-npm-dev": "^2.0.0"
   },
   "dependencies": {
     "react": "^0.13.0"
