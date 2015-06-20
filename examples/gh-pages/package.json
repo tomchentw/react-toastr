@@ -13,7 +13,6 @@
     "css-loader": "^0.13.1",
     "extract-text-webpack-plugin": "^0.8.0",
     "file-loader": "^0.8.3",
-    "github-fork-ribbon-css": "git+https://github.com/tomchentw/github-fork-ribbon-css.git#gh-pages",
     "isomorphic-react-plugin-factory": "^1.0.1",
     "node-sass": "^3.1.2",
     "raw-loader": "^0.5.1",
