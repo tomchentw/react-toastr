@@ -41,6 +41,7 @@
     "babel-eslint": "^3.1.7",
     "babel-jest": "^5.2.0",
     "eslint": "^0.21.2",
+    "eslint-plugin-react": "^2.5.2",
     "jest-cli": "^0.4.5",
     "jquery": "^2.1.4",
     "tomchentw-npm-dev": "^2.0.0"
