@@ -54,7 +54,7 @@ clientConfig = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(STYLE_LOADER, SASS_LOADER, {
-          publicPath: "./",
+          publicPath: "",
         }),
       },
     ],
