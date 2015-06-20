@@ -51,7 +51,12 @@ clientConfig = {
         loaders: [BABEL_LOADER],
       },
       { test: /\.jpg$/, loader: "file-loader" },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract(STYLE_LOADER, SASS_LOADER) },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(STYLE_LOADER, SASS_LOADER, {
+          publicPath: "./",
+        }),
+      },
     ],
   },
   plugins: [
