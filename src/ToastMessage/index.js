@@ -1,6 +1,7 @@
 "use strict";
 var React = require("react/addons");
 var {update} = React.addons;
+var cx = require("classnames");
 
 function noop () {}
 
@@ -69,7 +70,6 @@ var ToastMessageSpec = {
   },
 
   render () {
-    var cx = React.addons.classSet;
     var {props} = this;
     var iconClassName = props.iconClassName || props.iconClassNames[props.type];
 

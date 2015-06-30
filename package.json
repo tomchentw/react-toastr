@@ -47,6 +47,7 @@
     "tomchentw-npm-dev": "^2.0.0"
   },
   "dependencies": {
+    "classnames": "^2.1.2",
     "react": "^0.13.0"
   },
   "peerDependencies": {
