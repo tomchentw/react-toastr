@@ -1,3 +1,17 @@
+<a name"1.5.0"></a>
+## 1.5.0 (2015-07-01)
+
+
+#### Bug Fixes
+
+* **ToastMessage:** &times; using dangerouslySetInnerHTML ([af7e6059](https://github.com/tomchentw/react-toastr/commit/af7e6059))
+
+
+#### Features
+
+* **ToastMessage:** Update React addon classSet to classnames ([528473e9](https://github.com/tomchentw/react-toastr/commit/528473e9), closes [#23](https://github.com/tomchentw/react-toastr/issues/23))
+
+
 ## 1.4.0 (2015-05-22)
 
 
