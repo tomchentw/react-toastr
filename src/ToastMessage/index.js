@@ -13,7 +13,7 @@ var ToastMessageSpec = {
       error: "toast-error",
       info: "toast-info",
       success: "toast-success",
-      warning: "toast-warning"
+      warning: "toast-warning",
     };
 
     return {
@@ -22,7 +22,7 @@ var ToastMessageSpec = {
       titleClassName: "toast-title",
       messageClassName: "toast-message",
       tapToDismiss: true,
-      closeButton: false
+      closeButton: false,
     };
   },
 
@@ -87,18 +87,18 @@ var ToastMessageSpec = {
         {this._render_message_element(props)}
       </div>
     );
-  }
+  },
 };
 
 
 var animation = React.createClass(update(ToastMessageSpec, {
   displayName: { $set: "ToastMessage.animation" },
-  mixins: { $set: [require("./animationMixin")] }
+  mixins: { $set: [require("./animationMixin")] },
 }));
 
 var jQuery = React.createClass(update(ToastMessageSpec, {
   displayName: { $set: "ToastMessage.jQuery" },
-  mixins: { $set: [require("./jQueryMixin")] }
+  mixins: { $set: [require("./jQueryMixin")] },
 }));
 
 /*
