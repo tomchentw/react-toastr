@@ -45,7 +45,6 @@
     "babel": "^5.6.14",
     "babel-core": "^5.6.15",
     "babel-eslint": "^3.1.20",
-    "babel-jest": "^5.3.0",
     "eslint": "^0.24.0",
     "eslint-plugin-react": "^2.6.3",
     "jquery": "^2.1.4",
