@@ -8,7 +8,7 @@
     "clean": "rm -rf lib",
     "build": "npm run lint && npm run clean && babel --stage=1 src --out-dir lib",
     "lint": "eslint src",
-    "test": "npm run lint && jest"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -36,15 +36,14 @@
   },
   "homepage": "https://tomchentw.github.io/react-toastr/",
   "devDependencies": {
-    "babel": "^5.4.7",
-    "babel-core": "^5.4.7",
-    "babel-eslint": "^3.1.7",
-    "babel-jest": "^5.2.0",
-    "eslint": "^0.21.2",
-    "eslint-plugin-react": "^2.5.2",
-    "jest-cli": "^0.4.5",
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.20",
+    "babel-jest": "^5.3.0",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.6.3",
     "jquery": "^2.1.4",
-    "tomchentw-npm-dev": "^2.0.0"
+    "tomchentw-npm-dev": "^3.0.0"
   },
   "dependencies": {
     "classnames": "^2.1.2",
@@ -53,18 +52,5 @@
   "peerDependencies": {
     "classnames": "^2.1.2",
     "react": "^0.13.0"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testPathDirs": [
-      "<rootDir>/src"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/node_modules/"
-    ],
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ]
   }
 }
