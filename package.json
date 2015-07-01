@@ -4,6 +4,12 @@
   "version": "1.4.0",
   "description": "React.js toastr component",
   "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "src/",
+    "AUTHORS",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "clean": "rm -rf lib",
     "build": "npm run lint && npm run clean && babel --stage=1 src --out-dir lib",
