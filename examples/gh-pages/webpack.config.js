@@ -21,8 +21,8 @@ var Path = require("path"),
     SASS_LOADER = CSS_LOADER + "!sass-loader";
 
 isomorphicReactPlugin = new IsomorphicReactPluginFactory({
-  serverComponentPath: "tmp/server.js",
-  serverMarkupPath: "tmp/html.js",
+  serverComponentPath: "../tmp/server.js",
+  serverMarkupPath: "../tmp/html.js",
   htmlOutputFilename: "index.html",
 });
 
@@ -51,10 +51,16 @@ clientConfig = {
         loaders: [BABEL_LOADER],
       },
       { test: /\.jpg$/, loader: "file-loader" },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract(STYLE_LOADER, SASS_LOADER) },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(STYLE_LOADER, SASS_LOADER, {
+          publicPath: "",
+        }),
+      },
     ],
   },
   plugins: [
+    new webpack.EnvironmentPlugin("NODE_ENV"),
     new ExtractTextPlugin("[name].css", {
       disable: IS_DEVELOPMENT,
     }),
@@ -92,8 +98,8 @@ if (IS_DEVELOPMENT) {
 
 serverConfig = {
   entry: {
-    "tmp/server": "./scripts/server.js",
-    "tmp/html": "./scripts/html.js",
+    "../tmp/server": "./scripts/server.js",
+    "../tmp/html": "./scripts/html.js",
   },
   output: {
     path: outputPath,
@@ -124,6 +130,7 @@ serverConfig = {
     ],
   },
   plugins: [
+    new webpack.EnvironmentPlugin("NODE_ENV"),
     isomorphicReactPlugin.serverPlugin,
   ],
 };
@@ -135,6 +142,7 @@ webpackConfigsArray = [
 
 webpackConfigsArray.devServer = {
   hot: IS_DEVELOPMENT,
+  contentBase: "../../public",
 };
 
 module.exports = webpackConfigsArray;

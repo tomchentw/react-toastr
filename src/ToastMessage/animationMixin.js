@@ -12,7 +12,7 @@ module.exports = {
       showAnimation: "animated bounceIn", //or other animations from animate.css
       hideAnimation: "animated bounceOut",
       timeOut: 5000,
-      extendedTimeOut: 1000
+      extendedTimeOut: 1000,
     };
   },
 
@@ -37,7 +37,7 @@ module.exports = {
     var node = this.getDOMNode();
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
 
-    if (props.timeOut > 0) {
+    if (0 < props.timeOut) {
       this._set_interval_id(
         setTimeout(this.hideToast, props.timeOut)
       );
@@ -165,7 +165,7 @@ module.exports = {
   handleMouseLeave() {
     var {props} = this;
     if (!this.isHiding &&
-      (props.timeOut > 0 || props.extendedTimeOut > 0)) {
+      (0 < props.timeOut || 0 < props.extendedTimeOut)) {
       this._set_interval_id(
         setTimeout(this.hideToast, props.extendedTimeOut)
       );
@@ -174,7 +174,7 @@ module.exports = {
 
   hideToast(override) {
     var {props} = this;
-    if (this.isHiding || (this.intervalId == null && !override)) {
+    if (this.isHiding || (null == this.intervalId && !override)) {
       return;
     }
 
@@ -194,5 +194,5 @@ module.exports = {
 
   _set_is_hiding(isHiding) {
     this.isHiding = isHiding;
-  }
+  },
 };

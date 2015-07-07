@@ -1,16 +1,20 @@
 {
   "__template__gist__": "https://gist.github.com/tomchentw/368a93bb748ad9d576f1#file-package-json",
   "name": "react-toastr",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "React.js toastr component",
   "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "src/",
+    "AUTHORS",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "clean": "rm -rf lib",
     "build": "npm run lint && npm run clean && babel --stage=1 src --out-dir lib",
-    "build_client": "cd examples/gh-pages && npm i && npm run build_client",
-    "dev": "cd examples/gh-pages && npm i && npm run dev",
     "lint": "eslint src",
-    "test": "npm run lint && jest"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -38,32 +42,20 @@
   },
   "homepage": "https://tomchentw.github.io/react-toastr/",
   "devDependencies": {
-    "babel": "^5.4.7",
-    "babel-core": "^5.4.7",
-    "babel-eslint": "^3.1.7",
-    "babel-jest": "^5.2.0",
-    "eslint": "^0.21.2",
-    "jest-cli": "^0.4.5",
+    "babel": "^5.6.14",
+    "babel-core": "^5.6.15",
+    "babel-eslint": "^3.1.20",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.6.3",
     "jquery": "^2.1.4",
-    "tomchentw-npm-dev": "^1.2.2"
+    "tomchentw-npm-dev": "^3.0.0"
   },
   "dependencies": {
+    "classnames": "^2.1.2",
     "react": "^0.13.0"
   },
   "peerDependencies": {
+    "classnames": "^2.1.2",
     "react": "^0.13.0"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testPathDirs": [
-      "<rootDir>/src"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/node_modules/"
-    ],
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ]
   }
 }

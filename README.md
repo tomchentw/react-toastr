@@ -18,7 +18,7 @@ Static hosted [demo site][demo] on GitHub.
 
 ## Example
 
-Please refer to [client][client] folder for example.
+Please refer to [examples/gh-pages][examples/gh-pages] folder for example.
 
 
 ## Usage
@@ -94,12 +94,14 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 
-### Development
+## Development
 
 ```shell
 git clone ...
 npm install
-npm run dev
+cd examples/gh-pages
+npm install
+npm start
 ```
 
 Then open [http://localhost:8080](http://localhost:8080).
@@ -134,7 +136,7 @@ Then open [http://localhost:8080](http://localhost:8080).
 
 
 [demo]: http://tomchentw.github.io/react-toastr/
-[client]: https://github.com/tomchentw/react-toastr/tree/master/client
+[examples/gh-pages]: https://github.com/tomchentw/react-toastr/tree/master/examples/gh-pages
 [webpack]: http://webpack.github.io/docs/tutorials/getting-started/
 [react-ref]: http://facebook.github.io/react/docs/more-about-refs.html
 [flux]: http://facebook.github.io/flux/docs/overview.html

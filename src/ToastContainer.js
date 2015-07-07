@@ -39,13 +39,13 @@ module.exports = React.createClass({
         error: "error",
         info: "info",
         success: "success",
-        warning: "warning"
+        warning: "warning",
       },
       id: "toast-container",
       toastMessageFactory: ToastMessage,
       preventDuplicates: false,
       newestOnTop: true,
-      onClick: noop
+      onClick: noop,
     };
   },
 
@@ -53,7 +53,7 @@ module.exports = React.createClass({
     return {
       toasts: [],
       toastId: 0,
-      previousMessage: null
+      previousMessage: null,
     };
   },
 
@@ -87,7 +87,7 @@ module.exports = React.createClass({
 
     var newState = update(state, {
       toasts: toastOperation,
-      previousMessage: { $set: message }
+      previousMessage: { $set: message },
     });
     this.setState(newState);
   },
@@ -108,7 +108,7 @@ module.exports = React.createClass({
         return false;
       }
       this.setState(update(state, {
-        toasts: { $splice: [[index, 1]] }
+        toasts: { $splice: [[index, 1]] },
       }));
       return true;
     }, false);
@@ -120,5 +120,5 @@ module.exports = React.createClass({
         return props.toastMessageFactory(toast);
       })}
     </div>;
-  }
+  },
 });

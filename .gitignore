@@ -44,3 +44,4 @@ bower_components
 public/assets
 public/index.html
 public/*.gz
+tmp/*
