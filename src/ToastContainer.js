@@ -79,8 +79,8 @@ module.exports = React.createClass({
         key,
         ref: `toasts__${ key }`,
         handleOnClick: optionsOverride.handleOnClick ? optionsOverride.handleOnClick : this._handle_toast_on_click,
-        handleRemove: this._handle_toast_remove
-      }
+        handleRemove: this._handle_toast_remove,
+      },
     });
     var toastOperation = {};
     toastOperation[`${ props.newestOnTop ? "$unshift" : "$push" }`] = [newToast];
