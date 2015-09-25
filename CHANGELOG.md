@@ -1,3 +1,12 @@
+<a name"1.5.2"></a>
+### 1.5.2 (2015-09-25)
+
+
+#### Bug Fixes
+
+* **ToastMessage:** need clear setTimeout when component unmount ([e12f025c](https://github.com/tomchentw/react-toastr/commit/e12f025c), closes [#29](https://github.com/tomchentw/react-toastr/issues/29))
+
+
 <a name"1.5.1"></a>
 ### 1.5.1 (2015-07-01)
 
