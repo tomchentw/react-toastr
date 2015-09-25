@@ -43,7 +43,11 @@ module.exports = {
       );
     }
   },
-
+  componentWillUnmount() {
+    if(this.intervalId){
+      clearTimeout(this.intervalId);
+    }
+  },
   _set_transition(hide) {
     var animationType = hide ? "leave" : "enter";
     var node = this.getDOMNode();
