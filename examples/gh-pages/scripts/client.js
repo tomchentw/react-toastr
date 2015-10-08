@@ -1,7 +1,8 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 import ReactRoot from "./ReactRoot";
 
 require("../styles/index.scss");
 
-React.render(<ReactRoot />, document.getElementById("react-container"));
+ReactDOM.render(<ReactRoot />, document.getElementById("react-container"));

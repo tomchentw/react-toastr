@@ -1,7 +1,7 @@
 "use strict";
 
 var React = require("react/addons");
-var ReactToastr = require("react-toastr");
+var ReactToastr = require("../../../src");
 var {ToastContainer} = ReactToastr;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
