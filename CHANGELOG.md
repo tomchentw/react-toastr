@@ -1,3 +1,20 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/tomchentw/react-toastr/compare/v1.5.2...v2.0.0) (2015-10-08)
+
+
+### Features
+
+* **package.json:** upgrade to React@^0.14 ([c1cfc28](https://github.com/tomchentw/react-toastr/commit/c1cfc28))
+
+
+### BREAKING CHANGES
+
+* __React@^0.14__: upgrade at peerDependencies
+	* move __React@^0.14__ and __classnames@^2.1.5__ from dependencies to peerDependencies
+	* also add __fbjs^0.3.1__ to peerDependencies
+
+
+
 <a name"1.5.2"></a>
 ### 1.5.2 (2015-09-25)
 
