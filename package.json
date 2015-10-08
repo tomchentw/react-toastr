@@ -42,20 +42,21 @@
   },
   "homepage": "https://tomchentw.github.io/react-toastr/",
   "devDependencies": {
-    "babel": "^5.6.14",
-    "babel-core": "^5.6.15",
-    "babel-eslint": "^3.1.20",
-    "eslint": "^0.24.0",
-    "eslint-plugin-react": "^2.6.3",
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-eslint": "^4.1.3",
+    "classnames": "^2.1.5",
+    "eslint": "^1.6.0",
+    "eslint-plugin-react": "^3.5.1",
+    "fbjs": "^0.3.1",
     "jquery": "^2.1.4",
-    "tomchentw-npm-dev": "^3.0.0"
-  },
-  "dependencies": {
-    "classnames": "^2.1.2",
-    "react": "^0.13.0"
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "tomchentw-npm-dev": "^3.1.0"
   },
   "peerDependencies": {
-    "classnames": "^2.1.2",
-    "react": "^0.13.0"
+    "classnames": "^2.1.5",
+    "fbjs": "^0.3.1",
+    "react": "^0.14.0"
   }
 }
