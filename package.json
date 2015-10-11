@@ -55,8 +55,10 @@
     "tomchentw-npm-dev": "^3.1.0"
   },
   "peerDependencies": {
-    "classnames": "^2.1.5",
     "fbjs": "^0.3.1",
     "react": "^0.14.0"
+  },
+  "dependencies": {
+    "classnames": "^2.1.5"
   }
 }
