@@ -1,3 +1,13 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/tomchentw/react-toastr/compare/v2.0.0...v2.1.0) (2015-10-11)
+
+
+### Bug Fixes
+
+* **package.json:** move classnames to dependencies ([9a74e6f](https://github.com/tomchentw/react-toastr/commit/9a74e6f)), closes [#32](https://github.com/tomchentw/react-toastr/issues/32)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/tomchentw/react-toastr/compare/v1.5.2...v2.0.0) (2015-10-08)
 
