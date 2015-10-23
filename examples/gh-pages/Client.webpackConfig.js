@@ -49,8 +49,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "react": Path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": Path.resolve(__dirname, "./node_modules/react"),
+      "react": Path.resolve(__dirname, "./node_modules/react")
     },
   },
   resolveLoader: {
