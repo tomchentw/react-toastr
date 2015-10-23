@@ -2,6 +2,7 @@
 
 var CSSCore = require("fbjs/lib/CSSCore");
 var ReactTransitionEvents = require("react/lib/ReactTransitionEvents");
+var ReactDOM = require('react-dom');
 var TICK = 17;
 var {toString} = Object.prototype;
 
@@ -34,7 +35,7 @@ module.exports = {
       }
     };
 
-    var node = this.getDOMNode();
+    var node = ReactDOM.findDOMNode(this);
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
 
     if (0 < props.timeOut) {
@@ -50,7 +51,7 @@ module.exports = {
   },
   _set_transition(hide) {
     var animationType = hide ? "leave" : "enter";
-    var node = this.getDOMNode();
+    var node = ReactDOM.findDOMNode(this);
     var className = this.props.transition + "-" + animationType;
     var activeClassName = className + "-active";
 
@@ -74,7 +75,7 @@ module.exports = {
   },
 
   _clear_transition(hide) {
-    var node = this.getDOMNode();
+    var node = ReactDOM.findDOMNode(this);
     var animationType = hide ? "leave" : "enter";
     var className = this.props.transition + "-" + animationType;
     var activeClassName = className + "-active";
@@ -84,7 +85,7 @@ module.exports = {
   },
 
   _set_animation(hide) {
-    var node = this.getDOMNode();
+    var node = ReactDOM.findDOMNode(this);
     var animations = this._get_animation_classes(hide);
     var endListener = function (e) {
       if (e && e.target !== node) {

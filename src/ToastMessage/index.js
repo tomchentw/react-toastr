@@ -1,6 +1,6 @@
 "use strict";
-var React = require("react/addons");
-var {update} = React.addons;
+var React = require("react");
+var update = require('react-addons-update');
 var cx = require("classnames");
 
 function noop () {}
