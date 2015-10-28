@@ -24,6 +24,16 @@ Please refer to [examples/gh-pages][examples/gh-pages] folder for example.
 ## Usage
 
 This module requires to be bundled with [webpack][webpack]/browserify and loads `react/addons` internally.  
+You'll need to download animate.css from here [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
+
+Link to css/js properly..
+```html
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<link rel="stylesheet" href="/static/dist/css/animate.css">
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+```
+
 WIP: release a UMD version via bower/components.
 
 Then:
@@ -31,6 +41,8 @@ Then:
 ```javascript
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr; // This is a React Element.
+// For Non ES6...
+// var ToastContainer = ReactToastr.ToastContainer;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
   // In a react component:
