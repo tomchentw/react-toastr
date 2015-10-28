@@ -1,4 +1,5 @@
 "use strict";
+
 function call_show_method ($node, props) {
   $node[props.showMethod]({
     duration: props.showDuration,
