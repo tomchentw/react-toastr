@@ -1,3 +1,13 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/tomchentw/react-toastr/compare/v2.1.0...v2.2.0) (2015-10-28)
+
+
+### Bug Fixes
+
+* **src:** React@0.14 migration, add react-addons-update as a dep ([e8b7152](https://github.com/tomchentw/react-toastr/commit/e8b7152)), closes [#38](https://github.com/tomchentw/react-toastr/issues/38)
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/tomchentw/react-toastr/compare/v2.0.0...v2.1.0) (2015-10-11)
 
