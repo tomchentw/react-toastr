@@ -58,6 +58,7 @@
     "react": "^0.14.0"
   },
   "dependencies": {
-    "classnames": "^2.1.5"
+    "classnames": "^2.1.5",
+    "react-addons-update": "^0.14.0"
   }
 }
