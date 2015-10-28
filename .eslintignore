@@ -1,1 +1,4 @@
+examples/**
+lib/**
+public/**
 **/__tests__/**
