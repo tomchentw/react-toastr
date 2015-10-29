@@ -72,14 +72,14 @@ module.exports = React.createClass({
     var toastId = key;
     var newToast = update(optionsOverride || {}, {
       $merge: {
-        type,
+        toastId,
+        toastType: type,
         title,
         message,
-        toastId,
         key,
         ref: `toasts__${ key }`,
-        handleOnClick: this._handle_toast_on_click,
-        handleRemove: this._handle_toast_remove,
+        onClick: this._handle_toast_on_click,
+        onRemove: this._handle_toast_remove,
       },
     });
     var toastOperation = {};

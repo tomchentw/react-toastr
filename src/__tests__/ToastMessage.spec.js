@@ -33,14 +33,14 @@ describe(`ToastMessage`, () => {
   });
 
   describe(`auto close`, () => {
-    it(`will call handleRemove with given props`, (done) => {
+    it(`will call onRemove with given props`, (done) => {
       const spy = createSpy();
       const ref = TestUtils.renderIntoDocument(
         <ToastMessage.jQuery
           timeOut={1}
           showDuration={50}
           hideDuration={50}
-          handleRemove={spy}
+          onRemove={spy}
         />
       );
       const dom = ReactDOM.findDOMNode(ref);
