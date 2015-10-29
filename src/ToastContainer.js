@@ -1,12 +1,19 @@
-"use strict";
-var React = require("react");
-var update = require('react-addons-update');
+import {
+  default as React,
+  PropTypes,
+} from "react";
 
-var ToastMessage = React.createFactory(require("./ToastMessage"));
+import {
+  default as update,
+} from "react-addons-update";
+
+import {
+  default as ToastMessage,
+} from "./ToastMessage";
 
 function noop () {}
 
-module.exports = React.createClass({
+export default React.createClass({
   displayName: "ToastContainer",
 
   error (message, title, optionsOverride) {
@@ -42,7 +49,7 @@ module.exports = React.createClass({
         warning: "warning",
       },
       id: "toast-container",
-      toastMessageFactory: ToastMessage,
+      toastMessageFactory: React.createFactory(ToastMessage),
       preventDuplicates: false,
       newestOnTop: true,
       onClick: noop,
