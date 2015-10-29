@@ -120,7 +120,7 @@ module.exports = {
   _clear_animation(hide) {
     var animations = this._get_animation_classes(hide);
     animations.forEach((animation) => {
-      CSSCore.removeClass(this.getDOMNode(), animation);
+      CSSCore.removeClass(ReactDOM.findDOMNode(this), animation);
     });
   },
 
@@ -135,7 +135,7 @@ module.exports = {
   _flush_class_name_queue() {
     if (this.isMounted()) {
       this.classNameQueue.forEach(
-        CSSCore.addClass.bind(CSSCore, this.getDOMNode())
+        CSSCore.addClass.bind(CSSCore, ReactDOM.findDOMNode(this))
       );
     }
     this.classNameQueue.length = 0;

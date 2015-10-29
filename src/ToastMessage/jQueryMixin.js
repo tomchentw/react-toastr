@@ -1,5 +1,9 @@
 "use strict";
 
+import {
+  default as ReactDOM,
+} from "react-dom";
+
 function call_show_method ($node, props) {
   $node[props.showMethod]({
     duration: props.showDuration,
@@ -77,7 +81,7 @@ module.exports = {
 
   _get_$_node () {
     /* eslint-disable no-undef */
-    return jQuery(this.getDOMNode());
+    return jQuery(ReactDOM.findDOMNode(this));
     /* eslint-enable no-undef */
   },
 
