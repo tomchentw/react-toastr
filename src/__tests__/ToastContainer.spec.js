@@ -51,5 +51,26 @@ describe(`ToastContainer`, () => {
         }, 500);
       });
     });
+
+    it(`renders a list of toast messages`, () => {
+      const ref = TestUtils.renderIntoDocument(
+        <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
+      );
+      ref.success(`yeah`, `cool`);
+      ref.error(`blabla`, `foobar`);
+
+      const dom = ReactDOM.findDOMNode(ref);
+      expect(dom.childNodes.length).toBe(2);
+
+      const errorDom = dom.childNodes[0];
+      expect(errorDom.classList.contains(`toast-error`)).toBe(true);
+      expect(errorDom.childNodes[0].textContent).toBe(`foobar`);
+      expect(errorDom.childNodes[1].textContent).toBe(`blabla`);
+
+      const successDom = dom.childNodes[1];
+      expect(successDom.classList.contains(`toast-success`)).toBe(true);
+      expect(successDom.childNodes[0].textContent).toBe(`cool`);
+      expect(successDom.childNodes[1].textContent).toBe(`yeah`);
+    });
   });
 });
