@@ -1,6 +1,7 @@
 <a name="2.2.1"></a>
-## [2.2.1](https://github.com/tomchentw/react-toastr/compare/v2.2.0...v2.2.1) (2015-11-02)
+## _UNPLUBISHED FROM NPM_ [2.2.1](https://github.com/tomchentw/react-toastr/compare/v2.2.0...v2.2.1) (2015-11-02)
 
+This version has been unpublished from npm. The __Bug Fixes__ here still applied but __Features__ are removed. See https://github.com/tomchentw/react-toastr/issues/42.
 
 ### Bug Fixes
 
