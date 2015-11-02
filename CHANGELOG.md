@@ -1,3 +1,37 @@
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/tomchentw/react-toastr/compare/v2.2.0...v2.2.1) (2015-11-02)
+
+
+### Bug Fixes
+
+* **package.json:** added react-dom as dependency ([18c58d0](https://github.com/tomchentw/react-toastr/commit/18c58d0)), closes [#41](https://github.com/tomchentw/react-toastr/issues/41)
+* **ToastMessage:** use ReactDOM.findDOMNode instead of this.getDOMNode ([d4f40b3](https://github.com/tomchentw/react-toastr/commit/d4f40b3))
+
+### Features
+
+* **src:** ES2015 ([96aa073](https://github.com/tomchentw/react-toastr/commit/96aa073))
+* **ToastContainer:** ES2015 ([dce1279](https://github.com/tomchentw/react-toastr/commit/dce1279))
+* **ToastMessage:** ES2015 + props naming convention changed ([69c23db](https://github.com/tomchentw/react-toastr/commit/69c23db))
+* **ToastMessage.animation:** ES2015 ([69dbd7e](https://github.com/tomchentw/react-toastr/commit/69dbd7e))
+* **ToastMessage.jQuery:** ES2015 + require jQuery as dependency ([e0ff62b](https://github.com/tomchentw/react-toastr/commit/e0ff62b))
+* **ToastMessageList:** add pure component to wrap toast list ([db9fee6](https://github.com/tomchentw/react-toastr/commit/db9fee6))
+
+
+### BREAKING CHANGES
+
+* ToastMessage: Props naming convention changed
+
+Before: type,handleRemove, handleOnClick
+
+After: toastType, onRemove, onClick
+* ToastMessage.jQuery: use ES2015 import statement for jquery
+
+Previously, we requires you to inject jQuery as global variable ($, jQuery).
+However, as people adoping module bundler such as webpack, it's more common
+to declare it as dependency.
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/tomchentw/react-toastr/compare/v2.1.0...v2.2.0) (2015-10-28)
 
