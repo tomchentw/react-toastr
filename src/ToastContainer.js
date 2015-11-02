@@ -1,19 +1,12 @@
-import {
-  default as React,
-  PropTypes,
-} from "react";
+"use strict";
+var React = require("react");
+var update = require('react-addons-update');
 
-import {
-  default as update,
-} from "react-addons-update";
-
-import {
-  default as ToastMessage,
-} from "./ToastMessage";
+var ToastMessage = React.createFactory(require("./ToastMessage"));
 
 function noop () {}
 
-export default React.createClass({
+module.exports = React.createClass({
   displayName: "ToastContainer",
 
   error (message, title, optionsOverride) {
@@ -49,7 +42,7 @@ export default React.createClass({
         warning: "warning",
       },
       id: "toast-container",
-      toastMessageFactory: React.createFactory(ToastMessage),
+      toastMessageFactory: ToastMessage,
       preventDuplicates: false,
       newestOnTop: true,
       onClick: noop,
@@ -79,14 +72,14 @@ export default React.createClass({
     var toastId = key;
     var newToast = update(optionsOverride || {}, {
       $merge: {
-        toastId,
-        toastType: type,
+        type,
         title,
         message,
+        toastId,
         key,
         ref: `toasts__${ key }`,
-        onClick: this._handle_toast_on_click,
-        onRemove: this._handle_toast_remove,
+        handleOnClick: this._handle_toast_on_click,
+        handleRemove: this._handle_toast_remove,
       },
     });
     var toastOperation = {};

@@ -1,6 +1,4 @@
-import {
-  default as jQuery,
-} from "jquery";
+"use strict";
 
 import {
   default as ReactDOM,
@@ -13,7 +11,7 @@ function call_show_method ($node, props) {
   });
 }
 
-export default {
+module.exports = {
   getDefaultProps () {
     return {
       style: {
@@ -82,7 +80,9 @@ export default {
   },
 
   _get_$_node () {
+    /* eslint-disable no-undef */
     return jQuery(ReactDOM.findDOMNode(this));
+    /* eslint-enable no-undef */
   },
 
   _set_interval_id (intervalId) {

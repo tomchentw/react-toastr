@@ -1,27 +1,12 @@
-import {
-  default as CSSCore,
-} from "fbjs/lib/CSSCore";
+"use strict";
 
-import {
-  default as ReactTransitionEvents,
-} from "react/lib/ReactTransitionEvents";
+var CSSCore = require("fbjs/lib/CSSCore");
+var ReactTransitionEvents = require("react/lib/ReactTransitionEvents");
+var ReactDOM = require('react-dom');
+var TICK = 17;
+var {toString} = Object.prototype;
 
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as update,
-} from "react-addons-update";
-
-import {
-  default as cx,
-} from "classnames";
-
-const TICK = 17;
-const {toString} = Object.prototype;
-
-export default {
+module.exports = {
   getDefaultProps() {
     return {
       transition: null,//some examples defined in index.scss (scale, fadeInOut, rotate)
@@ -39,10 +24,10 @@ export default {
   },
 
   componentDidMount() {
-    const {props} = this;
+    var {props} = this;
     this._show(props);
 
-    const onHideComplete = () => {
+    var onHideComplete = () => {
       if (this.isHiding) {
         this._set_is_hiding(false);
         ReactTransitionEvents.removeEndEventListener(node, onHideComplete);
@@ -50,7 +35,7 @@ export default {
       }
     };
 
-    const node = ReactDOM.findDOMNode(this);
+    var node = ReactDOM.findDOMNode(this);
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
 
     if (0 < props.timeOut) {
@@ -65,12 +50,12 @@ export default {
     }
   },
   _set_transition(hide) {
-    const animationType = hide ? "leave" : "enter";
-    const node = ReactDOM.findDOMNode(this);
-    const className = this.props.transition + "-" + animationType;
-    const activeClassName = className + "-active";
+    var animationType = hide ? "leave" : "enter";
+    var node = ReactDOM.findDOMNode(this);
+    var className = this.props.transition + "-" + animationType;
+    var activeClassName = className + "-active";
 
-    const endListener = function (e) {
+    var endListener = function (e) {
       if (e && e.target !== node) {
         return;
       }
@@ -90,19 +75,19 @@ export default {
   },
 
   _clear_transition(hide) {
-    const node = ReactDOM.findDOMNode(this);
-    const animationType = hide ? "leave" : "enter";
-    const className = this.props.transition + "-" + animationType;
-    const activeClassName = className + "-active";
+    var node = ReactDOM.findDOMNode(this);
+    var animationType = hide ? "leave" : "enter";
+    var className = this.props.transition + "-" + animationType;
+    var activeClassName = className + "-active";
 
     CSSCore.removeClass(node, className);
     CSSCore.removeClass(node, activeClassName);
   },
 
   _set_animation(hide) {
-    const node = ReactDOM.findDOMNode(this);
-    const animations = this._get_animation_classes(hide);
-    const endListener = function (e) {
+    var node = ReactDOM.findDOMNode(this);
+    var animations = this._get_animation_classes(hide);
+    var endListener = function (e) {
       if (e && e.target !== node) {
         return;
       }
@@ -122,8 +107,8 @@ export default {
   },
 
   _get_animation_classes(hide) {
-    const {props} = this;
-    const animations = hide ? props.hideAnimation : props.showAnimation;
+    var {props} = this;
+    var animations = hide ? props.hideAnimation : props.showAnimation;
     if ("[object Array]" === toString.call(animations)) {
       return animations;
     }
@@ -133,7 +118,7 @@ export default {
   },
 
   _clear_animation(hide) {
-    const animations = this._get_animation_classes(hide);
+    var animations = this._get_animation_classes(hide);
     animations.forEach((animation) => {
       CSSCore.removeClass(ReactDOM.findDOMNode(this), animation);
     });
@@ -158,7 +143,7 @@ export default {
   },
 
   _show() {
-    const {props} = this;
+    var {props} = this;
     if (props.transition) {
       this._set_transition();
     } else if (props.showAnimation) {
@@ -172,7 +157,7 @@ export default {
     if (this.isHiding) {
       this._set_is_hiding(false);
 
-      const {props} = this;
+      var {props} = this;
       if (props.hideAnimation) {
         this._clear_animation(true);
       }
@@ -183,7 +168,7 @@ export default {
   },
 
   handleMouseLeave() {
-    const {props} = this;
+    var {props} = this;
     if (!this.isHiding &&
       (0 < props.timeOut || 0 < props.extendedTimeOut)) {
       this._set_interval_id(
@@ -193,7 +178,7 @@ export default {
   },
 
   hideToast(override) {
-    const {props} = this;
+    var {props} = this;
     if (this.isHiding || (null == this.intervalId && !override)) {
       return;
     }
