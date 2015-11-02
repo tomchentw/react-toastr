@@ -1,3 +1,13 @@
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/tomchentw/react-toastr/compare/v2.2.1...v2.2.2) (2015-11-02)
+
+
+### Bug Fixes
+
+* **src:** Revert breaking changes commits for v2.2.1. Closes #42 ([988112e](https://github.com/tomchentw/react-toastr/commit/988112e)), closes [#42](https://github.com/tomchentw/react-toastr/issues/42)
+
+
+
 <a name="2.2.1"></a>
 ## _UNPLUBISHED FROM NPM_ [2.2.1](https://github.com/tomchentw/react-toastr/compare/v2.2.0...v2.2.1) (2015-11-02)
 
