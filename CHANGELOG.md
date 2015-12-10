@@ -1,3 +1,13 @@
+<a name="2.2.3"></a>
+## [2.2.3](https://github.com/tomchentw/react-toastr/compare/v2.2.2...v2.2.3) (2015-12-10)
+
+
+### Features
+
+* **ToastContainer:** add support for optionsOverride.handleOnClick ([73dc376](https://github.com/tomchentw/react-toastr/commit/73dc376)), closes [#43](https://github.com/tomchentw/react-toastr/issues/43)
+
+
+
 <a name="2.2.2"></a>
 ## [2.2.2](https://github.com/tomchentw/react-toastr/compare/v2.2.1...v2.2.2) (2015-11-02)
 
