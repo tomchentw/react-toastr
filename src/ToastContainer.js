@@ -61,7 +61,7 @@ module.exports = React.createClass({
     return this._render(this.props, this.state);
   },
 
-  _notify (type, message, title, optionsOverride) {
+  _notify (type, message, title, optionsOverride = {}) {
     var {props, state} = this;
     if (props.preventDuplicates) {
       if (state.previousMessage === message) {
@@ -70,7 +70,7 @@ module.exports = React.createClass({
     }
     var key = state.toastId++;
     var toastId = key;
-    var newToast = update(optionsOverride || {}, {
+    var newToast = update(optionsOverride, {
       $merge: {
         type,
         title,
