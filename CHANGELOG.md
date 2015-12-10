@@ -1,3 +1,13 @@
+<a name="2.2.4"></a>
+## [2.2.4](https://github.com/tomchentw/react-toastr/compare/v2.2.3...v2.2.4) (2015-12-10)
+
+
+### Bug Fixes
+
+* **ToastContainer:** add default value for optionsOverride ([14f953a](https://github.com/tomchentw/react-toastr/commit/14f953a))
+
+
+
 <a name="2.2.3"></a>
 ## [2.2.3](https://github.com/tomchentw/react-toastr/compare/v2.2.2...v2.2.3) (2015-12-10)
 
