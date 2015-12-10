@@ -78,7 +78,12 @@ module.exports = React.createClass({
         toastId,
         key,
         ref: `toasts__${ key }`,
-        handleOnClick: this._handle_toast_on_click,
+        handleOnClick: (e) => {
+          if ("function" === typeof optionsOverride.handleOnClick) {
+            optionsOverride.handleOnClick();
+          }
+          return this._handle_toast_on_click(e);
+        },
         handleRemove: this._handle_toast_remove,
       },
     });
