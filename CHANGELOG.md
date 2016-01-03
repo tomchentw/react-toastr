@@ -1,3 +1,13 @@
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/tomchentw/react-toastr/compare/v2.2.4...v2.3.0) (2016-01-03)
+
+
+### Features
+
+* **package.json:** bump fbjs to ^0.6.0 ([ae96bee](https://github.com/tomchentw/react-toastr/commit/ae96bee))
+
+
+
 <a name="2.2.4"></a>
 ## [2.2.4](https://github.com/tomchentw/react-toastr/compare/v2.2.3...v2.2.4) (2015-12-10)
 
