@@ -91,8 +91,9 @@ module.exports = React.createClass({
     toastOperation[`${ props.newestOnTop ? "$unshift" : "$push" }`] = [newToast];
 
     var newState = update(state, {
-      toasts: toastOperation,
-      previousMessage: { $set: message },
+      //set mode to 'single' only allow one message
+      toasts: optionsOverride.mode=='single'?{$set:newToast}:toastOperation,
+      previousMessage: { $set: message }
     });
     this.setState(newState);
   },
