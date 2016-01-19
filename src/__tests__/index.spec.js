@@ -7,16 +7,16 @@ import {
   ToastMessage,
 } from "../index";
 
-describe(`index`, () => {
-  it(`should be exported as ES2015 module`, () => {
+describe(`index`, function describe() {
+  it(`should be exported as ES2015 module`, function it() {
     expect(ToastContainer).toExist();
     expect(ToastMessage).toExist();
   });
 
-  it(`should be exported as CommonJS module`, () => {
-    const {ToastContainer, ToastMessage} = require("../../lib/index");
+  it(`should be exported as CommonJS module`, function it() {
+    const ReactToastr = require(`../../lib/index`);
 
-    expect(ToastContainer).toExist();
-    expect(ToastMessage).toExist();
+    expect(ReactToastr.ToastContainer).toExist();
+    expect(ReactToastr.ToastMessage).toExist();
   });
 });

@@ -1,104 +1,115 @@
-"use strict";
-var React = require("react");
-var update = require('react-addons-update');
-var cx = require("classnames");
+import {
+  default as React,
+} from "react";
 
-function noop () {}
+import {
+  default as update,
+} from "react-addons-update";
 
-var ToastMessageSpec = {
-  displayName: "ToastMessage",
+import {
+  default as classNames,
+} from "classnames";
 
-  getDefaultProps () {
-    var iconClassNames = {
-      error: "toast-error",
-      info: "toast-info",
-      success: "toast-success",
-      warning: "toast-warning",
+import {
+  default as animationMixin,
+} from "./animationMixin";
+
+import {
+  default as jQueryMixin,
+} from "./jQueryMixin";
+
+function noop() {}
+
+const ToastMessageSpec = {
+  displayName: `ToastMessage`,
+
+  getDefaultProps() {
+    const iconClassNames = {
+      error: `toast-error`,
+      info: `toast-info`,
+      success: `toast-success`,
+      warning: `toast-warning`,
     };
 
     return {
-      className: "toast",
-      iconClassNames: iconClassNames,
-      titleClassName: "toast-title",
-      messageClassName: "toast-message",
+      className: `toast`,
+      iconClassNames,
+      titleClassName: `toast-title`,
+      messageClassName: `toast-message`,
       tapToDismiss: true,
       closeButton: false,
     };
   },
 
-  handleOnClick (event) {
-    var {props} = this;
-    props.handleOnClick(event);
-    if (props.tapToDismiss) {
+  handleOnClick(event) {
+    this.props.handleOnClick(event);
+    if (this.props.tapToDismiss) {
       this.hideToast(true);
     }
   },
 
-  _handle_close_button_click (event) {
+  _handle_close_button_click(event) {
     event.stopPropagation();
     this.hideToast(true);
   },
 
-  _handle_remove () {
-    var {props} = this;
-    props.handleRemove(props.toastId);
+  _handle_remove() {
+    this.props.handleRemove(this.props.toastId);
   },
 
-  _render_close_button (props) {
-    return props.closeButton ? (
-      <button className="toast-close-button" role="button"
-              onClick={this._handle_close_button_click}
-              dangerouslySetInnerHTML={{__html: "&times;"}}
-              />
+  _render_close_button() {
+    return this.props.closeButton ? (
+      <button
+        className="toast-close-button" role="button"
+        onClick={this._handle_close_button_click}
+        dangerouslySetInnerHTML={{ __html: `&times;` }}
+      />
     ) : false;
   },
 
-  _render_title_element (props) {
-    return props.title ? (
-      <div className={props.titleClassName}>
-        {props.title}
+  _render_title_element() {
+    return this.props.title ? (
+      <div className={this.props.titleClassName}>
+        {this.props.title}
       </div>
     ) : false;
   },
 
-  _render_message_element (props) {
-    return props.message ? (
-      <div className={props.messageClassName}>
-        {props.message}
+  _render_message_element() {
+    return this.props.message ? (
+      <div className={this.props.messageClassName}>
+        {this.props.message}
       </div>
     ) : false;
   },
 
-  render () {
-    var {props} = this;
-    var iconClassName = props.iconClassName || props.iconClassNames[props.type];
-
-    var toastClass = {};
-    toastClass[props.className] = true;
-    toastClass[iconClassName] = true;
+  render() {
+    const iconClassName = this.props.iconClassName || this.props.iconClassNames[this.props.type];
 
     return (
-      <div className={cx(toastClass)} style={props.style || {}}
-            onClick={this.handleOnClick}
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}>
-        {this._render_close_button(props)}
-        {this._render_title_element(props)}
-        {this._render_message_element(props)}
+      <div
+        className={classNames(this.props.className, iconClassName)}
+        style={this.props.style}
+        onClick={this.handleOnClick}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
+        {this._render_close_button()}
+        {this._render_title_element()}
+        {this._render_message_element()}
       </div>
     );
   },
 };
 
-
-var animation = React.createClass(update(ToastMessageSpec, {
-  displayName: { $set: "ToastMessage.animation" },
-  mixins: { $set: [require("./animationMixin")] },
+export const animation = React.createClass(update(ToastMessageSpec, {
+  displayName: { $set: `ToastMessage.animation` },
+  mixins: { $set: [animationMixin] },
 }));
 
-var jQuery = React.createClass(update(ToastMessageSpec, {
-  displayName: { $set: "ToastMessage.jQuery" },
-  mixins: { $set: [require("./jQueryMixin")] },
+export const jQuery = React.createClass(update(ToastMessageSpec, {
+  displayName: { $set: `ToastMessage.jQuery` },
+  mixins: { $set: [jQueryMixin] },
 }));
 
 /*
@@ -108,6 +119,9 @@ ToastMessageSpec.handleMouseEnter = noop;
 ToastMessageSpec.handleMouseLeave = noop;
 ToastMessageSpec.hideToast = noop;
 
-var ToastMessage = module.exports = React.createClass(ToastMessageSpec);
+const ToastMessage = React.createClass(ToastMessageSpec);
+
 ToastMessage.animation = animation;
 ToastMessage.jQuery = jQuery;
+
+export default ToastMessage;

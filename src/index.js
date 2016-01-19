@@ -1,3 +1,12 @@
-"use strict";
-exports.ToastContainer = require("./ToastContainer");
-exports.ToastMessage = require("./ToastMessage");
+import {
+  default as ToastContainer,
+} from "./ToastContainer";
+
+import {
+  default as ToastMessage,
+} from "./ToastMessage";
+
+export {
+  ToastContainer,
+  ToastMessage,
+};

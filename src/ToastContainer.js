@@ -1,76 +1,79 @@
-"use strict";
-var React = require("react");
-var update = require('react-addons-update');
+import {
+  default as React,
+  Component,
+} from "react";
 
-var ToastMessage = React.createFactory(require("./ToastMessage"));
+import {
+  default as update,
+} from "react-addons-update";
 
-function noop () {}
+import {
+  default as ToastMessage,
+} from "./ToastMessage";
 
-module.exports = React.createClass({
-  displayName: "ToastContainer",
+export default class ToastContainer extends Component {
 
-  error (message, title, optionsOverride) {
+  static defaultProps = {
+    toastType: {
+      error: `error`,
+      info: `info`,
+      success: `success`,
+      warning: `warning`,
+    },
+    id: `toast-container`,
+    toastMessageFactory: React.createFactory(ToastMessage),
+    preventDuplicates: false,
+    newestOnTop: true,
+    onClick() {},
+  };
+
+  error(message, title, optionsOverride) {
     this._notify(this.props.toastType.error, message, title, optionsOverride);
-  },
+  }
 
-  info (message, title, optionsOverride) {
+  info(message, title, optionsOverride) {
     this._notify(this.props.toastType.info, message, title, optionsOverride);
-  },
+  }
 
-  success (message, title, optionsOverride) {
+  success(message, title, optionsOverride) {
     this._notify(this.props.toastType.success, message, title, optionsOverride);
-  },
+  }
 
-  warning (message, title, optionsOverride) {
+  warning(message, title, optionsOverride) {
     this._notify(this.props.toastType.warning, message, title, optionsOverride);
-  },
+  }
 
-  clear () {
-    var {refs} = this,
-        key;
-    for (key in refs) {
-      refs[key].hideToast(false);
-    }
-  },
+  clear() {
+    Object.keys(this.refs).forEach(key => {
+      this.refs[key].hideToast(false);
+    });
+  }
 
-  getDefaultProps () {
-    return {
-      toastType: {
-        error: "error",
-        info: "info",
-        success: "success",
-        warning: "warning",
-      },
-      id: "toast-container",
-      toastMessageFactory: ToastMessage,
-      preventDuplicates: false,
-      newestOnTop: true,
-      onClick: noop,
-    };
-  },
+  state = {
+    toasts: [],
+    toastId: 0,
+    previousMessage: null,
+  };
 
-  getInitialState () {
-    return {
-      toasts: [],
-      toastId: 0,
-      previousMessage: null,
-    };
-  },
+  render() {
+    return (
+      <div {...this.props} aria-live="polite" role="alert">
+        {this.state.toasts.map(toast => {
+          return this.props.toastMessageFactory(toast);
+        })}
+      </div>
+    );
+  }
 
-  render () {
-    return this._render(this.props, this.state);
-  },
-
-  _notify (type, message, title, optionsOverride = {}) {
-    var {props, state} = this;
-    if (props.preventDuplicates) {
-      if (state.previousMessage === message) {
+  _notify(type, message, title, optionsOverride = {}) {
+    if (this.props.preventDuplicates) {
+      if (this.state.previousMessage === message) {
         return;
       }
     }
-    var key = state.toastId++;
-    var toastId = key;
-    var newToast = update(optionsOverride, {
+    const key = this.state.toastId++;
+    const toastId = key;
+    const newToast = update(optionsOverride, {
       $merge: {
         type,
         title,
@@ -79,51 +82,44 @@ module.exports = React.createClass({
         key,
         ref: `toasts__${ key }`,
         handleOnClick: (e) => {
-          if ("function" === typeof optionsOverride.handleOnClick) {
+          if (`function` === typeof optionsOverride.handleOnClick) {
             optionsOverride.handleOnClick();
           }
           return this._handle_toast_on_click(e);
         },
-        handleRemove: this._handle_toast_remove,
+        handleRemove: ::this._handle_toast_remove,
       },
     });
-    var toastOperation = {};
-    toastOperation[`${ props.newestOnTop ? "$unshift" : "$push" }`] = [newToast];
+    const toastOperation = {
+      [`${ this.props.newestOnTop ? `$unshift` : `$push` }`]: [newToast],
+    };
 
-    var newState = update(state, {
+    const nextState = update(this.state, {
       toasts: toastOperation,
       previousMessage: { $set: message },
     });
-    this.setState(newState);
-  },
+    this.setState(nextState);
+  }
 
-  _handle_toast_on_click (event) {
+  _handle_toast_on_click(event) {
     this.props.onClick(event);
     if (event.defaultPrevented) {
       return;
     }
     event.preventDefault();
     event.stopPropagation();
-  },
+  }
 
-  _handle_toast_remove (toastId) {
-    var {state} = this;
-    state.toasts[`${ this.props.newestOnTop ? "reduceRight" : "reduce" }`]((found, toast, index) => {
+  _handle_toast_remove(toastId) {
+    const operationName = `${ this.props.newestOnTop ? `reduceRight` : `reduce` }`;
+    this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
         return false;
       }
-      this.setState(update(state, {
+      this.setState(update(this.state, {
         toasts: { $splice: [[index, 1]] },
       }));
       return true;
     }, false);
-  },
-
-  _render (props, state) {
-    return <div {...props} aria-live="polite" role="alert">
-      {state.toasts.map((toast) => {
-        return props.toastMessageFactory(toast);
-      })}
-    </div>;
-  },
-});
+  }
+}

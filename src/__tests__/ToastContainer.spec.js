@@ -19,55 +19,62 @@ import {
   ToastMessage,
 } from "../index";
 
-describe(`ToastContainer`, () => {
-  describe(`when component function is triggered`, () => {
-    describe(`renders a toast message`, () => {
-      it(`exists in the container`, () => {
-        const ref = TestUtils.renderIntoDocument(
-          <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
-        );
-        const dom = ReactDOM.findDOMNode(ref);
-        expect(dom.childNodes.length).toBe(0);
+describe(`ToastContainer`, function describe() {
+  let dom;
 
-        ref.success(`yeah,`, `cool`);
-        expect(dom.childNodes.length).toNotBe(0);
-      });
+  beforeEach(function beforeEach() {
+    dom = document.createElement(`div`);
+  });
 
-      it(`should be closed by clicking on it`, (done) => {
-        const ref = TestUtils.renderIntoDocument(
-          <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
-        );
-        const dom = ReactDOM.findDOMNode(ref);
+  afterEach(function afterEach() {
+    ReactDOM.unmountComponentAtNode(dom);
+  });
 
-        ref.success(`yeah,`, `cool`);
-        expect(dom.childNodes.length).toNotBe(0);
+  context(`renders a toast message`, function context() {
+    it(`exists in the container`, function it() {
+      const component = ReactDOM.render((
+        <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
+      ), dom);
+      expect(dom.firstChild.childNodes.length).toBe(0);
 
-        const toastDom = dom.childNodes[0];
-        TestUtils.Simulate.click(toastDom);
-
-        setTimeout(() => {
-          expect(dom.childNodes.length).toBe(0);
-          done();
-        }, 500);
-      });
+      component.success(`yeah,`, `cool`);
+      expect(dom.firstChild.childNodes.length).toNotBe(0);
     });
 
-    it(`renders a list of toast messages`, () => {
-      const ref = TestUtils.renderIntoDocument(
+    it(`should be closed by clicking on it`, function it(done) {
+      const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
-      );
-      ref.success(`yeah`, `cool`);
-      ref.error(`blabla`, `foobar`);
+      ), dom);
 
-      const dom = ReactDOM.findDOMNode(ref);
-      expect(dom.childNodes.length).toBe(2);
+      component.success(`yeah,`, `cool`);
+      expect(dom.firstChild.childNodes.length).toNotBe(0);
 
-      const errorDom = dom.childNodes[0];
+      const toastComp = TestUtils.findRenderedDOMComponentWithClass(component, `toast`);
+      TestUtils.Simulate.click(toastComp);
+
+      setTimeout(() => {
+        expect(dom.firstChild.childNodes.length).toBe(0);
+        done();
+      }, 500);
+    });
+  });
+
+  context(`when component function is triggered multiple times`, function context() {
+    it(`renders a list of toast messages`, function it() {
+      const component = ReactDOM.render((
+        <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
+      ), dom);
+      component.success(`yeah`, `cool`);
+      component.error(`blabla`, `foobar`);
+
+      expect(dom.firstChild.childNodes.length).toBe(2);
+
+      const errorDom = dom.firstChild.childNodes[0];
       expect(errorDom.classList.contains(`toast-error`)).toBe(true);
       expect(errorDom.childNodes[0].textContent).toBe(`foobar`);
       expect(errorDom.childNodes[1].textContent).toBe(`blabla`);
 
-      const successDom = dom.childNodes[1];
+      const successDom = dom.firstChild.childNodes[1];
       expect(successDom.classList.contains(`toast-success`)).toBe(true);
       expect(successDom.childNodes[0].textContent).toBe(`cool`);
       expect(successDom.childNodes[1].textContent).toBe(`yeah`);

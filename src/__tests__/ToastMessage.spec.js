@@ -12,10 +12,6 @@ import {
 } from "react-dom";
 
 import {
-  default as TestUtils,
-} from "react-addons-test-utils";
-
-import {
   default as $,
 } from "jquery";
 
@@ -23,27 +19,36 @@ import {
   ToastMessage,
 } from "../index";
 
-describe(`ToastMessage`, () => {
-  before(() => {
+describe(`ToastMessage`, function describe() {
+  before(function before() {
     global.jQuery = $;
   });
 
-  after(() => {
+  after(function after() {
     delete global.jQuery;
   });
 
-  describe(`auto close`, () => {
-    it(`will call handleRemove with given props`, (done) => {
+  let dom;
+
+  beforeEach(function beforeEach() {
+    dom = document.createElement(`div`);
+  });
+
+  afterEach(function afterEach() {
+    ReactDOM.unmountComponentAtNode(dom);
+  });
+
+  context(`auto close`, function context() {
+    it(`will call handleRemove with given props`, function it(done) {
       const spy = createSpy();
-      const ref = TestUtils.renderIntoDocument(
+      ReactDOM.render((
         <ToastMessage.jQuery
           timeOut={1}
           showDuration={50}
           hideDuration={50}
           handleRemove={spy}
         />
-      );
-      const dom = ReactDOM.findDOMNode(ref);
+      ), dom);
       expect(spy).toNotHaveBeenCalled();
 
       setTimeout(() => {
