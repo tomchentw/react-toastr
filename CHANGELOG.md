@@ -1,3 +1,9 @@
+<a name="2.3.1"></a>
+## [2.3.1](https://github.com/tomchentw/react-toastr/compare/v2.3.0...v2.3.1) (2016-01-19)
+
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/tomchentw/react-toastr/compare/v2.2.4...v2.3.0) (2016-01-03)
 
