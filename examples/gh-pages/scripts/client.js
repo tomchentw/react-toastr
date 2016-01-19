@@ -1,9 +1,15 @@
-import "babel-polyfill";
-import React from "react";
-import ReactDOM from "react-dom";
+import {
+  default as React,
+} from "react";
 
-import ReactRoot from "./ReactRoot";
+import {
+  default as ReactDOM,
+} from "react-dom";
 
-require("../styles/index.scss");
+import {
+  default as ReactRoot,
+} from "./ReactRoot";
 
-ReactDOM.render(<ReactRoot />, document.getElementById("react-container"));
+require(`../styles/index.scss`);
+
+ReactDOM.render(<ReactRoot />, document.getElementById(`react-container`));

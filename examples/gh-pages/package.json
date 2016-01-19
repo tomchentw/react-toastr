@@ -4,22 +4,26 @@
   "scripts": {
     "clean": "rimraf ../../public/index.html ../../public/assets",
     "prebuild": "npm run clean",
-    "build": "NODE_ENV=production reacthtmlpack buildToDir ../../public './views/*.html.js'",
+    "build": "cross-env NODE_ENV=production reacthtmlpack buildToDir ../../public './views/*.html.js'",
     "predev": "npm run clean",
-    "dev": "reacthtmlpack buildToDir ../../public './views/*.html.js'",
+    "dev": "cross-env NODE_ENV=development reacthtmlpack buildToDir ../../public './views/*.html.js'",
     "prestart": "npm run clean",
-    "start": "reacthtmlpack devServer ./Client.webpackConfig.js ../../public './views/*.html.js'"
+    "start": "cross-env NODE_ENV=development reacthtmlpack devServer ./Client.webpackConfig.js ../../public './views/*.html.js'"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
     "babel-loader": "^6.2.0",
+    "babel-plugin-react-transform": "^2.0.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^0.9.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.4",
     "node-sass": "^3.3.3",
     "raw-loader": "^0.5.1",
-    "react-hot-loader": "^1.3.0",
+    "react-transform-catch-errors": "^1.0.1",
+    "react-transform-hmr": "^1.0.1",
     "reacthtmlpack": "^1.0.0",
+    "redbox-react": "^1.2.0",
     "rimraf": "^2.4.3",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.13.0",
@@ -31,10 +35,12 @@
     "babel-polyfill": "^6.3.14",
     "bootstrap-sass": "^3.3.5",
     "classnames": "^2.1.5",
+    "fbjs": "^0.6.1",
     "node-libs-browser": "^0.5.3",
     "prismjs": "git+https://github.com/PrismJS/prism.git#gh-pages",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-toastr": "^2.3.0",
     "toastr": "^2.1.2"
   }
 }

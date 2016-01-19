@@ -1,84 +1,92 @@
-"use strict";
+import {
+  resolve as resolvePath,
+} from "path";
 
-var Path = require("path");
-var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+import {
+  default as webpack,
+} from "webpack";
 
-var HOST;
-var JSX_LOADER_LIST;
-var FILENAME_FORMAT;
-var PRODUCTION_PLUGINS;
+import {
+  default as ExtractTextPlugin,
+} from "extract-text-webpack-plugin";
 
-if (process.env.DOCKER_ENV) {
-  HOST = "0.0.0.0";
-} else {
-  HOST = "localhost";
-}
+let FILENAME_FORMAT;
+let BABEL_PLUGINS;
+let PRODUCTION_PLUGINS;
 
-if ("production" === process.env.NODE_ENV) {
-  JSX_LOADER_LIST = ["babel"];
-  FILENAME_FORMAT = "[name]-[chunkhash].js";
+if (process.env.NODE_ENV === `production`) {
+  FILENAME_FORMAT = `[name]-[chunkhash].js`;
+  BABEL_PLUGINS = [];
   PRODUCTION_PLUGINS = [
     // Same effect as webpack -p
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
   ];
 } else {
-  // For webpack-dev-server and HMR!!!
-  JSX_LOADER_LIST = ["react-hot", "babel"];
   // When HMR is enabled, chunkhash cannot be used.
-  FILENAME_FORMAT = "[name].js";
+  FILENAME_FORMAT = `[name].js`;
+  BABEL_PLUGINS = [
+    [
+      `react-transform`,
+      {
+        transforms: [
+          {
+            transform: `react-transform-hmr`,
+            imports: [`react`],
+            locals: [`module`],
+          }, {
+            transform: `react-transform-catch-errors`,
+            imports: [`react`, `redbox-react`],
+          },
+        ],
+      },
+    ],
+  ];
   PRODUCTION_PLUGINS = [];
 }
 
-module.exports = {
+export default {
   devServer: {
     port: 8080,
-    host: HOST,
-    contentBase: Path.resolve(__dirname, "../../public"),
-    publicPath: "/assets/",
+    host: `localhost`,
+    contentBase: resolvePath(__dirname, `../../public`),
+    publicPath: `/assets/`,
     hot: true,
     stats: { colors: true },
   },
-  context: __dirname,
   output: {
-    path: Path.resolve(__dirname, "../../public/assets"),
-    pathinfo: "production" !== process.env.NODE_ENV,
-    publicPath: "assets/",
+    path: resolvePath(__dirname, `../../public/assets`),
+    pathinfo: process.env.NODE_ENV !== `production`,
+    publicPath: `assets/`,
     filename: FILENAME_FORMAT,
-  },
-  resolve: {
-    alias: {
-      "react-dom": Path.resolve(__dirname, "./node_modules/react-dom"),
-      "react": Path.resolve(__dirname, "./node_modules/react")
-    },
-  },
-  resolveLoader: {
-    root: Path.resolve(__dirname, "./node_modules")
   },
   module: {
     loaders: [
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style", "css!sass", {
-          publicPath: ""
-        }),
+        test: /\.jpg$/,
+        loader: `file`,
       },
       {
-        test: /\.jpg$/,
-        loader: "file",
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(`style`, `css!sass`, {
+          publicPath: ``,
+        }),
       },
       {
         test: /\.js(x?)$/,
         exclude: /node_modules/,
-        loaders: JSX_LOADER_LIST,
+        loader: `babel`,
+        query: {
+          plugins: BABEL_PLUGINS,
+        },
       },
     ],
   },
   plugins: [
-    new webpack.EnvironmentPlugin("NODE_ENV"),
-    new ExtractTextPlugin("[name]-[chunkhash].css", {
-      disable: "production" !== process.env.NODE_ENV
+    new webpack.EnvironmentPlugin(`NODE_ENV`),
+    new ExtractTextPlugin(`[name]-[chunkhash].css`, {
+      disable: process.env.NODE_ENV !== `production`,
     }),
-  ].concat(PRODUCTION_PLUGINS),
+    ...PRODUCTION_PLUGINS,
+  ],
 };
