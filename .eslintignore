@@ -1,4 +1,3 @@
-examples/**
+**/node_modules/**
 lib/**
 public/**
-**/__tests__/**
