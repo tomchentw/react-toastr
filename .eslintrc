@@ -10,7 +10,7 @@
     "arrowFunctions": true,
     "classes": true,
     "modules": true,
-    "jsx": true
+    "jsx": true,
   },
   "plugins": [
     "react"
