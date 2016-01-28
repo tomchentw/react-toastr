@@ -1,3 +1,14 @@
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/tomchentw/react-toastr/compare/v2.3.1...v2.4.0) (2016-01-28)
+
+
+### Features
+
+* **package.json:** bump dependencies ([d74c217](https://github.com/tomchentw/react-toastr/commit/d74c217))
+* **ToastMessage:** replace fbjs dependency with element-class ([97c171b](https://github.com/tomchentw/react-toastr/commit/97c171b))
+
+
+
 <a name="2.3.1"></a>
 ## [2.3.1](https://github.com/tomchentw/react-toastr/compare/v2.3.0...v2.3.1) (2016-01-19)
 
