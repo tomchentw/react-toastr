@@ -37,7 +37,7 @@ export default class ReactRoot extends Component {
 
         <div className="btn-container">
           <button className="primary" onClick={::this.addAlert}>
-            Hello {this.props.name}
+            Hello
           </button>
           <button className="primary" onClick={::this.clearAlert}>
             CLEAR
