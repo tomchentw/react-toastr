@@ -64,7 +64,6 @@
     "eslint-config-airbnb": "^4.0.0",
     "eslint-plugin-react": "^3.16.1",
     "expect": "^1.13.4",
-    "fbjs": "^0.6.1",
     "isparta": "^4.0.0",
     "istanbul": "^0.4.2",
     "jquery": "^2.2.0",
@@ -76,11 +75,11 @@
     "tomchentw-npm-dev": "^3.2.0"
   },
   "peerDependencies": {
-    "fbjs": "^0.6.1",
     "react": "^0.14.6"
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "element-class": "^0.2.2",
     "react-addons-update": "^0.14.6",
     "react-dom": "^0.14.6"
   }

@@ -1,14 +1,14 @@
 import {
-  default as CSSCore,
-} from "fbjs/lib/CSSCore";
-
-import {
   default as ReactTransitionEvents,
 } from "react/lib/ReactTransitionEvents";
 
 import {
   default as ReactDOM,
 } from "react-dom";
+
+import {
+  default as elementClass,
+} from "element-class";
 
 const TICK = 17;
 const { toString } = Object.prototype;
@@ -67,15 +67,16 @@ export default {
         return;
       }
 
-      CSSCore.removeClass(node, className);
-      CSSCore.removeClass(node, activeClassName);
+      const classList = elementClass(node);
+      classList.remove(className);
+      classList.remove(activeClassName);
 
       ReactTransitionEvents.removeEndEventListener(node, endListener);
     };
 
     ReactTransitionEvents.addEndEventListener(node, endListener);
 
-    CSSCore.addClass(node, className);
+    elementClass(node).add(className);
 
     // Need to do this to actually trigger a transition.
     this._queue_class(activeClassName);
@@ -87,8 +88,9 @@ export default {
     const className = `${ this.props.transition }-${ animationType }`;
     const activeClassName = `${ className }-active`;
 
-    CSSCore.removeClass(node, className);
-    CSSCore.removeClass(node, activeClassName);
+    const classList = elementClass(node);
+    classList.remove(className);
+    classList.remove(activeClassName);
   },
 
   _set_animation(hide) {
@@ -99,18 +101,18 @@ export default {
         return;
       }
 
-      animations.forEach(anim => {
-        CSSCore.removeClass(node, anim);
-      });
+      animations.forEach(anim =>
+        elementClass(node).remove(anim)
+      );
 
       ReactTransitionEvents.removeEndEventListener(node, endListener);
     };
 
     ReactTransitionEvents.addEndEventListener(node, endListener);
 
-    animations.forEach(anim => {
-      CSSCore.addClass(node, anim);
-    });
+    animations.forEach(anim =>
+      elementClass(node).add(anim)
+    );
   },
 
   _get_animation_classes(hide) {
@@ -123,10 +125,11 @@ export default {
   },
 
   _clear_animation(hide) {
+    const node = ReactDOM.findDOMNode(this);
     const animations = this._get_animation_classes(hide);
-    animations.forEach(animation => {
-      CSSCore.removeClass(ReactDOM.findDOMNode(this), animation);
-    });
+    animations.forEach(animation =>
+      elementClass(node).remove(animation)
+    );
   },
 
   _queue_class(className) {
@@ -139,8 +142,9 @@ export default {
 
   _flush_class_name_queue() {
     if (this._is_mounted) {
-      this.classNameQueue.forEach(
-        CSSCore.addClass.bind(CSSCore, ReactDOM.findDOMNode(this))
+      const node = ReactDOM.findDOMNode(this);
+      this.classNameQueue.forEach(className =>
+        elementClass(node).add(className)
       );
     }
     this.classNameQueue.length = 0;
