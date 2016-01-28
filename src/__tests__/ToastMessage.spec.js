@@ -1,3 +1,5 @@
+/* eslint-disable prefer-arrow-callback */
+
 import {
   default as expect,
   createSpy,
@@ -19,7 +21,7 @@ import {
   ToastMessage,
 } from "../index";
 
-describe(`ToastMessage`, function describe() {
+describe(`ToastMessage`, function describeToastMessage() {
   before(function before() {
     global.jQuery = $;
   });

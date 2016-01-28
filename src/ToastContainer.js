@@ -1,6 +1,7 @@
 import {
   default as React,
   Component,
+  PropTypes,
 } from "react";
 
 import {
@@ -12,6 +13,20 @@ import {
 } from "./ToastMessage";
 
 export default class ToastContainer extends Component {
+
+  static propTypes = {
+    toastType: PropTypes.shape({
+      error: PropTypes.string,
+      info: PropTypes.string,
+      success: PropTypes.string,
+      warning: PropTypes.string,
+    }).isRequired,
+    id: PropTypes.string.isRequired,
+    toastMessageFactory: PropTypes.func.isRequired,
+    preventDuplicates: PropTypes.bool.isRequired,
+    newestOnTop: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+  };
 
   static defaultProps = {
     toastType: {
@@ -25,6 +40,12 @@ export default class ToastContainer extends Component {
     preventDuplicates: false,
     newestOnTop: true,
     onClick() {},
+  };
+
+  state = {
+    toasts: [],
+    toastId: 0,
+    previousMessage: null,
   };
 
   error(message, title, optionsOverride) {
@@ -47,22 +68,6 @@ export default class ToastContainer extends Component {
     Object.keys(this.refs).forEach(key => {
       this.refs[key].hideToast(false);
     });
-  }
-
-  state = {
-    toasts: [],
-    toastId: 0,
-    previousMessage: null,
-  };
-
-  render() {
-    return (
-      <div {...this.props} aria-live="polite" role="alert">
-        {this.state.toasts.map(toast => {
-          return this.props.toastMessageFactory(toast);
-        })}
-      </div>
-    );
   }
 
   _notify(type, message, title, optionsOverride = {}) {
@@ -121,5 +126,13 @@ export default class ToastContainer extends Component {
       }));
       return true;
     }, false);
+  }
+
+  render() {
+    return (
+      <div {...this.props} aria-live="polite" role="alert">
+        {this.state.toasts.map(toast => this.props.toastMessageFactory(toast))}
+      </div>
+    );
   }
 }

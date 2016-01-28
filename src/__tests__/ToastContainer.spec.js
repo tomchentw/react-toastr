@@ -1,3 +1,5 @@
+/* eslint-disable prefer-arrow-callback */
+
 import {
   default as expect,
 } from "expect";
@@ -19,7 +21,7 @@ import {
   ToastMessage,
 } from "../index";
 
-describe(`ToastContainer`, function describe() {
+describe(`ToastContainer`, function describeToastContainer() {
   let dom;
 
   beforeEach(function beforeEach() {
@@ -30,7 +32,7 @@ describe(`ToastContainer`, function describe() {
     ReactDOM.unmountComponentAtNode(dom);
   });
 
-  context(`renders a toast message`, function context() {
+  context(`renders a toast message`, function contextRendersAToastMessage() {
     it(`exists in the container`, function it() {
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
@@ -59,7 +61,7 @@ describe(`ToastContainer`, function describe() {
     });
   });
 
-  context(`when component function is triggered multiple times`, function context() {
+  context(`when component function is triggered multiple times`, function contextWhenComponent() {
     it(`renders a list of toast messages`, function it() {
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
