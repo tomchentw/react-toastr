@@ -1,3 +1,13 @@
+<a name="2.6.0"></a>
+# [2.6.0](https://github.com/tomchentw/react-toastr/compare/v2.4.0...v2.6.0) (2016-04-26)
+
+
+### Features
+
+* **package.json:** update to react@^15.0.0 ([6d7e8a8](https://github.com/tomchentw/react-toastr/commit/6d7e8a8))
+
+
+
 <a name="2.4.0"></a>
 # [2.4.0](https://github.com/tomchentw/react-toastr/compare/v2.3.1...v2.4.0) (2016-01-28)
 
