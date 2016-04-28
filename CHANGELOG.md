@@ -1,3 +1,13 @@
+<a name="2.6.1"></a>
+## [2.6.1](https://github.com/tomchentw/react-toastr/compare/v2.6.0...v2.6.1) (2016-04-28)
+
+
+### Bug Fixes
+
+* **package.json:** make react and react-dom support both @^0.14.0 and @^15.0.0 ([394ef07](https://github.com/tomchentw/react-toastr/commit/394ef07))
+
+
+
 <a name="2.6.0"></a>
 # (Unpublished) [2.6.0](https://github.com/tomchentw/react-toastr/compare/v2.4.0...v2.6.0) (2016-04-26)
 
