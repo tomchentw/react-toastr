@@ -1,6 +1,9 @@
 <a name="2.6.0"></a>
-# [2.6.0](https://github.com/tomchentw/react-toastr/compare/v2.4.0...v2.6.0) (2016-04-26)
+# (Unpublished) [2.6.0](https://github.com/tomchentw/react-toastr/compare/v2.4.0...v2.6.0) (2016-04-26)
 
+### Unpublished due to
+
+* [#49](https://github.com/tomchentw/react-toastr/issues/49): react@^15.0.0 is required
 
 ### Features
 
