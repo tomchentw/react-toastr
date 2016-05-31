@@ -14,11 +14,4 @@ describe(`index`, function describeIndex() {
     expect(ToastContainer).toExist();
     expect(ToastMessage).toExist();
   });
-
-  it(`should be exported as CommonJS module`, function it() {
-    const ReactToastr = require(`../../lib/index`);
-
-    expect(ReactToastr.ToastContainer).toExist();
-    expect(ReactToastr.ToastMessage).toExist();
-  });
 });

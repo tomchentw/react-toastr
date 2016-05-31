@@ -85,7 +85,7 @@ export default class ToastContainer extends Component {
         message,
         toastId,
         key,
-        ref: `toasts__${ key }`,
+        ref: `toasts__${key}`,
         handleOnClick: (e) => {
           if (`function` === typeof optionsOverride.handleOnClick) {
             optionsOverride.handleOnClick();
@@ -96,7 +96,7 @@ export default class ToastContainer extends Component {
       },
     });
     const toastOperation = {
-      [`${ this.props.newestOnTop ? `$unshift` : `$push` }`]: [newToast],
+      [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [newToast],
     };
 
     const nextState = update(this.state, {
@@ -116,7 +116,7 @@ export default class ToastContainer extends Component {
   }
 
   _handle_toast_remove(toastId) {
-    const operationName = `${ this.props.newestOnTop ? `reduceRight` : `reduce` }`;
+    const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
     this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
         return false;

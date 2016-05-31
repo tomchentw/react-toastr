@@ -59,8 +59,8 @@ export default {
   _set_transition(hide) {
     const animationType = hide ? `leave` : `enter`;
     const node = ReactDOM.findDOMNode(this);
-    const className = `${ this.props.transition }-${ animationType }`;
-    const activeClassName = `${ className }-active`;
+    const className = `${this.props.transition}-${animationType}`;
+    const activeClassName = `${className}-active`;
 
     const endListener = e => {
       if (e && e.target !== node) {
@@ -85,8 +85,8 @@ export default {
   _clear_transition(hide) {
     const node = ReactDOM.findDOMNode(this);
     const animationType = hide ? `leave` : `enter`;
-    const className = `${ this.props.transition }-${ animationType }`;
-    const activeClassName = `${ className }-active`;
+    const className = `${this.props.transition}-${animationType}`;
+    const activeClassName = `${className}-active`;
 
     const classList = elementClass(node);
     classList.remove(className);
