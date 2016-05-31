@@ -1,3 +1,12 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="2.6.2"></a>
+## [2.6.2](https://github.com/tomchentw/react-toastr/compare/v2.6.1...v2.6.2) (2016-05-31)
+
+
+
 <a name="2.6.1"></a>
 ## [2.6.1](https://github.com/tomchentw/react-toastr/compare/v2.6.0...v2.6.1) (2016-04-28)
 
@@ -268,4 +277,3 @@ toastMessageFactory now only accepts the result of calling React.createFactory(R
   * add show props and hook to componentDidMount ([a90a47ce](https://github.com/tomchentw/react-toastr/commit/a90a47ceb6f4365927d6ba42acd4570b9a928c9b))
 * **lib:** compile src to lib ([44f406dd](https://github.com/tomchentw/react-toastr/commit/44f406dd0479c50d94c43cd3b8487a27a7ed5c78))
 * **package.json:** downgrade react to 0.11.0 ([4f105dc7](https://github.com/tomchentw/react-toastr/commit/4f105dc7c29599184d75a31468a32528966649b9))
-
