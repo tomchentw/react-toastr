@@ -12,7 +12,7 @@ const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
 export default class ReactRoot extends Component {
   addAlert() {
-    this.refs.container.success(`hi! Now is ${ new Date() }`, `///title\\\\\\`, {
+    this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
       closeButton: true,
     });
   }

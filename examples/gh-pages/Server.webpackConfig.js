@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === `production`) {
 
 const externals = Object.keys(
   require(`./package.json`).dependencies
-).map(key => new RegExp(`^${ key }`));
+).map(key => new RegExp(`^${key}`));
 
 export default {
   output: {
