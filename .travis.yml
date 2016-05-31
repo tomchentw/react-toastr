@@ -1,6 +1,9 @@
 language: node_js
 node_js:
 - "4"
+install:
+- npm install
+- cd examples/gh-pages && npm install && cd ../..
 script:
 - npm run test:cov
 after_script:
