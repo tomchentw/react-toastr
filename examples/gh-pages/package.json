@@ -37,8 +37,9 @@
     "classnames": "^2.2.3",
     "node-libs-browser": "^1.0.0",
     "prismjs": "git+https://github.com/PrismJS/prism.git#gh-pages",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.1",
+    "react": "^0.14.8",
+    "react-addons-update": "^0.14.8",
+    "react-dom": "^0.14.8",
     "react-toastr": "^2.5.0",
     "toastr": "^2.1.2"
   }
