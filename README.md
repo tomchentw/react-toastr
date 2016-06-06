@@ -90,6 +90,16 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 
 [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
+#### Displaying HTML
+
+To display HTML simply pass JSX instead of strings for title and message arguments:
+
+```javascript
+this.refs.container.success(
+  <strong>I am a strong title</strong>,
+  <em>I am an emphasized message</em>
+});
+```
 
 ### ToastMessage
 
