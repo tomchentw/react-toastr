@@ -1,48 +1,31 @@
-/* eslint-disable prefer-arrow-callback */
+import expect, { createSpy } from "expect";
+import React from "react";
+import ReactDOM from "react-dom";
+import $ from "jquery";
+import { ToastMessage } from "../index";
 
-import {
-  default as expect,
-  createSpy,
-} from "expect";
-
-import {
-  default as React,
-} from "react";
-
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as $,
-} from "jquery";
-
-import {
-  ToastMessage,
-} from "../index";
-
-describe(`ToastMessage`, function describeToastMessage() {
-  before(function before() {
+describe(`Toast Message`, () => {
+  beforeEach(() => {
     global.jQuery = $;
   });
 
-  after(function after() {
+  afterEach(() => {
     delete global.jQuery;
   });
 
   let dom;
 
-  beforeEach(function beforeEach() {
+  beforeEach(() => {
     dom = document.createElement(`div`);
   });
 
-  afterEach(function afterEach() {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(dom);
   });
 
-  context(`auto close`, function context() {
-    it(`will call handleRemove with given props`, function it(done) {
-      const spy = createSpy();
+  context(`Auto close`, () => {
+    it(`Will call handleRemove with given props`, (done) => {
+      const spy = expect.createSpy;
       ReactDOM.render((
         <ToastMessage.jQuery
           timeOut={1}
