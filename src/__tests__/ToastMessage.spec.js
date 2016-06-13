@@ -1,8 +1,8 @@
-import expect, {createSpy} from "expect";
+import expect, { createSpy } from "expect";
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import {ToastMessage} from "../index";
+import { ToastMessage } from "../index";
 
 describe(`Toast Message`, () => {
   beforeEach(() => {
@@ -32,13 +32,13 @@ describe(`Toast Message`, () => {
           showDuration={50}
           hideDuration={50}
           handleRemove={spy}
-          />
+        />
       ), dom);
       expect(spy).toNotHaveBeenCalled();
 
       setTimeout(() => {
-        expect(spy).toHaveBeenCalled()
-        done()
+        expect(spy).toHaveBeenCalled();
+        done();
       }, 150);
     });
   });
