@@ -36,8 +36,8 @@ export default class ToastContainer extends Component {
       warning: `warning`,
     },
     id: `toast-container`,
-    toastMessageFactory: React.createFactory(ToastMessage),
-    preventDuplicates: false,
+    toastMessageFactory: React.createFactory(ToastMessage.animation),
+    preventDuplicates: true,
     newestOnTop: true,
     onClick() {},
   };
@@ -116,6 +116,9 @@ export default class ToastContainer extends Component {
   }
 
   _handle_toast_remove(toastId) {
+    if (this.props.preventDuplicates) {
+      this.state.previousMessage = "";
+    }
     const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
     this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
