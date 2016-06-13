@@ -90,6 +90,28 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 
 [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
+##### Close Button
+
+The close button on the toastr is an optional functionality.
+
+```javascript
+  closeButton:true
+```
+##### Time Out
+
+Set the time(in ms) after which the toastr message should automatically close.
+
+```javascript
+  timeOut:5000
+```
+##### Prevent Duplicates
+
+This prevents duplicate messages from getting triggered.
+
+```javascript
+  preventDuplicates:true
+```
+
 #### Displaying HTML
 
 To display HTML simply pass JSX instead of strings for title and message arguments:
