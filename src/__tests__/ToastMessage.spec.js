@@ -1,31 +1,31 @@
-import expect, { createSpy, spyOn, isSpy } from 'expect'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import $ from 'jquery'
-import {ToastMessage} from 'components/Toaster'
+import expect, {createSpy} from "expect";
+import React from "react";
+import ReactDOM from "react-dom";
+import $ from "jquery";
+import {ToastMessage} from "../index";
 
-describe('Toast Message', () => {
+describe(`Toast Message`, () => {
   beforeEach(() => {
-    global.jQuery = $
-  })
+    global.jQuery = $;
+  });
 
   afterEach(() => {
-    delete global.jQuery
-  })
+    delete global.jQuery;
+  });
 
-  let dom
+  let dom;
 
   beforeEach(() => {
-    dom = document.createElement('div')
-  })
+    dom = document.createElement(`div`);
+  });
 
   afterEach(() => {
-    ReactDOM.unmountComponentAtNode(dom)
-  })
+    ReactDOM.unmountComponentAtNode(dom);
+  });
 
-  context('Auto close', () => {
-    it('Will call handleRemove with given props', (done) => {
-      const spy = expect.createSpy()
+  context(`Auto close`, () => {
+    it(`Will call handleRemove with given props`, (done) => {
+      const spy = expect.createSpy();
       ReactDOM.render((
         <ToastMessage.jQuery
           timeOut={1}
@@ -33,13 +33,13 @@ describe('Toast Message', () => {
           hideDuration={50}
           handleRemove={spy}
           />
-      ), dom)
-      expect(spy).toNotHaveBeenCalled()
+      ), dom);
+      expect(spy).toNotHaveBeenCalled();
 
       setTimeout(() => {
         expect(spy).toHaveBeenCalled()
         done()
-      }, 150)
-    })
-  })
-})
+      }, 150);
+    });
+  });
+});
