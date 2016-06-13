@@ -25,7 +25,7 @@ describe(`Toast Message`, () => {
 
   context(`Auto close`, () => {
     it(`Will call handleRemove with given props`, (done) => {
-      const spy = expect.createSpy();
+      const spy = expect.createSpy;
       ReactDOM.render((
         <ToastMessage.jQuery
           timeOut={1}
