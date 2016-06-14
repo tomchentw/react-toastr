@@ -12,7 +12,7 @@ import {
   default as ToastMessage,
 } from "./ToastMessage";
 
-import _ from "lodash"
+import _ from "lodash";
 
 export default class ToastContainer extends Component {
 
@@ -47,7 +47,7 @@ export default class ToastContainer extends Component {
   state = {
     toasts: [],
     toastId: 0,
-    messageList: []
+    messageList: [],
   };
 
   error(message, title, optionsOverride) {
@@ -132,7 +132,7 @@ export default class ToastContainer extends Component {
       }
       this.setState(update(this.state, {
         toasts: { $splice: [[index, 1]] },
-        messageList: { $splice: [[index, 1]] }
+        messageList: { $splice: [[index, 1]] },
       }));
       return true;
     }, false);
