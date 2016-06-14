@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.7.0"></a>
+# [2.7.0](https://github.com/tomchentw/react-toastr/compare/v2.6.2...v2.7.0) (2016-06-14)
+
+
+### Features
+
+* **ToastContainer:** add props.preventDuplicates suppory ([b8e9bd2](https://github.com/tomchentw/react-toastr/commit/b8e9bd2)), closes [#58](https://github.com/tomchentw/react-toastr/issues/58) [#56](https://github.com/tomchentw/react-toastr/issues/56) [#53](https://github.com/tomchentw/react-toastr/issues/53)
+
+
+
 <a name="2.6.2"></a>
 ## [2.6.2](https://github.com/tomchentw/react-toastr/compare/v2.6.1...v2.6.2) (2016-05-31)
 
