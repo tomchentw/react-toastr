@@ -85,6 +85,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "element-class": "^0.2.2",
+    "lodash": "^4.13.1",
     "react-addons-update": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0"
   }

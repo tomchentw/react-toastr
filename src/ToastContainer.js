@@ -12,6 +12,8 @@ import {
   default as ToastMessage,
 } from "./ToastMessage";
 
+import _ from "lodash"
+
 export default class ToastContainer extends Component {
 
   static propTypes = {
@@ -36,8 +38,8 @@ export default class ToastContainer extends Component {
       warning: `warning`,
     },
     id: `toast-container`,
-    toastMessageFactory: React.createFactory(ToastMessage),
-    preventDuplicates: false,
+    toastMessageFactory: React.createFactory(ToastMessage.animation),
+    preventDuplicates: true,
     newestOnTop: true,
     onClick() {},
   };
@@ -45,7 +47,7 @@ export default class ToastContainer extends Component {
   state = {
     toasts: [],
     toastId: 0,
-    previousMessage: null,
+    messageList: []
   };
 
   error(message, title, optionsOverride) {
@@ -72,7 +74,7 @@ export default class ToastContainer extends Component {
 
   _notify(type, message, title, optionsOverride = {}) {
     if (this.props.preventDuplicates) {
-      if (this.state.previousMessage === message) {
+      if (_.includes(this.state.messageList, message) {
         return;
       }
     }
@@ -99,9 +101,13 @@ export default class ToastContainer extends Component {
       [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [newToast],
     };
 
+    const messageOperation = {
+      [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [message],
+    };
+
     const nextState = update(this.state, {
       toasts: toastOperation,
-      previousMessage: { $set: message },
+      messageList: messageOperation,
     });
     this.setState(nextState);
   }
@@ -116,6 +122,9 @@ export default class ToastContainer extends Component {
   }
 
   _handle_toast_remove(toastId) {
+    if (this.props.preventDuplicates) {
+      this.state.previousMessage = ``;
+    }
     const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
     this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
@@ -123,6 +132,7 @@ export default class ToastContainer extends Component {
       }
       this.setState(update(this.state, {
         toasts: { $splice: [[index, 1]] },
+        messageList: { $splice: [[index, 1]] }
       }));
       return true;
     }, false);
