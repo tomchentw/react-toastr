@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://tomchentw.github.io/react-toastr",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
