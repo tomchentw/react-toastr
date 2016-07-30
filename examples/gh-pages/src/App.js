@@ -8,9 +8,15 @@ import {
   ToastMessage,
 } from "react-toastr";
 
+import "./App.css";
+
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
-export default class ReactRoot extends Component {
+export default class App extends Component {
+
+  addAlert = this.addAlert.bind(this);
+  clearAlert = this.clearAlert.bind(this);
+
   addAlert() {
     this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
       closeButton: true,
@@ -23,7 +29,7 @@ export default class ReactRoot extends Component {
 
   render() {
     return (
-      <div id="react-root">
+      <div>
         <ToastContainer
           toastMessageFactory={ToastMessageFactory}
           ref="container"
@@ -36,10 +42,10 @@ export default class ReactRoot extends Component {
         </h1>
 
         <div className="btn-container">
-          <button className="primary" onClick={::this.addAlert}>
+          <button className="primary" onClick={this.addAlert}>
             Hello
           </button>
-          <button className="primary" onClick={::this.clearAlert}>
+          <button className="primary" onClick={this.clearAlert}>
             CLEAR
           </button>
         </div>
