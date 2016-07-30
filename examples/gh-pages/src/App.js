@@ -52,7 +52,7 @@ export default class App extends Component {
 
         <div className="github-button-container">
           <iframe
-            src="http://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=watch&amp;count=true"
+            src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=watch&amp;count=true"
             allowTransparency="true"
             frameBorder="0"
             scrolling="0"
@@ -60,7 +60,7 @@ export default class App extends Component {
             height="20"
           />
           <iframe
-            src="http://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=fork&amp;count=true"
+            src="https://ghbtns.com/github-btn.html?user=tomchentw&amp;repo=react-toastr&amp;type=fork&amp;count=true"
             allowTransparency="true"
             frameBorder="0"
             scrolling="0"
