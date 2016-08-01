@@ -26,15 +26,12 @@ Please refer to [examples/gh-pages][examples/gh-pages] folder for example.
 This module requires to be bundled with [webpack][webpack]/browserify and loads `react/addons` internally.  
 You'll need to download animate.css from here [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
-Link to css/js properly..
+Link to css for styles:
+
 ```html
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<link rel="stylesheet" href="/static/dist/css/animate.css">
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
 ```
-
-WIP: release a UMD version via bower/components.
 
 Then:
 
@@ -148,7 +145,7 @@ npm install
 npm start
 ```
 
-Then open [http://localhost:8080](http://localhost:8080).
+Then it will open a new tab in your browser.
 
 
 ## Contributing
