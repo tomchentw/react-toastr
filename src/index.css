@@ -27,7 +27,7 @@ body:before {
   -ms-filter: blur(10px);
   -o-filter: blur(10px);
   filter: blur(10px);
-  background-image: url("./background.jpg");
+  background-image: url("./app/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: block;

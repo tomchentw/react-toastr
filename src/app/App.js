@@ -6,7 +6,7 @@ import {
 import {
   ToastContainer,
   ToastMessage,
-} from "react-toastr";
+} from "../lib";
 
 import "./App.css";
 

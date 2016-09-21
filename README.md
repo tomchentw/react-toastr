@@ -18,7 +18,7 @@ Static hosted [demo site][demo] on GitHub.
 
 ## Example
 
-Please refer to [examples/gh-pages][examples/gh-pages] folder for example.
+Check [src/app][src/app] folder.
 
 
 ## Usage
@@ -135,30 +135,6 @@ Directly migrated from `toastr.js` library, and can be overrided via `props` in 
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 
-## Development
-
-```shell
-git clone ...
-npm install
-cd examples/gh-pages
-npm install
-npm start
-```
-
-Then it will open a new tab in your browser.
-
-
-## Contributing
-
-[![devDependency Status][david-dm-image]][david-dm-url]
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-
 [npm-image]: https://img.shields.io/npm/v/react-toastr.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/react-toastr
 
@@ -172,12 +148,10 @@ Then it will open a new tab in your browser.
 [gemnasium-url]: https://gemnasium.com/tomchentw/react-toastr
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/tomchentw/react-toastr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-[david-dm-image]: https://img.shields.io/david/dev/tomchentw/react-toastr.svg?style=flat-square
-[david-dm-url]: https://david-dm.org/tomchentw/react-toastr#info=devDependencies
 
 
-[demo]: http://tomchentw.github.io/react-toastr/
-[examples/gh-pages]: https://github.com/tomchentw/react-toastr/tree/master/examples/gh-pages
-[webpack]: http://webpack.github.io/docs/tutorials/getting-started/
-[react-ref]: http://facebook.github.io/react/docs/more-about-refs.html
-[flux]: http://facebook.github.io/flux/docs/overview.html
+[demo]: https://tomchentw.github.io/react-toastr/
+[src/app]: https://github.com/tomchentw/react-toastr/tree/master/src/app
+[webpack]: https://webpack.github.io/docs/tutorials/getting-started/
+[react-ref]: https://facebook.github.io/react/docs/more-about-refs.html
+[flux]: https://facebook.github.io/flux/docs/overview.html

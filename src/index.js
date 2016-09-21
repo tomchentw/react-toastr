@@ -1,12 +1,9 @@
-import {
-  default as ToastContainer,
-} from "./ToastContainer";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app/App';
+import './index.css';
 
-import {
-  default as ToastMessage,
-} from "./ToastMessage";
-
-export {
-  ToastContainer,
-  ToastMessage,
-};
+ReactDOM.render(
+  <App />,
+  document.getElementById(`root`)
+);

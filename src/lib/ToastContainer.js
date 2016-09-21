@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 import {
   default as React,
   Component,
@@ -11,8 +13,6 @@ import {
 import {
   default as ToastMessage,
 } from "./ToastMessage";
-
-import _ from "lodash";
 
 export default class ToastContainer extends Component {
 
@@ -49,6 +49,8 @@ export default class ToastContainer extends Component {
     toastId: 0,
     messageList: [],
   };
+
+  _handle_toast_remove = this._handle_toast_remove.bind(this);
 
   error(message, title, optionsOverride) {
     this._notify(this.props.toastType.error, message, title, optionsOverride);
@@ -94,7 +96,7 @@ export default class ToastContainer extends Component {
           }
           return this._handle_toast_on_click(e);
         },
-        handleRemove: ::this._handle_toast_remove,
+        handleRemove: this._handle_toast_remove,
       },
     });
     const toastOperation = {

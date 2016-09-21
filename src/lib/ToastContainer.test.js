@@ -1,9 +1,3 @@
-/* eslint-disable prefer-arrow-callback */
-
-import {
-  default as expect,
-} from "expect";
-
 import {
   default as React,
 } from "react";
@@ -19,28 +13,28 @@ import {
 import {
   ToastContainer,
   ToastMessage,
-} from "../index";
+} from "./index";
 
-describe(`ToastContainer`, function describeToastContainer() {
+describe(`ToastContainer`, () => {
   let dom;
 
-  beforeEach(function beforeEach() {
+  beforeEach(() => {
     dom = document.createElement(`div`);
   });
 
-  afterEach(function afterEach() {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(dom);
   });
 
-  context(`renders a toast message`, function contextRendersAToastMessage() {
-    it(`exists in the container`, function it() {
+  describe(`renders a toast message`, () => {
+    it(`exists in the container`, () => {
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
       ), dom);
       expect(dom.firstChild.childNodes.length).toBe(0);
 
       component.success(`yeah,`, `cool`);
-      expect(dom.firstChild.childNodes.length).toNotBe(0);
+      expect(dom.firstChild.childNodes.length).not.toBe(0);
     });
 
     it(`should be closed by clicking on it`, function it(done) {
@@ -49,7 +43,7 @@ describe(`ToastContainer`, function describeToastContainer() {
       ), dom);
 
       component.success(`yeah,`, `cool`);
-      expect(dom.firstChild.childNodes.length).toNotBe(0);
+      expect(dom.firstChild.childNodes.length).not.toBe(0);
 
       const toastComp = TestUtils.findRenderedDOMComponentWithClass(component, `toast`);
       TestUtils.Simulate.click(toastComp);
@@ -61,8 +55,8 @@ describe(`ToastContainer`, function describeToastContainer() {
     });
   });
 
-  context(`when component function is triggered multiple times`, function contextWhenComponent() {
-    it(`renders a list of toast messages`, function it() {
+  describe(`when component function is triggered multiple times`, () => {
+    it(`renders a list of toast messages`, () => {
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
       ), dom);
