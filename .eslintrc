@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/react-scripts/config/eslint.js",
+  "extends": "react-app",
   "rules": {
     // Possible Errors
     "comma-dangle": ["error", "always-multiline"],
