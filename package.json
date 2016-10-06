@@ -62,7 +62,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "codeclimate-test-reporter": "^0.3.3",
-    "cross-env": "^2.0.1",
+    "cross-env": "^3.1.1",
     "eslint": "^3.5.0",
     "eslint-plugin-flowtype": "^2.19.0",
     "eslint-plugin-import": "^1.15.0",
@@ -74,7 +74,7 @@
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
     "react-github-fork-ribbon": "^0.4.4",
-    "react-scripts": "^0.4.3",
+    "react-scripts": "0.6.1",
     "rimraf": "^2.5.4",
     "standard-version": "^2.4.0"
   },
