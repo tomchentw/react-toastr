@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.8.2"></a>
+## [2.8.2](https://github.com/tomchentw/react-toastr/compare/v2.8.1...v2.8.2) (2016-11-09)
+
+
+
 <a name="2.8.1"></a>
 ## [2.8.1](https://github.com/tomchentw/react-toastr/compare/v2.8.0...v2.8.1) (2016-09-21)
 
