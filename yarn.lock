@@ -509,6 +509,13 @@ babel-plugin-jest-hoist@^15.0.0:
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-15.0.0.tgz#7b2fdbd0cd12fc36a84d3f5ff001ec504262bb59"
 
+babel-plugin-lodash:
+  version "3.2.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-lodash/-/babel-plugin-lodash-3.2.9.tgz#062f85aa7810fbb4374a1a7372ecc44b09168760"
+  dependencies:
+    glob "^7.0.6"
+    lodash "^4.15.0"
+
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -2769,7 +2776,7 @@ glob@^5.0.15, glob@^5.0.5, glob@5.x:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.3, glob@^7.0.5:
+glob@^7.0.3, glob@^7.0.5, glob@^7.0.6:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
