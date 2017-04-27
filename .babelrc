@@ -11,6 +11,6 @@
     "transform-flow-comments"
   ],
   "presets": [
-    "react-app"
+    "react"
   ]
 }

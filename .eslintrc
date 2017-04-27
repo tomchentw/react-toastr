@@ -11,8 +11,13 @@
   rules: {
     linebreak-style: "off",
     react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }],
+    import/no-unresolved: [2, { caseSensitive: false }],
   },
   env: {
     browser: true,
+    jasmine: true,
+    jest: true,
+    mocha: true,
+    node: true,
   },
 }

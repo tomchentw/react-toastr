@@ -1,20 +1,9 @@
-import {
-  default as React,
-} from "react";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import ToastMessage from '../index';
 
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as $,
-} from "jquery";
-
-import {
-  ToastMessage,
-} from "../index";
-
-describe(`ToastMessage`, () => {
+describe('ToastMessage', () => {
   beforeAll(() => {
     global.jQuery = $;
   });
@@ -26,15 +15,15 @@ describe(`ToastMessage`, () => {
   let dom;
 
   beforeEach(() => {
-    dom = document.createElement(`div`);
+    dom = document.createElement('div');
   });
 
   afterEach(() => {
     ReactDOM.unmountComponentAtNode(dom);
   });
 
-  describe(`auto close`, () => {
-    it(`will call handleRemove with given props`, () => {
+  describe('auto close', () => {
+    it('will call handleRemove with given props', () => {
       const handleRemoveFn = jest.fn();
       ReactDOM.render((
         <ToastMessage.jQuery

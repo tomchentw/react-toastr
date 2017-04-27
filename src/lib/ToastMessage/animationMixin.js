@@ -1,14 +1,6 @@
-import {
-  default as ReactTransitionEvents,
-} from "react/lib/ReactTransitionEvents";
-
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as elementClass,
-} from "element-class";
+import ReactTransitionEvents from 'react/lib/ReactTransitionEvents';
+import ReactDOM from 'react-dom';
+import elementClass from 'element-class';
 
 const TICK = 17;
 const { toString } = Object.prototype;
@@ -17,8 +9,8 @@ export default {
   getDefaultProps() {
     return {
       transition: null, // some examples defined in index.scss (scale, fadeInOut, rotate)
-      showAnimation: `animated bounceIn`, // or other animations from animate.css
-      hideAnimation: `animated bounceOut`,
+      showAnimation: 'animated bounceIn', // or other animations from animate.css
+      hideAnimation: 'animated bounceOut',
       timeOut: 5000,
       extendedTimeOut: 1000,
     };
@@ -31,27 +23,27 @@ export default {
   },
 
   componentDidMount() {
-    this._is_mounted = true;
+    this.isMounted = true;
     this._show();
     const node = ReactDOM.findDOMNode(this);
 
     const onHideComplete = () => {
       if (this.isHiding) {
-        this._set_is_hiding(false);
+        this.setIsHiding(false);
         ReactTransitionEvents.removeEndEventListener(node, onHideComplete);
-        this._handle_remove();
+        this.handleRemove();
       }
     };
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
 
     if (this.props.timeOut > 0) {
-      this._set_interval_id(
+      this.setIntervalId(
         setTimeout(this.hideToast, this.props.timeOut)
       );
     }
   },
   componentWillUnmount() {
-    this._is_mounted = false;
+    this.isMounted = false;
     if (this.intervalId) {
       clearTimeout(this.intervalId);
     }
@@ -141,7 +133,7 @@ export default {
   },
 
   _flush_class_name_queue() {
-    if (this._is_mounted) {
+    if (this.isMounted) {
       const node = ReactDOM.findDOMNode(this);
       this.classNameQueue.forEach(className =>
         elementClass(node).add(className)
@@ -161,9 +153,9 @@ export default {
 
   handleMouseEnter() {
     clearTimeout(this.intervalId);
-    this._set_interval_id(null);
+    this.setIntervalId(null);
     if (this.isHiding) {
-      this._set_is_hiding(false);
+      this.setIsHiding(false);
 
       if (this.props.hideAnimation) {
         this._clear_animation(true);
@@ -176,7 +168,7 @@ export default {
   handleMouseLeave() {
     if (!this.isHiding &&
       (this.props.timeOut > 0 || this.props.extendedTimeOut > 0)) {
-      this._set_interval_id(
+      this.setIntervalId(
         setTimeout(this.hideToast, this.props.extendedTimeOut)
       );
     }
@@ -187,21 +179,21 @@ export default {
       return;
     }
 
-    this._set_is_hiding(true);
+    this.setIsHiding(true);
     if (this.props.transition) {
       this._set_transition(true);
     } else if (this.props.hideAnimation) {
       this._set_animation(true);
     } else {
-      this._handle_remove();
+      this.handleRemove();
     }
   },
 
-  _set_interval_id(intervalId) {
+  setIntervalId(intervalId) {
     this.intervalId = intervalId;
   },
 
-  _set_is_hiding(isHiding) {
+  setIsHiding(isHiding) {
     this.isHiding = isHiding;
   },
 };

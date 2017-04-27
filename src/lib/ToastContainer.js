@@ -40,19 +40,19 @@ class ToastContainer extends React.Component {
   };
 
   error(message, title, optionsOverride) {
-    this._notify(this.props.toastType.error, message, title, optionsOverride);
+    this.notify(this.props.toastType.error, message, title, optionsOverride);
   }
 
   info(message, title, optionsOverride) {
-    this._notify(this.props.toastType.info, message, title, optionsOverride);
+    this.notify(this.props.toastType.info, message, title, optionsOverride);
   }
 
   success(message, title, optionsOverride) {
-    this._notify(this.props.toastType.success, message, title, optionsOverride);
+    this.notify(this.props.toastType.success, message, title, optionsOverride);
   }
 
   warning(message, title, optionsOverride) {
-    this._notify(this.props.toastType.warning, message, title, optionsOverride);
+    this.notify(this.props.toastType.warning, message, title, optionsOverride);
   }
 
   clear() {
@@ -61,7 +61,7 @@ class ToastContainer extends React.Component {
     });
   }
 
-  _notify(type, message, title, optionsOverride = {}) {
+  notify(type, message, title, optionsOverride = {}) {
     if (this.props.preventDuplicates) {
       if (_.includes(this.state.messageList, message)) {
         return;
