@@ -1,24 +1,10 @@
-import _ from "lodash";
+import _ from 'lodash';
+import React from 'react';
+import PropTypes from 'prop-types';
+import update from 'react-addons-update';
+import ToastMessage from './ToastMessage';
 
-import {
-  default as React,
-  Component,
-} from "react";
-
-import {
-  PropTypes,
-} from "prop-types";
-
-import {
-  default as update,
-} from "react-addons-update";
-
-import {
-  default as ToastMessage,
-} from "./ToastMessage";
-
-export default class ToastContainer extends Component {
-
+class ToastContainer extends React.Component {
   static propTypes = {
     toastType: PropTypes.shape({
       error: PropTypes.string,
@@ -35,12 +21,12 @@ export default class ToastContainer extends Component {
 
   static defaultProps = {
     toastType: {
-      error: `error`,
-      info: `info`,
-      success: `success`,
-      warning: `warning`,
+      error: 'error',
+      info: 'info',
+      success: 'success',
+      warning: 'warning',
     },
-    id: `toast-container`,
+    id: 'toast-container',
     toastMessageFactory: React.createFactory(ToastMessage.animation),
     preventDuplicates: true,
     newestOnTop: true,
@@ -52,8 +38,6 @@ export default class ToastContainer extends Component {
     toastId: 0,
     messageList: [],
   };
-
-  _handle_toast_remove = this._handle_toast_remove.bind(this);
 
   error(message, title, optionsOverride) {
     this._notify(this.props.toastType.error, message, title, optionsOverride);
@@ -72,7 +56,7 @@ export default class ToastContainer extends Component {
   }
 
   clear() {
-    Object.keys(this.refs).forEach(key => {
+    Object.keys(this.refs).forEach((key) => {
       this.refs[key].hideToast(false);
     });
   }
@@ -94,20 +78,20 @@ export default class ToastContainer extends Component {
         key,
         ref: `toasts__${key}`,
         handleOnClick: (e) => {
-          if (`function` === typeof optionsOverride.handleOnClick) {
+          if (typeof optionsOverride.handleOnClick === 'function') {
             optionsOverride.handleOnClick();
           }
-          return this._handle_toast_on_click(e);
+          return this.handleToastOnClick(e);
         },
-        handleRemove: this._handle_toast_remove,
+        handleRemove: this.handleToastRemove,
       },
     });
     const toastOperation = {
-      [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [newToast],
+      [`${this.props.newestOnTop ? '$unshift' : '$push'}`]: [newToast],
     };
 
     const messageOperation = {
-      [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [message],
+      [`${this.props.newestOnTop ? '$unshift' : '$push'}`]: [message],
     };
 
     const nextState = update(this.state, {
@@ -117,7 +101,7 @@ export default class ToastContainer extends Component {
     this.setState(nextState);
   }
 
-  _handle_toast_on_click(event) {
+  handleToastOnClick = (event) => {
     this.props.onClick(event);
     if (event.defaultPrevented) {
       return;
@@ -126,11 +110,11 @@ export default class ToastContainer extends Component {
     event.stopPropagation();
   }
 
-  _handle_toast_remove(toastId) {
+  handleToastRemove = (toastId) => {
     if (this.props.preventDuplicates) {
-      this.state.previousMessage = ``;
+      this.state.previousMessage = '';
     }
-    const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
+    const operationName = `${this.props.newestOnTop ? 'reduceRight' : 'reduce'}`;
     this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
         return false;
@@ -144,8 +128,7 @@ export default class ToastContainer extends Component {
   }
 
   render() {
-    const divProps = _.omit(this.props, [`toastType`, `toastMessageFactory`, `preventDuplicates`,
-      `newestOnTop`]);
+    const divProps = _.omit(this.props, ['toastType', 'toastMessageFactory', 'preventDuplicates', 'newestOnTop']);
 
     return (
       <div {...divProps} aria-live="polite" role="alert">
@@ -154,3 +137,5 @@ export default class ToastContainer extends Component {
     );
   }
 }
+
+module.exports = ToastContainer;

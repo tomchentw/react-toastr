@@ -1,10 +1,18 @@
 {
-  "extends": "react-app",
-  "rules": {
-    // Possible Errors
-    "comma-dangle": ["error", "always-multiline"],
-    // Stylistic Issues
-    "jsx-quotes": ["error", "prefer-double"],
-    "quotes": ["error", "backtick"]
-  }
+  parser: "babel-eslint",
+  extends: [
+    "airbnb",
+    "plugin:flowtype/recommended",
+  ],
+  plugins: [
+    "react",
+    "flowtype",
+  ],
+  rules: {
+    linebreak-style: "off",
+    react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }],
+  },
+  env: {
+    browser: true,
+  },
 }

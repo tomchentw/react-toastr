@@ -1,19 +1,7 @@
-import {
-  default as React,
-} from "react";
-
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as TestUtils,
-} from "react-addons-test-utils";
-
-import {
-  ToastContainer,
-  ToastMessage,
-} from "./index";
+import React from "react";
+import ReactDOM from "react-dom";
+import TestUtils from "react-addons-test-utils";
+import { ToastContainer, ToastMessage } from "./index";
 
 describe(`ToastContainer`, () => {
   let dom;
