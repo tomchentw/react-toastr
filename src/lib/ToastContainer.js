@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import update from 'react-addons-update';
-import ToastMessage from './ToastMessage';
+import { animation } from './ToastMessage';
 
 class ToastContainer extends React.Component {
   static propTypes = {
@@ -12,7 +12,6 @@ class ToastContainer extends React.Component {
       success: PropTypes.string,
       warning: PropTypes.string,
     }).isRequired,
-    id: PropTypes.string.isRequired,
     toastMessageFactory: PropTypes.func.isRequired,
     preventDuplicates: PropTypes.bool.isRequired,
     newestOnTop: PropTypes.bool.isRequired,
@@ -27,7 +26,7 @@ class ToastContainer extends React.Component {
       warning: 'warning',
     },
     id: 'toast-container',
-    toastMessageFactory: React.createFactory(ToastMessage.animation),
+    toastMessageFactory: React.createFactory(animation),
     preventDuplicates: true,
     newestOnTop: true,
     onClick() {},
@@ -67,7 +66,7 @@ class ToastContainer extends React.Component {
         return;
       }
     }
-    const key = this.state.toastId++;
+    const key = this.state.toastId++; // eslint-disable-line no-plusplus
     const toastId = key;
     const newToast = update(optionsOverride, {
       $merge: {
