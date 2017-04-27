@@ -55,9 +55,11 @@ class ToastContainer extends React.Component {
   }
 
   clear() {
+    /* eslint-disable react/no-string-refs */
     Object.keys(this.refs).forEach((key) => {
       this.refs[key].hideToast(false);
     });
+    /* eslint-enable react/no-string-refs */
   }
 
   notify(type, message, title, optionsOverride = {}) {

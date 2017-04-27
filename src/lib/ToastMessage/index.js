@@ -45,11 +45,13 @@ const ToastMessageSpec = {
 
   renderCloseButton() {
     return this.props.closeButton ? (
+      /* eslint-disable react/no-danger */
       <button
         className="toast-close-button" role="button"
         onClick={this.handleCloseButtonClick}
         dangerouslySetInnerHTML={{ __html: '&times;' }}
       />
+      /* eslint-enable react/no-danger */
     ) : false;
   },
 
@@ -73,6 +75,7 @@ const ToastMessageSpec = {
     const iconClassName = this.props.iconClassName || this.props.iconClassNames[this.props.type];
 
     return (
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
       <div
         className={classNames(this.props.className, iconClassName)}
         style={this.props.style}
@@ -84,6 +87,7 @@ const ToastMessageSpec = {
         {this.renderTitleElement()}
         {this.renderMessageElement()}
       </div>
+      /* eslint-enable jsx-a11y/no-static-element-interactions */
     );
   },
 };

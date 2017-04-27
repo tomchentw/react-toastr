@@ -16,19 +16,23 @@ describe('ToastContainer', () => {
 
   describe('renders a toast message', () => {
     it('exists in the container', () => {
+      /* eslint-disable react/no-render-return-value */
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
       ), dom);
+      /* eslint-enable react/no-render-return-value */
       expect(dom.firstChild.childNodes.length).toBe(0);
 
       component.success('yeah,', 'cool');
       expect(dom.firstChild.childNodes.length).not.toBe(0);
     });
 
-    it('should be closed by clicking on it', function it(done) {
+    it('should be closed by clicking on it', function it(done) { // eslint-disable-line prefer-arrow-callback
+      /* eslint-disable react/no-render-return-value */
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
       ), dom);
+      /* eslint-enable react/no-render-return-value */
 
       component.success('yeah,', 'cool');
       expect(dom.firstChild.childNodes.length).not.toBe(0);
@@ -45,9 +49,11 @@ describe('ToastContainer', () => {
 
   describe('when component function is triggered multiple times', () => {
     it('renders a list of toast messages', () => {
+      /* eslint-disable react/no-render-return-value */
       const component = ReactDOM.render((
         <ToastContainer toastMessageFactory={React.createFactory(ToastMessage.animation)} />
       ), dom);
+      /* eslint-enable react/no-render-return-value */
       component.success('yeah', 'cool');
       component.error('blabla', 'foobar');
 
