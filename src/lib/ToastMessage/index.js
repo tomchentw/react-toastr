@@ -1,41 +1,27 @@
-import {
-  default as React,
-} from "react";
-
-import {
-  default as update,
-} from "react-addons-update";
-
-import {
-  default as classNames,
-} from "classnames";
-
-import {
-  default as animationMixin,
-} from "./animationMixin";
-
-import {
-  default as jQueryMixin,
-} from "./jQueryMixin";
+import React from 'react';
+import update from 'react-addons-update';
+import classNames from 'classnames';
+import animationMixin from './animationMixin';
+import jQueryMixin from './jQueryMixin';
 
 function noop() {}
 
 const ToastMessageSpec = {
-  displayName: `ToastMessage`,
+  displayName: 'ToastMessage',
 
   getDefaultProps() {
     const iconClassNames = {
-      error: `toast-error`,
-      info: `toast-info`,
-      success: `toast-success`,
-      warning: `toast-warning`,
+      error: 'toast-error',
+      info: 'toast-info',
+      success: 'toast-success',
+      warning: 'toast-warning',
     };
 
     return {
-      className: `toast`,
+      className: 'toast',
       iconClassNames,
-      titleClassName: `toast-title`,
-      messageClassName: `toast-message`,
+      titleClassName: 'toast-title',
+      messageClassName: 'toast-message',
       tapToDismiss: true,
       closeButton: false,
     };
@@ -48,26 +34,28 @@ const ToastMessageSpec = {
     }
   },
 
-  _handle_close_button_click(event) {
+  handleCloseButtonClick(event) {
     event.stopPropagation();
     this.hideToast(true);
   },
 
-  _handle_remove() {
+  handleRemove() {
     this.props.handleRemove(this.props.toastId);
   },
 
-  _render_close_button() {
+  renderCloseButton() {
     return this.props.closeButton ? (
+      /* eslint-disable react/no-danger */
       <button
         className="toast-close-button" role="button"
-        onClick={this._handle_close_button_click}
-        dangerouslySetInnerHTML={{ __html: `&times;` }}
+        onClick={this.handleCloseButtonClick}
+        dangerouslySetInnerHTML={{ __html: '&times;' }}
       />
+      /* eslint-enable react/no-danger */
     ) : false;
   },
 
-  _render_title_element() {
+  renderTitleElement() {
     return this.props.title ? (
       <div className={this.props.titleClassName}>
         {this.props.title}
@@ -75,7 +63,7 @@ const ToastMessageSpec = {
     ) : false;
   },
 
-  _render_message_element() {
+  renderMessageElement() {
     return this.props.message ? (
       <div className={this.props.messageClassName}>
         {this.props.message}
@@ -87,6 +75,7 @@ const ToastMessageSpec = {
     const iconClassName = this.props.iconClassName || this.props.iconClassNames[this.props.type];
 
     return (
+      /* eslint-disable jsx-a11y/no-static-element-interactions */
       <div
         className={classNames(this.props.className, iconClassName)}
         style={this.props.style}
@@ -94,21 +83,22 @@ const ToastMessageSpec = {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        {this._render_close_button()}
-        {this._render_title_element()}
-        {this._render_message_element()}
+        {this.renderCloseButton()}
+        {this.renderTitleElement()}
+        {this.renderMessageElement()}
       </div>
+      /* eslint-enable jsx-a11y/no-static-element-interactions */
     );
   },
 };
 
 export const animation = React.createClass(update(ToastMessageSpec, {
-  displayName: { $set: `ToastMessage.animation` },
+  displayName: { $set: 'ToastMessage.animation' },
   mixins: { $set: [animationMixin] },
 }));
 
 export const jQuery = React.createClass(update(ToastMessageSpec, {
-  displayName: { $set: `ToastMessage.jQuery` },
+  displayName: { $set: 'ToastMessage.jQuery' },
   mixins: { $set: [jQueryMixin] },
 }));
 

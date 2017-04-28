@@ -1,10 +1,24 @@
 {
-  "extends": "react-app",
-  "rules": {
-    // Possible Errors
-    "comma-dangle": ["error", "always-multiline"],
-    // Stylistic Issues
-    "jsx-quotes": ["error", "prefer-double"],
-    "quotes": ["error", "backtick"]
-  }
+  parser: "babel-eslint",
+  extends: [
+    "airbnb",
+    "plugin:flowtype/recommended",
+  ],
+  plugins: [
+    "react",
+    "flowtype",
+  ],
+  rules: {
+    linebreak-style: "off",
+    react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }],
+    import/no-unresolved: [2, { caseSensitive: false }],
+    react/no-find-dom-node: "off",
+  },
+  env: {
+    browser: true,
+    jasmine: true,
+    jest: true,
+    mocha: true,
+    node: true,
+  },
 }

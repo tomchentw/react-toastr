@@ -1,14 +1,6 @@
-import {
-  default as ReactTransitionEvents,
-} from "react/lib/ReactTransitionEvents";
-
-import {
-  default as ReactDOM,
-} from "react-dom";
-
-import {
-  default as elementClass,
-} from "element-class";
+import ReactTransitionEvents from 'react/lib/ReactTransitionEvents';
+import ReactDOM from 'react-dom';
+import elementClass from 'element-class';
 
 const TICK = 17;
 const { toString } = Object.prototype;
@@ -17,8 +9,8 @@ export default {
   getDefaultProps() {
     return {
       transition: null, // some examples defined in index.scss (scale, fadeInOut, rotate)
-      showAnimation: `animated bounceIn`, // or other animations from animate.css
-      hideAnimation: `animated bounceOut`,
+      showAnimation: 'animated bounceIn', // or other animations from animate.css
+      hideAnimation: 'animated bounceOut',
       timeOut: 5000,
       extendedTimeOut: 1000,
     };
@@ -31,38 +23,38 @@ export default {
   },
 
   componentDidMount() {
-    this._is_mounted = true;
-    this._show();
+    this.isMounted = true;
+    this.show();
     const node = ReactDOM.findDOMNode(this);
 
     const onHideComplete = () => {
       if (this.isHiding) {
-        this._set_is_hiding(false);
+        this.setIsHiding(false);
         ReactTransitionEvents.removeEndEventListener(node, onHideComplete);
-        this._handle_remove();
+        this.handleRemove();
       }
     };
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
 
     if (this.props.timeOut > 0) {
-      this._set_interval_id(
-        setTimeout(this.hideToast, this.props.timeOut)
+      this.setIntervalId(
+        setTimeout(this.hideToast, this.props.timeOut),
       );
     }
   },
   componentWillUnmount() {
-    this._is_mounted = false;
+    this.isMounted = false;
     if (this.intervalId) {
       clearTimeout(this.intervalId);
     }
   },
-  _set_transition(hide) {
-    const animationType = hide ? `leave` : `enter`;
+  setTransition(hide) {
+    const animationType = hide ? 'leave' : 'enter';
     const node = ReactDOM.findDOMNode(this);
     const className = `${this.props.transition}-${animationType}`;
     const activeClassName = `${className}-active`;
 
-    const endListener = e => {
+    const endListener = (e) => {
       if (e && e.target !== node) {
         return;
       }
@@ -79,12 +71,12 @@ export default {
     elementClass(node).add(className);
 
     // Need to do this to actually trigger a transition.
-    this._queue_class(activeClassName);
+    this.queueClass(activeClassName);
   },
 
-  _clear_transition(hide) {
+  clearTransition(hide) {
     const node = ReactDOM.findDOMNode(this);
-    const animationType = hide ? `leave` : `enter`;
+    const animationType = hide ? 'leave' : 'enter';
     const className = `${this.props.transition}-${animationType}`;
     const activeClassName = `${className}-active`;
 
@@ -93,82 +85,75 @@ export default {
     classList.remove(activeClassName);
   },
 
-  _set_animation(hide) {
+  setAnimation(hide) {
     const node = ReactDOM.findDOMNode(this);
-    const animations = this._get_animation_classes(hide);
-    const endListener = e => {
+    const animations = this.getAnimationClasses(hide);
+    const endListener = (e) => {
       if (e && e.target !== node) {
         return;
       }
 
-      animations.forEach(anim =>
-        elementClass(node).remove(anim)
-      );
+      animations.forEach(anim => elementClass(node).remove(anim));
 
       ReactTransitionEvents.removeEndEventListener(node, endListener);
     };
 
     ReactTransitionEvents.addEndEventListener(node, endListener);
 
-    animations.forEach(anim =>
-      elementClass(node).add(anim)
-    );
+    animations.forEach(anim => elementClass(node).add(anim));
   },
 
-  _get_animation_classes(hide) {
+  getAnimationClasses(hide) {
     const animations = hide ? this.props.hideAnimation : this.props.showAnimation;
-    if (`[object Array]` === toString.call(animations)) {
+    if (toString.call(animations) === '[object Array]') {
       return animations;
-    } else if (`string` === typeof animations) {
-      return animations.split(` `);
+    } else if (typeof animations === 'string') {
+      return animations.split(' ');
     }
+    return null;
   },
 
-  _clear_animation(hide) {
+  clearAnimation(hide) {
     const node = ReactDOM.findDOMNode(this);
-    const animations = this._get_animation_classes(hide);
-    animations.forEach(animation =>
-      elementClass(node).remove(animation)
-    );
+    const animations = this.getAnimationClasses(hide);
+    animations.forEach(animation => elementClass(node).remove(animation));
   },
 
-  _queue_class(className) {
+  queueClass(className) {
     this.classNameQueue.push(className);
 
     if (!this.timeout) {
-      this.timeout = setTimeout(this._flush_class_name_queue, TICK);
+      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
     }
   },
 
-  _flush_class_name_queue() {
-    if (this._is_mounted) {
+  flushClassNameQueue() {
+    if (this.isMounted) {
       const node = ReactDOM.findDOMNode(this);
-      this.classNameQueue.forEach(className =>
-        elementClass(node).add(className)
-      );
+      this.classNameQueue.forEach(className => elementClass(node).add(className));
     }
     this.classNameQueue.length = 0;
     this.timeout = null;
   },
 
-  _show() {
+  show() {
     if (this.props.transition) {
-      this._set_transition();
+      this.setTransition();
     } else if (this.props.showAnimation) {
-      this._set_animation();
+      this.setAnimation();
     }
   },
 
   handleMouseEnter() {
     clearTimeout(this.intervalId);
-    this._set_interval_id(null);
+    this.setIntervalId(null);
     if (this.isHiding) {
-      this._set_is_hiding(false);
+      this.setIsHiding(false);
 
       if (this.props.hideAnimation) {
-        this._clear_animation(true);
+        this.clearAnimation(true);
       } else if (this.props.transition) {
-        this._clear_transition(true);
+        this.clearTransition(true);
       }
     }
   },
@@ -176,9 +161,7 @@ export default {
   handleMouseLeave() {
     if (!this.isHiding &&
       (this.props.timeOut > 0 || this.props.extendedTimeOut > 0)) {
-      this._set_interval_id(
-        setTimeout(this.hideToast, this.props.extendedTimeOut)
-      );
+      this.setIntervalId(setTimeout(this.hideToast, this.props.extendedTimeOut));
     }
   },
 
@@ -187,21 +170,21 @@ export default {
       return;
     }
 
-    this._set_is_hiding(true);
+    this.setIsHiding(true);
     if (this.props.transition) {
-      this._set_transition(true);
+      this.setTransition(true);
     } else if (this.props.hideAnimation) {
-      this._set_animation(true);
+      this.setAnimation(true);
     } else {
-      this._handle_remove();
+      this.handleRemove();
     }
   },
 
-  _set_interval_id(intervalId) {
+  setIntervalId(intervalId) {
     this.intervalId = intervalId;
   },
 
-  _set_is_hiding(isHiding) {
+  setIsHiding(isHiding) {
     this.isHiding = isHiding;
   },
 };

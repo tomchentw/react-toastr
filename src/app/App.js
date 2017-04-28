@@ -1,30 +1,22 @@
-import {
-  default as React,
-  Component,
-} from "react";
-
-import {
-  ToastContainer,
-  ToastMessage,
-} from "../lib";
-
-import "./App.css";
+import React from 'react';
+import { ToastContainer, ToastMessage } from '../lib';
+import './App.css';
 
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
-export default class App extends Component {
+export default class App extends React.Component {
 
   addAlert = this.addAlert.bind(this);
   clearAlert = this.clearAlert.bind(this);
 
   addAlert() {
-    this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
+    this.container.success(`hi! Now is ${new Date()}`, '///title\\\\\\', {
       closeButton: true,
     });
   }
 
   clearAlert() {
-    this.refs.container.clear();
+    this.container.clear();
   }
 
   render() {
@@ -32,7 +24,7 @@ export default class App extends Component {
       <div>
         <ToastContainer
           toastMessageFactory={ToastMessageFactory}
-          ref="container"
+          ref={(c) => { this.container = c; }}
           className="toast-top-right"
         />
 
