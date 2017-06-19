@@ -139,11 +139,10 @@ export default class ToastContainer extends Component {
   }
 
   render() {
-    const divProps = _.omit(this.props, [`toastType`, `toastMessageFactory`, `preventDuplicates`,
-      `newestOnTop`]);
+    const {toastType, toastMessageFactory, preventDuplicates, newestOnTop, ...restProps} = this.props;
 
     return (
-      <div {...divProps} aria-live="polite" role="alert">
+      <div {...restProps} aria-live="polite" role="alert">
         {this.state.toasts.map(toast => this.props.toastMessageFactory(toast))}
       </div>
     );
