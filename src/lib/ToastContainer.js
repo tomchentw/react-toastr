@@ -6,7 +6,7 @@ import {
 } from "react";
 
 import {
-  PropTypes
+  PropTypes,
 } from 'prop-types';
 
 import {
