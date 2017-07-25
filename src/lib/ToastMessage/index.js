@@ -1,35 +1,26 @@
-import {
-  default as React,
-} from "react";
+// import { default as React, } from 'react';
+import React from 'react'
 
-import {
-  default as update,
-} from "react-addons-update";
+import { default as update } from 'react-addons-update'
 
-import {
-  default as classNames,
-} from "classnames";
+import { default as classNames } from 'classnames'
 
-import {
-  default as animationMixin,
-} from "./animationMixin";
+import { default as animationMixin } from './animationMixin'
 
-import {
-  default as jQueryMixin,
-} from "./jQueryMixin";
+import { default as jQueryMixin } from './jQueryMixin'
 
-function noop() {}
+function noop () {}
 
 const ToastMessageSpec = {
   displayName: `ToastMessage`,
 
-  getDefaultProps() {
+  getDefaultProps () {
     const iconClassNames = {
       error: `toast-error`,
       info: `toast-info`,
       success: `toast-success`,
-      warning: `toast-warning`,
-    };
+      warning: `toast-warning`
+    }
 
     return {
       className: `toast`,
@@ -37,54 +28,54 @@ const ToastMessageSpec = {
       titleClassName: `toast-title`,
       messageClassName: `toast-message`,
       tapToDismiss: true,
-      closeButton: false,
-    };
-  },
-
-  handleOnClick(event) {
-    this.props.handleOnClick(event);
-    if (this.props.tapToDismiss) {
-      this.hideToast(true);
+      closeButton: false
     }
   },
 
-  _handle_close_button_click(event) {
-    event.stopPropagation();
-    this.hideToast(true);
+  handleOnClick (event) {
+    this.props.handleOnClick(event)
+    if (this.props.tapToDismiss) {
+      this.hideToast(true)
+    }
   },
 
-  _handle_remove() {
-    this.props.handleRemove(this.props.toastId);
+  _handle_close_button_click (event) {
+    event.stopPropagation()
+    this.hideToast(true)
   },
 
-  _render_close_button() {
+  _handle_remove () {
+    this.props.handleRemove(this.props.toastId)
+  },
+
+  _render_close_button () {
     return this.props.closeButton ? (
       <button
-        className="toast-close-button" role="button"
+        className='toast-close-button' role='button'
         onClick={this._handle_close_button_click}
         dangerouslySetInnerHTML={{ __html: `&times;` }}
       />
-    ) : false;
+    ) : false
   },
 
-  _render_title_element() {
+  _render_title_element () {
     return this.props.title ? (
       <div className={this.props.titleClassName}>
         {this.props.title}
       </div>
-    ) : false;
+    ) : false
   },
 
-  _render_message_element() {
+  _render_message_element () {
     return this.props.message ? (
       <div className={this.props.messageClassName}>
         {this.props.message}
       </div>
-    ) : false;
+    ) : false
   },
 
-  render() {
-    const iconClassName = this.props.iconClassName || this.props.iconClassNames[this.props.type];
+  render () {
+    const iconClassName = this.props.iconClassName || this.props.iconClassNames[this.props.type]
 
     return (
       <div
@@ -98,30 +89,30 @@ const ToastMessageSpec = {
         {this._render_title_element()}
         {this._render_message_element()}
       </div>
-    );
-  },
-};
+    )
+  }
+}
 
 export const animation = React.createClass(update(ToastMessageSpec, {
   displayName: { $set: `ToastMessage.animation` },
-  mixins: { $set: [animationMixin] },
-}));
+  mixins: { $set: [animationMixin] }
+}))
 
 export const jQuery = React.createClass(update(ToastMessageSpec, {
   displayName: { $set: `ToastMessage.jQuery` },
-  mixins: { $set: [jQueryMixin] },
-}));
+  mixins: { $set: [jQueryMixin] }
+}))
 
 /*
  * assign default noop functions
  */
-ToastMessageSpec.handleMouseEnter = noop;
-ToastMessageSpec.handleMouseLeave = noop;
-ToastMessageSpec.hideToast = noop;
+ToastMessageSpec.handleMouseEnter = noop
+ToastMessageSpec.handleMouseLeave = noop
+ToastMessageSpec.hideToast = noop
 
-const ToastMessage = React.createClass(ToastMessageSpec);
+const ToastMessage = React.createClass(ToastMessageSpec)
 
-ToastMessage.animation = animation;
-ToastMessage.jQuery = jQuery;
+ToastMessage.animation = animation
+ToastMessage.jQuery = jQuery
 
-export default ToastMessage;
+export default ToastMessage
