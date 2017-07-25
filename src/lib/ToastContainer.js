@@ -16,20 +16,6 @@ import {
 
 export default class ToastContainer extends Component {
 
-  static propTypes = {
-    toastType: PropTypes.shape({
-      error: PropTypes.string,
-      info: PropTypes.string,
-      success: PropTypes.string,
-      warning: PropTypes.string,
-    }).isRequired,
-    id: PropTypes.string.isRequired,
-    toastMessageFactory: PropTypes.func.isRequired,
-    preventDuplicates: PropTypes.bool.isRequired,
-    newestOnTop: PropTypes.bool.isRequired,
-    onClick: PropTypes.func.isRequired,
-  };
-
   static defaultProps = {
     toastType: {
       error: `error`,
@@ -151,3 +137,17 @@ export default class ToastContainer extends Component {
     );
   }
 }
+ToastContainer.PropTypes = {
+  toastType: PropTypes.shape({
+    error: PropTypes.string,
+    info: PropTypes.string,
+    success: PropTypes.string,
+    warning: PropTypes.string,
+  }).isRequired,
+  id: PropTypes.string.isRequired,
+  toastMessageFactory: PropTypes.func.isRequired,
+  preventDuplicates: PropTypes.bool.isRequired,
+  newestOnTop: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
