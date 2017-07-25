@@ -46,7 +46,7 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation
   render () {
     return (
       <div>
-        <ToastContainer ref="container"
+        <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right" />
         <button onClick={this.addAlert}>GGininder</button>
@@ -63,7 +63,7 @@ This is the container where all `ToastMessage` elements will go. Use it by retai
 
 ```javascript
   addAlert () {
-    this.refs.container.success(
+    this.container.success(
       "Welcome welcome welcome!!",
       "You are now home my friend. Welcome home my friend.", {
       timeOut: 30000,
@@ -114,7 +114,7 @@ This prevents duplicate messages from getting triggered.
 To display HTML simply pass JSX instead of strings for title and message arguments:
 
 ```javascript
-this.refs.container.success(
+this.container.success(
   <strong>I am a strong title</strong>,
   <em>I am an emphasized message</em>
 });
