@@ -3,8 +3,12 @@ import {
 } from "react";
 
 import {
+  default as createClass,
+} from 'create-react-class';
+
+import {
   default as update,
-} from "react-addons-update";
+} from "immutability-helper";
 
 import {
   default as classNames,
@@ -102,12 +106,12 @@ const ToastMessageSpec = {
   },
 };
 
-export const animation = React.createClass(update(ToastMessageSpec, {
+export const animation = createClass(update(ToastMessageSpec, {
   displayName: { $set: `ToastMessage.animation` },
   mixins: { $set: [animationMixin] },
 }));
 
-export const jQuery = React.createClass(update(ToastMessageSpec, {
+export const jQuery = createClass(update(ToastMessageSpec, {
   displayName: { $set: `ToastMessage.jQuery` },
   mixins: { $set: [jQueryMixin] },
 }));
@@ -119,7 +123,7 @@ ToastMessageSpec.handleMouseEnter = noop;
 ToastMessageSpec.handleMouseLeave = noop;
 ToastMessageSpec.hideToast = noop;
 
-const ToastMessage = React.createClass(ToastMessageSpec);
+const ToastMessage = createClass(ToastMessageSpec);
 
 ToastMessage.animation = animation;
 ToastMessage.jQuery = jQuery;
