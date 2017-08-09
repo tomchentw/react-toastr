@@ -74,8 +74,7 @@
     "jquery": "^3.1.0",
     "prismjs": "^1.5.1",
     "raw-loader": "^0.5.1",
-    "react": "^15.3.2",
-    "react-addons-test-utils": "^15.3.2",
+    "react": "^15.6.1",
     "react-github-fork-ribbon": "^0.4.4",
     "react-scripts": "0.6.1",
     "rimraf": "^2.5.4",
@@ -86,9 +85,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "create-react-class": "^15.6.0",
     "element-class": "^0.2.2",
+    "immutability-helper": "^2.3.0",
     "lodash": "^4.16.1",
-    "react-addons-update": "^0.14.0 || ^15.0.0",
-    "react-dom": "^0.14.0 || ^15.0.0"
+    "react-dom": "^0.14.0 || ^15.0.0",
+    "prop-types": "^15.5.10"
   }
 }

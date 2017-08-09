@@ -8,7 +8,7 @@ import {
 
 import {
   default as TestUtils,
-} from "react-addons-test-utils";
+} from "react-dom/test-utils";
 
 import {
   ToastContainer,
