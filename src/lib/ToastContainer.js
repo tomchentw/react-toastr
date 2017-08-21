@@ -1,9 +1,10 @@
 import _ from "lodash";
 
+import PropTypes from "prop-types";
+
 import {
   default as React,
   Component,
-  PropTypes,
 } from "react";
 
 import {
