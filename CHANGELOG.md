@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.2"></a>
+## [2.9.2](https://github.com/tomchentw/react-toastr/compare/v2.9.1...v2.9.2) (2017-08-21)
+
+
+### Bug Fixes
+
+* **ToastContainer:** replace _.omit with object rest ([bc1a397](https://github.com/tomchentw/react-toastr/commit/bc1a397)), closes [#105](https://github.com/tomchentw/react-toastr/issues/105) [#104](https://github.com/tomchentw/react-toastr/issues/104)
+
+
+
 <a name="2.9.1"></a>
 ## [2.9.1](https://github.com/tomchentw/react-toastr/compare/v2.9.0...v2.9.1) (2017-08-21)
 
