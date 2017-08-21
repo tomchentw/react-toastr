@@ -125,9 +125,6 @@ export default class ToastContainer extends Component {
   }
 
   _handle_toast_remove(toastId) {
-    if (this.props.preventDuplicates) {
-      this.state.previousMessage = ``;
-    }
     const operationName = `${this.props.newestOnTop ? `reduceRight` : `reduce`}`;
     this.state.toasts[operationName]((found, toast, index) => {
       if (found || toast.toastId !== toastId) {
