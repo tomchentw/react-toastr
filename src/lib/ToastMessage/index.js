@@ -6,7 +6,7 @@ import {
 
 import {
   default as update,
-} from "react-addons-update";
+} from "immutability-helper";
 
 import {
   default as classNames,
