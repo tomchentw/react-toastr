@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.0"></a>
+# [2.9.0](https://github.com/tomchentw/react-toastr/compare/v2.8.2...v2.9.0) (2017-08-21)
+
+
+### Bug Fixes
+
+* eslint warnings ([2687c92](https://github.com/tomchentw/react-toastr/commit/2687c92))
+
+
+### Features
+
+* **package.json:** add `prop-types` and `create-react-class` to dependencies ([ee7d307](https://github.com/tomchentw/react-toastr/commit/ee7d307)), closes [#94](https://github.com/tomchentw/react-toastr/issues/94) [#95](https://github.com/tomchentw/react-toastr/issues/95) [#97](https://github.com/tomchentw/react-toastr/issues/97)
+* **ToastContainer:** switch to `prop-types` ([1aac987](https://github.com/tomchentw/react-toastr/commit/1aac987)), closes [#94](https://github.com/tomchentw/react-toastr/issues/94)
+* **ToastMessage:** switch to `create-react-class` ([49aa141](https://github.com/tomchentw/react-toastr/commit/49aa141)), closes [#95](https://github.com/tomchentw/react-toastr/issues/95)
+
+
+
 <a name="2.8.2"></a>
 ## [2.8.2](https://github.com/tomchentw/react-toastr/compare/v2.8.1...v2.8.2) (2016-11-09)
 
