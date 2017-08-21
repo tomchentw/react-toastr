@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.1"></a>
+## [2.9.1](https://github.com/tomchentw/react-toastr/compare/v2.9.0...v2.9.1) (2017-08-21)
+
+
+### Bug Fixes
+
+* **ToastMessage:** switch to hosted ReactTransitionEvents ([b3423a9](https://github.com/tomchentw/react-toastr/commit/b3423a9)), closes [#108](https://github.com/tomchentw/react-toastr/issues/108) [#86](https://github.com/tomchentw/react-toastr/issues/86)
+
+
+
 <a name="2.9.0"></a>
 # [2.9.0](https://github.com/tomchentw/react-toastr/compare/v2.8.2...v2.9.0) (2017-08-21)
 
