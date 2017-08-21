@@ -86,8 +86,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "create-react-class": "^15.6.0",
     "element-class": "^0.2.2",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react-addons-update": "^15.6.0",
     "react-dom": "^15.6.1"
   }
