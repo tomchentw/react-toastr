@@ -11,6 +11,12 @@
     "transform-flow-comments"
   ],
   "presets": [
-    "react-app"
+    ["env", {
+      "targets": {
+        "ie": 9, // https://github.com/facebookincubator/create-react-app/blob/v1.0.10/packages/babel-preset-react-app/index.js#L102
+      }
+    }],
+    "stage-0",
+    "react"
   ]
 }
