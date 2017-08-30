@@ -13,67 +13,53 @@ npm i --save react-toastr
 
 ## Demo
 
-Static hosted [demo site][demo] on GitHub.
-
-
-## Example
-
-Check [src/app][src/app] folder.
+Static hosted [demo site][demo] on GitHub. Check out the source in [src/app][src/app].
 
 
 ## Usage
 
-This module requires to be bundled with [webpack][webpack]/browserify and loads `react/addons` internally.  
-You'll need to download animate.css from here [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
+This module requires bundling via [webpack][webpack]/browserify and loads `react/addons` internally.  
+You'll need to download animate.css from here: [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
-Link to css for styles:
+Styling links (CSS):
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
 ```
 
-Then:
-
+Example (within a React component or wrapper):
 ```javascript
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr; // This is a React Element.
 // For Non ES6...
 // var ToastContainer = ReactToastr.ToastContainer;
-var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
-  // In a react component:
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+...
+  addAlert () {
+    this.container.success(
+      "my-title",
+      "my-fascinating-toast-message", {
+      timeOut: 30000,
+      extendedTimeOut: 10000
+    });
+  }
+  
   render () {
     return (
       <div>
         <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
-                        className="toast-top-right" />
-        <button onClick={this.addAlert}>GGininder</button>
+                        className="toast-top-right"
+                        preventDuplicates="true" />
+        <button onClick={this.addAlert}>Add Toast</button>
       </div>
     );
   }
 ```
 
-Here's a list of React Elements:
-
-### ToastContainer
-
-This is the container where all `ToastMessage` elements will go. Use it by retaining a [ref][react-ref] to publish a new **toast message**:
-
-```javascript
-  addAlert () {
-    this.container.success(
-      "Welcome welcome welcome!!",
-      "You are now home my friend. Welcome home my friend.", {
-      timeOut: 30000,
-      extendedTimeOut: 10000
-    });
-    window.open("http://youtu.be/3SR75k7Oggg");
-  }
-```
-
-or integrated with your [flux][flux] architecture?
+Integrated with your [flux][flux] architecture:
 
 ```javascript
   componentDidMount: function() {
@@ -81,37 +67,52 @@ or integrated with your [flux][flux] architecture?
   }
 ```
 
+### ToastContainer
+
+This is the container where all `ToastMessage` elements will go. Use it by retaining a [ref][react-ref] to publish a new **ToastMessage**:
+
+```javascript
+  addAlert () {
+    this.container.success(
+      "my-title",
+      "my-fascinating-toast-message", {
+      timeOut: 30000,
+      extendedTimeOut: 10000
+    });
+  }
+```
+
 #### Options
 
-Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+Directly migrated from `toastr.js` library. Set these as props on ToastContainer to override the defaults.
 
 [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
 ##### Close Button
 
-The close button on the toastr is an optional functionality.
+Show or hide an optional close button.
 
 ```javascript
-  closeButton:true
+  closeButton: true
 ```
 ##### Time Out
 
-Set the time(in ms) after which the toastr message should automatically close.
+Set the time (in ms) after which the toast message should automatically close.
 
 ```javascript
-  timeOut:5000
+  timeOut: 5000
 ```
 ##### Prevent Duplicates
 
-This prevents duplicate messages from getting triggered.
+Enables the display of multiple toast messages.
 
 ```javascript
-  preventDuplicates:true
+  preventDuplicates: true
 ```
 
 #### Displaying HTML
 
-To display HTML simply pass JSX instead of strings for title and message arguments:
+To display HTML, simply pass JSX instead of strings for title and message arguments:
 
 ```javascript
 this.container.success(
@@ -122,12 +123,12 @@ this.container.success(
 
 ### ToastMessage
 
-Base class for holding a toast message, it will not animate in and out during it's lifecycle.
+Base class for holding a toast message. It will not animate in and out during its lifecycle.
 Provides **`ToastMessage.animation`** and `ToastMessage.jQuery` for your choice.
 
 #### Options
 
-Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+Directly migrated from `toastr.js` library, and can be overridden via `props` in a React way:
 
 * [`ToastMessage::getDefaultProps`](http://git.io/90CzSA)
 * [`ToastMessage.animation::getDefaultProps`](http://git.io/vU2sz)
