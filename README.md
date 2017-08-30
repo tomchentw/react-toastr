@@ -93,21 +93,21 @@ Directly migrated from `toastr.js` library. Set these as props on ToastContainer
 Show or hide an optional close button.
 
 ```javascript
-  closeButton:true
+  closeButton: true
 ```
 ##### Time Out
 
 Set the time (in ms) after which the toast message should automatically close.
 
 ```javascript
-  timeOut:5000
+  timeOut: 5000
 ```
 ##### Prevent Duplicates
 
 Enables the display of multiple toast messages.
 
 ```javascript
-  preventDuplicates:true
+  preventDuplicates: true
 ```
 
 #### Displaying HTML
