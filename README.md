@@ -24,7 +24,7 @@ Check [src/app][src/app] folder.
 ## Usage
 
 This module requires bundling via [webpack][webpack]/browserify and loads `react/addons` internally.  
-You'll need to download animate.css from here [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
+You'll need to download animate.css from here: [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
 Link to css for styles:
 
@@ -32,8 +32,6 @@ Link to css for styles:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
 ```
-
-Then:
 
 ```javascript
 var ReactToastr = require("react-toastr");
@@ -49,18 +47,16 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation
         <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
-                        preventDuplicates="false" />
-        <button onClick={this.addAlert}>GGininder</button>
+                        preventDuplicates="true" />
+        <button onClick={this.addAlert}>Add Toast</button>
       </div>
     );
   }
 ```
 
-Here's a list of React Elements:
-
 ### ToastContainer
 
-This is the container where all `ToastMessage` elements will go. Use it by retaining a [ref][react-ref] to publish a new **toast message**:
+This is the container where all `ToastMessage` elements will go. Use it by retaining a [ref][react-ref] to publish a new **ToastMessage**:
 
 ```javascript
   addAlert () {
@@ -84,7 +80,7 @@ or integrated with your [flux][flux] architecture?
 
 #### Options
 
-Directly migrated from `toastr.js` library. Set these as props on <ToastContainer> to override the defaults. (Note: these are *not* the options used when adding an alert via this.container.success(...), etc.)
+Directly migrated from `toastr.js` library. Set these as props on <ToastContainer> to override the defaults.
 
 [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
@@ -97,14 +93,14 @@ Show or hide an optional close button.
 ```
 ##### Time Out
 
-Set the time (in ms) after which the toastr message should automatically close.
+Set the time (in ms) after which the toast message should automatically close.
 
 ```javascript
   timeOut:5000
 ```
 ##### Prevent Duplicates
 
-Enables the display of multiple toastr messages.
+Enables the display of multiple toast messages.
 
 ```javascript
   preventDuplicates:true
@@ -123,7 +119,7 @@ this.container.success(
 
 ### ToastMessage
 
-Base class for holding a toast message, it will not animate in and out during its lifecycle.
+Base class for holding a toast message. It will not animate in and out during its lifecycle.
 Provides **`ToastMessage.animation`** and `ToastMessage.jQuery` for your choice.
 
 #### Options
