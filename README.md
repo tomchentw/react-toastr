@@ -23,7 +23,7 @@ Check [src/app][src/app] folder.
 
 ## Usage
 
-This module requires to be bundled with [webpack][webpack]/browserify and loads `react/addons` internally.  
+This module requires bundling via [webpack][webpack]/browserify and loads `react/addons` internally.  
 You'll need to download animate.css from here [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
 Link to css for styles:
@@ -48,7 +48,8 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation
       <div>
         <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
-                        className="toast-top-right" />
+                        className="toast-top-right"
+                        preventDuplicates="false" />
         <button onClick={this.addAlert}>GGininder</button>
       </div>
     );
@@ -83,27 +84,27 @@ or integrated with your [flux][flux] architecture?
 
 #### Options
 
-Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+Directly migrated from `toastr.js` library. Set these as props on <ToastContainer> to override the defaults. (Note: these are *not* the options used when adding an alert via this.container.success(...), etc.)
 
 [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
 ##### Close Button
 
-The close button on the toastr is an optional functionality.
+Show or hide an optional close button.
 
 ```javascript
   closeButton:true
 ```
 ##### Time Out
 
-Set the time(in ms) after which the toastr message should automatically close.
+Set the time (in ms) after which the toastr message should automatically close.
 
 ```javascript
   timeOut:5000
 ```
 ##### Prevent Duplicates
 
-This prevents duplicate messages from getting triggered.
+Enables the display of multiple toastr messages.
 
 ```javascript
   preventDuplicates:true
@@ -111,7 +112,7 @@ This prevents duplicate messages from getting triggered.
 
 #### Displaying HTML
 
-To display HTML simply pass JSX instead of strings for title and message arguments:
+To display HTML, simply pass JSX instead of strings for title and message arguments:
 
 ```javascript
 this.container.success(
@@ -122,12 +123,12 @@ this.container.success(
 
 ### ToastMessage
 
-Base class for holding a toast message, it will not animate in and out during it's lifecycle.
+Base class for holding a toast message, it will not animate in and out during its lifecycle.
 Provides **`ToastMessage.animation`** and `ToastMessage.jQuery` for your choice.
 
 #### Options
 
-Directly migrated from `toastr.js` library, and can be overrided via `props` in a React way:
+Directly migrated from `toastr.js` library, and can be overridden via `props` in a React way:
 
 * [`ToastMessage::getDefaultProps`](http://git.io/90CzSA)
 * [`ToastMessage.animation::getDefaultProps`](http://git.io/vU2sz)
