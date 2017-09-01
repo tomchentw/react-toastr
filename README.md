@@ -21,14 +21,14 @@ Static hosted [demo site][demo] on GitHub. Check out the source in [src/app][src
 This module requires bundling via [webpack][webpack]/browserify and loads `react/addons` internally.  
 You'll need to download animate.css from here: [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
-Styling links (CSS):
+#### Styling links (CSS):
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
 ```
 
-Example (within a React component or wrapper):
+#### Example (within a React component or wrapper):
 ```javascript
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr; // This is a React Element.
@@ -86,11 +86,11 @@ This is the container where all `ToastMessage` elements will go. Use it by retai
 
 Directly migrated from `toastr.js` library. Set these as props on **ToastContainer** to override the defaults.
 
-[`ToastContainer::getDefaultProps`](http://git.io/RagItA)
+* [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
 ##### Prevent Duplicates
 
-Prevents identical toast messages from displaying.
+Prevent identical toast messages from displaying.
 
 ```javascript
   preventDuplicates: true
@@ -98,10 +98,10 @@ Prevents identical toast messages from displaying.
 
 ##### Newest on Top
 
-Displays new toast messages at the top or bottom of the queue.
+Display new toast messages at the top or bottom of the queue.
 
 ```javascript
-   newestOnTop: true
+  newestOnTop: true
 ```
 
 #### Displaying HTML
@@ -135,13 +135,13 @@ Show or hide an optional close button.
 
 ##### Tap to Dismiss
 
-Enables dismissing toasts on click.
+Enable dismissing toasts on click.
 
 ```javascript
   tapToDismiss: true
 ```
 
-#### Animation Options
+### Animation
 
 For animation, choose between **`ToastMessage.animation`** or **`ToastMessage.jQuery`**.
 
@@ -151,8 +151,10 @@ For animation, choose between **`ToastMessage.animation`** or **`ToastMessage.jQ
   var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
 ```
 
+#### Options
+
 * [`ToastMessage.animation::getDefaultProps`](http://git.io/vU2sz)
-  Credits go to **@Janekk**
+  (Credits go to **@Janekk**)
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
 ##### Time Out
@@ -169,7 +171,6 @@ Set the time (in ms) after which the toast message should automatically close af
 ```javascript
   extendedTimeOut: 3000
 ```
-
 [npm-image]: https://img.shields.io/npm/v/react-toastr.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/react-toastr
 
@@ -183,7 +184,6 @@ Set the time (in ms) after which the toast message should automatically close af
 [gemnasium-url]: https://gemnasium.com/tomchentw/react-toastr
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/tomchentw/react-toastr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
 
 [demo]: https://tomchentw.github.io/react-toastr/
 [src/app]: https://github.com/tomchentw/react-toastr/tree/master/src/app
