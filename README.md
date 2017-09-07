@@ -21,14 +21,14 @@ Static hosted [demo site][demo] on GitHub. Check out the source in [src/app][src
 This module requires bundling via [webpack][webpack]/browserify and loads `react/addons` internally.  
 You'll need to download animate.css from here: [Animate @github](https://raw.github.com/daneden/animate.css/master/animate.css)
 
-Styling links (CSS):
+#### Styling links (CSS):
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css">
 ```
 
-Example (within a React component or wrapper):
+#### Example (within a React component or wrapper):
 ```javascript
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr; // This is a React Element.
@@ -41,8 +41,8 @@ var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation
     this.container.success(
       "my-title",
       "my-fascinating-toast-message", {
-      timeOut: 30000,
-      extendedTimeOut: 10000
+      timeOut: 5000,
+      extendedTimeOut: 3000
     });
   }
   
@@ -76,38 +76,32 @@ This is the container where all `ToastMessage` elements will go. Use it by retai
     this.container.success(
       "my-title",
       "my-fascinating-toast-message", {
-      timeOut: 30000,
-      extendedTimeOut: 10000
+      timeOut: 5000,
+      extendedTimeOut: 3000
     });
   }
 ```
 
 #### Options
 
-Directly migrated from `toastr.js` library. Set these as props on ToastContainer to override the defaults.
+Directly migrated from `toastr.js` library. Set these as props on **ToastContainer** to override the defaults.
 
-[`ToastContainer::getDefaultProps`](http://git.io/RagItA)
+* [`ToastContainer::getDefaultProps`](http://git.io/RagItA)
 
-##### Close Button
-
-Show or hide an optional close button.
-
-```javascript
-  closeButton: true
-```
-##### Time Out
-
-Set the time (in ms) after which the toast message should automatically close.
-
-```javascript
-  timeOut: 5000
-```
 ##### Prevent Duplicates
 
-Enables the display of multiple toast messages.
+Prevent identical toast messages from displaying.
 
 ```javascript
   preventDuplicates: true
+```
+
+##### Newest on Top
+
+Display new toast messages at the top or bottom of the queue.
+
+```javascript
+  newestOnTop: true
 ```
 
 #### Displaying HTML
@@ -123,19 +117,60 @@ this.container.success(
 
 ### ToastMessage
 
-Base class for holding a toast message. It will not animate in and out during its lifecycle.
-Provides **`ToastMessage.animation`** and `ToastMessage.jQuery` for your choice.
+Base class for holding a toast message.
 
 #### Options
 
-Directly migrated from `toastr.js` library, and can be overridden via `props` in a React way:
+Directly migrated from `toastr.js` library. Set these as props on **ToastMessage** to override the defaults.
 
 * [`ToastMessage::getDefaultProps`](http://git.io/90CzSA)
+
+##### Close Button
+
+Show or hide an optional close button.
+
+```javascript
+  closeButton: false
+```
+
+##### Tap to Dismiss
+
+Enable dismissing toasts on click.
+
+```javascript
+  tapToDismiss: true
+```
+
+### Animation
+
+For animation, choose between **`ToastMessage.animation`** or **`ToastMessage.jQuery`**.
+
+```javascript
+  var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+  //or...
+  var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.jQuery);
+```
+
+#### Options
+
 * [`ToastMessage.animation::getDefaultProps`](http://git.io/vU2sz)
-  Credits go to **@Janekk**
+  (Credits go to **@Janekk**)
 * [`ToastMessage.jQuery::getDefaultProps`](http://git.io/YcbXvA)
 
+##### Time Out
 
+Set the time (in ms) after which the toast message should automatically close.
+
+```javascript
+  timeOut: 5000
+```
+##### Extended Time Out
+
+Set the time (in ms) after which the toast message should automatically close after being hovered on. Applied on hover exit.
+
+```javascript
+  extendedTimeOut: 3000
+```
 [npm-image]: https://img.shields.io/npm/v/react-toastr.svg?style=flat-square
 [npm-url]: https://www.npmjs.org/package/react-toastr
 
@@ -149,7 +184,6 @@ Directly migrated from `toastr.js` library, and can be overridden via `props` in
 [gemnasium-url]: https://gemnasium.com/tomchentw/react-toastr
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/tomchentw/react-toastr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
 
 [demo]: https://tomchentw.github.io/react-toastr/
 [src/app]: https://github.com/tomchentw/react-toastr/tree/master/src/app
