@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 import PropTypes from "prop-types";
 
 import {
@@ -77,7 +75,7 @@ export default class ToastContainer extends Component {
 
   _notify(type, message, title, optionsOverride = {}) {
     if (this.props.preventDuplicates) {
-      if (_.includes(this.state.messageList, message)) {
+      if (this.state.messageList.includes(message)) {
         return;
       }
     }

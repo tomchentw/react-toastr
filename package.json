@@ -56,7 +56,6 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-plugin-typecheck": "^3.9.0",
     "babel-preset-env": "^1.6.0",
@@ -87,7 +86,6 @@
     "create-react-class": "^15.6.0",
     "element-class": "^0.2.2",
     "immutability-helper": "^2.3.1",
-    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react-dom": "^15.6.1"
   }
