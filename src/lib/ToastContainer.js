@@ -53,7 +53,7 @@ export default class ToastContainer extends Component {
   toastQueue = {
     toasts: [],
     messageList: [],
-    id: 0
+    id: 0,
   };
 
   _handle_toast_remove = this._handle_toast_remove.bind(this);
@@ -115,7 +115,7 @@ export default class ToastContainer extends Component {
 
     this.toastQueue = update(this.toastQueue, {
       toasts: toastOperation,
-      messageList: messageOperation
+      messageList: messageOperation,
     });
 
     this.setState(this.toastQueue);
