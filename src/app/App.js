@@ -20,7 +20,7 @@ export default class App extends Component {
   addAlert() {
     this.refs.container.success(`hi! Now is ${new Date()}`, `///title\\\\\\`, {
       closeButton: true,
-      onClose: () => { console.log('~toast closed~'); }
+      onClose: () => { console.log(`~toast closed~`); },
     });
   }
 
