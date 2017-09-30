@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app/App';
-import './index.css';
+export { ToastContainer } from "./components/ToastContainer"
 
-ReactDOM.render(
-  <App />,
-  document.getElementById(`root`)
-);
+export { ToastMessage } from "./components/ToastMessage/ToastMessage"
+
+export {
+  ToastMessageAnimated,
+} from "./components/ToastMessage/ToastMessageAnimated"
