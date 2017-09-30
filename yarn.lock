@@ -104,6 +104,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animate.css@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.5.2.tgz#91e668dc069a808e5e499514867b97aae0166c36"
+
 anser@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/anser/-/anser-1.4.1.tgz#c3641863a962cebef941ea2c8706f2cb4f0716bd"
@@ -6468,6 +6472,13 @@ react-styleguidist@^6.0.24:
     webpack-merge "^4.1.0"
     webpage "^0.3.0"
 
+react-test-renderer@^15.0.0:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.2.tgz#d0333434fc2c438092696ca770da5ed48037efa8"
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
+
 "react@^15 || ^16":
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
@@ -7588,6 +7599,10 @@ to-ast@^1.0.0:
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+toastr@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.2.tgz#fd69066ae7578a5b3357725fc9c7c335e9b681df"
 
 toposort@^1.0.0:
   version "1.0.6"
