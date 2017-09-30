@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToastContainer module renders a toast message exists in the container 1`] = `
+<div
+  aria-live="polite"
+  id="toast-container"
+  role="alert"
+/>
+`;
+
+exports[`ToastContainer module renders a toast message exists in the container 2`] = `
+<div
+  aria-live="polite"
+  id="toast-container"
+  role="alert"
+>
+  <div
+    className="toast animated bounceIn toast-success"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="toast-title"
+    >
+      cool
+    </div>
+    <div
+      className="toast-message"
+    >
+      yeah,
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ToastContainer module renders a toast message should be closed by clicking on it 1`] = `
+<div
+  aria-live="polite"
+  id="toast-container"
+  role="alert"
+>
+  <div
+    className="toast animated bounceIn toast-success"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="toast-title"
+    >
+      cool
+    </div>
+    <div
+      className="toast-message"
+    >
+      yeah,
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ToastContainer module renders a toast message should be closed by clicking on it 2`] = `
+<div
+  aria-live="polite"
+  id="toast-container"
+  role="alert"
+/>
+`;
+
+exports[`ToastContainer module when component function is triggered multiple times renders a list of toast messages 1`] = `
+<div
+  aria-live="polite"
+  id="toast-container"
+  role="alert"
+>
+  <div
+    className="toast animated bounceIn toast-error"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="toast-title"
+    >
+      foobar
+    </div>
+    <div
+      className="toast-message"
+    >
+      blabla
+    </div>
+  </div>
+  <div
+    className="toast animated bounceIn toast-success"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div
+      className="toast-title"
+    >
+      cool
+    </div>
+    <div
+      className="toast-message"
+    >
+      yeah
+    </div>
+  </div>
+</div>
+`;

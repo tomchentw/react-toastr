@@ -1,0 +1,72 @@
+h1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 72px;
+  text-align: center;
+  text-shadow: 0 1px 3px #555;
+  color: #fff;
+}
+
+h1 small {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  display: block;
+  font-size: 24px;
+  color: #fff;
+}
+
+[data-preview="ToastContainer"] {
+  position: relative;
+}
+
+[data-preview="ToastContainer"]::before {
+  filter: blur(10px);
+  background-image: url("./demo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.github-button-container {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+.btn-container button {
+  outline: 0;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  width: 140px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  margin: 10px 5px;
+  background: #1abc9c;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0px 3px 0px 0px #17a88c;
+  transition: all 150ms ease-in;
+}
+
+.btn-container button:hover {
+  background: #01a383;
+  box-shadow: 0px 3px 0px 0px #008f73;
+}
