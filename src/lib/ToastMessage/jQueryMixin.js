@@ -2,6 +2,10 @@ import {
   default as ReactDOM,
 } from "react-dom";
 
+import {
+  default as $,
+} from "jquery";
+
 function call_show_method($node, props) {
   $node[props.showMethod]({
     duration: props.showDuration,
@@ -71,11 +75,15 @@ export default {
       easing: this.props.hideEasing,
       complete: this._handle_remove,
     });
+
+    if (this.props.onClose) {
+      this.props.onClose();
+    }    
   },
 
   _get_$_node() {
     /* eslint-disable no-undef */
-    return jQuery(ReactDOM.findDOMNode(this));
+    return $(ReactDOM.findDOMNode(this));
     /* eslint-enable no-undef */
   },
 

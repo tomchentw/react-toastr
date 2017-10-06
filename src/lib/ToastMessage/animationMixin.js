@@ -40,6 +40,10 @@ export default {
         this._set_is_hiding(false);
         ReactTransitionEvents.removeEndEventListener(node, onHideComplete);
         this._handle_remove();
+        
+        if (this.props.onClose) {
+          this.props.onClose();
+        }
       }
     };
     ReactTransitionEvents.addEndEventListener(node, onHideComplete);
@@ -50,12 +54,14 @@ export default {
       );
     }
   },
+
   componentWillUnmount() {
     this._is_mounted = false;
     if (this.intervalId) {
       clearTimeout(this.intervalId);
     }
   },
+
   _set_transition(hide) {
     const animationType = hide ? `leave` : `enter`;
     const node = ReactDOM.findDOMNode(this);
