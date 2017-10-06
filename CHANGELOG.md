@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.9.5"></a>
+## [2.9.5](https://github.com/tomchentw/react-toastr/compare/v2.9.4...v2.9.5) (2017-10-06)
+
+
+### Bug Fixes
+
+* **package.json:** keep peerDependencies for `react@^0.14.0` ([eecf97f](https://github.com/tomchentw/react-toastr/commit/eecf97f))
+
+
+
 <a name="2.9.4"></a>
 ## [2.9.4](https://github.com/tomchentw/react-toastr/compare/v2.9.3...v2.9.4) (2017-09-30)
 
