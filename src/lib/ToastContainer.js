@@ -47,8 +47,13 @@ export default class ToastContainer extends Component {
 
   state = {
     toasts: [],
-    toastId: 0,
     messageList: [],
+  };
+
+  toastQueue = {
+    toasts: [],
+    messageList: [],
+    id: 0,
   };
 
   _handle_toast_remove = this._handle_toast_remove.bind(this);
@@ -81,7 +86,7 @@ export default class ToastContainer extends Component {
         return;
       }
     }
-    const key = this.state.toastId++;
+    const key = this.toastQueue.id++;
     const toastId = key;
     const newToast = update(optionsOverride, {
       $merge: {
@@ -108,11 +113,12 @@ export default class ToastContainer extends Component {
       [`${this.props.newestOnTop ? `$unshift` : `$push`}`]: [message],
     };
 
-    const nextState = update(this.state, {
+    this.toastQueue = update(this.toastQueue, {
       toasts: toastOperation,
       messageList: messageOperation,
     });
-    this.setState(nextState);
+
+    this.setState(this.toastQueue);
   }
 
   _handle_toast_on_click(event) {
@@ -130,6 +136,10 @@ export default class ToastContainer extends Component {
       if (found || toast.toastId !== toastId) {
         return false;
       }
+      this.toastQueue = update(this.toastQueue, {
+        toasts: { $splice: [[index, 1]] },
+        messageList: { $splice: [[index, 1]] },
+      });
       this.setState(update(this.state, {
         toasts: { $splice: [[index, 1]] },
         messageList: { $splice: [[index, 1]] },
