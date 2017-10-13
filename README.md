@@ -42,22 +42,22 @@ import { ToastContainer,
 const ToastMessageFactory = React.createFactory(ToastMessage.animation);
 
 ...
-  addAlert () {
-    this.container.success(
-      "my-title",
-      "my-fascinating-toast-message", {
+  addAlert() {
+    this.refs.container.success(
+      "my-fascinating-toast-message",
+      "my-title", {
       timeOut: 5000,
       extendedTimeOut: 3000
     });
   }
   
-  render () {
+  render() {
     return (
       <div>
-        <ToastContainer ref={(input) => {this.container = input;}}
+        <ToastContainer ref="container"
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
-                        preventDuplicates="true" />
+                        preventDuplicates={true} />
         <button onClick={this.addAlert}>Add Toast</button>
       </div>
     );
@@ -78,9 +78,9 @@ This is the container where all `ToastMessage` elements will go. Use it by retai
 
 ```javascript
   addAlert () {
-    this.container.success(
-      "my-title",
-      "my-fascinating-toast-message", {
+    this.refs.container.success(
+      "my-fascinating-toast-message",
+      "my-title", {
       timeOut: 5000,
       extendedTimeOut: 3000
     });
@@ -114,9 +114,9 @@ Display new toast messages at the top or bottom of the queue.
 To display HTML, simply pass JSX instead of strings for title and message arguments:
 
 ```javascript
-this.container.success(
-  <strong>I am a strong title</strong>,
-  <em>I am an emphasized message</em>
+this.refs.container.success(
+  <em>I am an emphasized message</em>,
+  <strong>I am a strong title</strong>
 });
 ```
 
