@@ -30,12 +30,17 @@ You'll need to download animate.css from here: [Animate @github](https://raw.git
 
 #### Example (within a React component or wrapper):
 ```javascript
+// Non ES6:
 var ReactToastr = require("react-toastr");
-var {ToastContainer} = ReactToastr; // This is a React Element.
-// For Non ES6...
-// var ToastContainer = ReactToastr.ToastContainer;
-
+var ToastContainer = ReactToastr.ToastContainer;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+// ES6:
+import { ToastContainer,
+  ToastMessage,
+} from "react-toastr";
+const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+
 ...
   addAlert () {
     this.container.success(
