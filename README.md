@@ -30,29 +30,34 @@ You'll need to download animate.css from here: [Animate @github](https://raw.git
 
 #### Example (within a React component or wrapper):
 ```javascript
+// Non ES6:
 var ReactToastr = require("react-toastr");
-var {ToastContainer} = ReactToastr; // This is a React Element.
-// For Non ES6...
-// var ToastContainer = ReactToastr.ToastContainer;
-
+var ToastContainer = ReactToastr.ToastContainer;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+// ES6:
+import { ToastContainer,
+  ToastMessage,
+} from "react-toastr";
+const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+
 ...
-  addAlert () {
+  addAlert() {
     this.container.success(
-      "my-title",
-      "my-fascinating-toast-message", {
+      "my-fascinating-toast-message",
+      "my-title", {
       timeOut: 5000,
       extendedTimeOut: 3000
     });
   }
   
-  render () {
+  render() {
     return (
       <div>
-        <ToastContainer ref={(input) => {this.container = input;}}
+        <ToastContainer ref={(input) => {this.container = input}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
-                        preventDuplicates="true" />
+                        preventDuplicates={true} />
         <button onClick={this.addAlert}>Add Toast</button>
       </div>
     );
@@ -74,8 +79,8 @@ This is the container where all `ToastMessage` elements will go. Use it by retai
 ```javascript
   addAlert () {
     this.container.success(
-      "my-title",
-      "my-fascinating-toast-message", {
+      "my-fascinating-toast-message",
+      "my-title", {
       timeOut: 5000,
       extendedTimeOut: 3000
     });
@@ -110,8 +115,8 @@ To display HTML, simply pass JSX instead of strings for title and message argume
 
 ```javascript
 this.container.success(
-  <strong>I am a strong title</strong>,
-  <em>I am an emphasized message</em>
+  <em>I am an emphasized message</em>,
+  <strong>I am a strong title</strong>
 });
 ```
 
