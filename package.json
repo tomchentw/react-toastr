@@ -17,11 +17,7 @@
   },
   "homepage": "https://tomchentw.github.io/react-toastr/",
   "main": "lib/index.js",
-  "files": [
-    "lib/",
-    "src/",
-    "CHANGELOG.md"
-  ],
+  "files": ["lib/", "src/", "CHANGELOG.md"],
   "keywords": [
     "React.js",
     "React",
@@ -43,17 +39,16 @@
     "prebuild:lib": "rimraf lib",
     "build:lib": "cross-env NODE_ENV=production babel src/lib --out-dir lib",
     "precommit:lib": "npm run build:lib",
-    "commit:lib": "git add -A && git commit -m 'chore(lib): compile from src with `babel`'",
+    "commit:lib":
+      "git add -A && git commit -m 'chore(lib): compile from src with `babel`'",
     "precommit:docs": "npm run styleguide:build",
-    "commit:docs": "git add -A && git commit -m 'docs: compile from src with `styleguidist`'",
+    "commit:docs":
+      "git add -A && git commit -m 'docs: compile from src with `styleguidist`'",
     "prerelease": "npm run commit:lib && npm run commit:docs",
     "release": "standard-version"
   },
   "lint-staged": {
-    "*.{js,jsx,json,css}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,jsx,json,css}": ["prettier --write", "git add"]
   },
   "babel": {
     "plugins": [
