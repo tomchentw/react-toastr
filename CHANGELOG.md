@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/tomchentw/react-toastr/compare/v2.9.5...v3.0.0) (2017-10-28)
+
+
+### Features
+
+* **index.js:** export components ([b702c2a](https://github.com/tomchentw/react-toastr/commit/b702c2a))
+* **package.json:** add `dom-helpers` to dependencies ([66cb57f](https://github.com/tomchentw/react-toastr/commit/66cb57f))
+* **package.json:** drop support for `react@^0.14` ([e5fa767](https://github.com/tomchentw/react-toastr/commit/e5fa767))
+* **package.json:** remove unused dependencies ([fbe75e1](https://github.com/tomchentw/react-toastr/commit/fbe75e1))
+* **ToastContainer:** rewrite ([a3cd015](https://github.com/tomchentw/react-toastr/commit/a3cd015))
+* **ToastMessage:** rewrite ([b8a3b29](https://github.com/tomchentw/react-toastr/commit/b8a3b29))
+* **ToastMessageAnimated:** rewrite ([9469454](https://github.com/tomchentw/react-toastr/commit/9469454))
+* **ToastMessagejQuery:** rewrite ([f239dee](https://github.com/tomchentw/react-toastr/commit/f239dee))
+
+
+### BREAKING CHANGES
+
+* **index.js:** named exports changes for ToastMessage
+
+Before:
+
+```js
+import { ToastContainer, ToastMessage } from "react-toastr"
+
+const ToastMessageFactory = React.createFactory(ToastMessage.animation);
+const jQueryFactory = React.createFactory(ToastMessage.jQuery);
+
+<ToastContainer toastMessageFactory={ToastMessageFactory} />
+<ToastContainer toastMessageFactory={jQueryFactory} />
+```
+
+After:
+
+```js
+import { ToastContainer, ToastMessageAnimated } from "react-toastr"
+import ToastMessagejQuery from "react-toastr/lib/components/ToastMessage/ToastMessagejQuery";
+
+const ToastMessageFactory = React.createFactory(ToastMessageAnimated);
+const jQueryFactory = React.createFactory(ToastMessagejQuery);
+
+<ToastContainer toastMessageFactory={ToastMessageFactory} />
+<ToastContainer toastMessageFactory={jQueryFactory} />
+```
+
+
+
 <a name="2.9.5"></a>
 ## [2.9.5](https://github.com/tomchentw/react-toastr/compare/v2.9.4...v2.9.5) (2017-10-06)
 
