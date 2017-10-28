@@ -34,7 +34,6 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "test": "react-scripts test --env=jsdom",
-    "pretest": "npm run lint",
     "test:once": "cross-env CI=true npm test",
     "prebuild:lib": "rimraf lib",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
