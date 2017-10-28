@@ -4,6 +4,7 @@ const path = require("path")
 module.exports = {
   require: ["animate.css", "toastr/build/toastr.min.css"],
   showUsage: true,
+  showCode: true,
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, ".jsx")
     if (name === "ToastMessagejQuery") {
