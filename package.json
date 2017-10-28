@@ -33,7 +33,7 @@
     "precommit": "lint-staged",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "test:once": "cross-env CI=true npm test",
     "prebuild:lib": "rimraf lib",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
