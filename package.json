@@ -37,7 +37,7 @@
     "pretest": "npm run lint",
     "test:once": "cross-env CI=true npm test",
     "prebuild:lib": "rimraf lib",
-    "build:lib": "cross-env NODE_ENV=production babel src/lib --out-dir lib",
+    "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
     "precommit:lib": "npm run build:lib",
     "commit:lib":
       "git add -A && git commit -m 'chore(lib): compile from src with `babel`'",
