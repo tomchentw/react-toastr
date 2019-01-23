@@ -137,7 +137,7 @@ export class ToastContainer extends React.PureComponent<Props> {
   handleNotify(type, message, title, optionsOverride = {}) {
     if (
       this.props.preventDuplicates &&
-      this.state.toastList.filter(x => x.message === message).length
+      _.findIndex(this.state.toastList, ["message", message]) !== -1
     ) {
       return
     }
