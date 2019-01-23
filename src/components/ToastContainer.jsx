@@ -24,16 +24,16 @@ type Props = {
  * A React container for displaying a list of toast messages.
  * It mimics the APIs with the vanilla [toastr.js](https://github.com/CodeSeven/toastr)
  * by retaining a [ref][react-ref] to publish a new **toast**.
- * 
+ *
  * To display HTML, simply pass JSX instead of strings for title and message.
- * 
+ *
  * ```javascript
  * this.container.success(
  *   <strong>I am a strong title</strong>,
  *   <em>I am an emphasized message</em>
  * });
  * ```
- * 
+ *
  * If you're using Redux for managing states, you might consider using the
  * underlying component directly. See [ToastMessageAnimated](#toastmessage) below
  */
@@ -59,10 +59,10 @@ export class ToastContainer extends React.PureComponent<Props> {
   toastMessageRefs = {}
 
   /**
-   * 
-   * @param {any} message 
-   * @param {any} title 
-   * @param {any} optionsOverride 
+   *
+   * @param {any} message
+   * @param {any} title
+   * @param {any} optionsOverride
    * @public
    */
   error(message, title, optionsOverride) {
@@ -75,10 +75,10 @@ export class ToastContainer extends React.PureComponent<Props> {
   }
 
   /**
-   * 
-   * @param {any} message 
-   * @param {any} title 
-   * @param {any} optionsOverride 
+   *
+   * @param {any} message
+   * @param {any} title
+   * @param {any} optionsOverride
    * @public
    */
   info(message, title, optionsOverride) {
@@ -91,10 +91,10 @@ export class ToastContainer extends React.PureComponent<Props> {
   }
 
   /**
-   * 
-   * @param {any} message 
-   * @param {any} title 
-   * @param {any} optionsOverride 
+   *
+   * @param {any} message
+   * @param {any} title
+   * @param {any} optionsOverride
    * @public
    */
   success(message, title, optionsOverride) {
@@ -107,10 +107,10 @@ export class ToastContainer extends React.PureComponent<Props> {
   }
 
   /**
-   * 
-   * @param {any} message 
-   * @param {any} title 
-   * @param {any} optionsOverride 
+   *
+   * @param {any} message
+   * @param {any} title
+   * @param {any} optionsOverride
    * @public
    */
   warning(message, title, optionsOverride) {
@@ -123,7 +123,7 @@ export class ToastContainer extends React.PureComponent<Props> {
   }
 
   /**
-   * 
+   *
    * @public
    */
   clear() {
@@ -137,7 +137,7 @@ export class ToastContainer extends React.PureComponent<Props> {
   handleNotify(type, message, title, optionsOverride = {}) {
     if (
       this.props.preventDuplicates &&
-      _.includes(this.state.toastList, { message })
+      this.state.toastList.filter(x => x.message === message).length
     ) {
       return
     }
